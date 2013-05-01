@@ -1,0 +1,8 @@
+<h1> New Signup </h1>
+
+<%= form_for @signup, :url => admin_signups_path(@signup) do |f| %>
+  <%=  render :partial => 'form', :locals => {:f => f} %>
+  <div class="actions"><%= f.submit 'Create' , :class => 'button' %></div>
+<% end %>
+
+<p><%= link_to "Back to List", admin_signups_path, :class => 'button' %></p>

@@ -1,0 +1,11 @@
+<h1> Change <%= customer.name.possessive %> Newsletter Preferences </h1>
+
+<%= form_for customer, :url => admin_user_newsletter_path(customer, 'preferences') do |f| %>
+  <%= render :partial => 'form', :locals => {:f => f} %>
+  <div class="actions"><%= f.submit 'Update' , :class => 'button' %></div>
+<% end %>
+
+<p>
+  <%= link_to "Show", admin_user_newsletters_path(customer, @newsletter), :class => 'button' %> |
+  <%= link_to "View All", admin_user_newsletters_path(customer), :class => 'button' %>
+</p>

@@ -1,0 +1,32 @@
+<% content_for :head do -%>
+
+<% end %>
+
+<h1> Newsletters </h1>
+
+<div id="newsletter_grid_wrapper" class='pretty_table'>
+  <table>
+    <thead>
+      <tr class='odd'>
+
+          <th  class='column1_header'><%= sortable 'name', 'Name' %></th>
+          <th>Subscribed</th>
+
+      </tr>
+    </thead>
+    <tbody>
+    <% for newsletter in newsletters %>
+      <tr  class='<%= cycle("odd", "")%>'>
+          <td><%= link_to newsletter.name, admin_user_newsletter_path(customer,newsletter) %></td>
+
+          <% letter = @newsletters.detect{|n| n.id == newsletter.id } %>
+          <td><%= letter ? 'Yes' : 'No'  %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>
+
+<%= will_paginate @newsletters %>
+
+<p><%= link_to "Change Newsletter Preferences", edit_admin_user_newsletter_path(customer, 'preferences'), :class => 'button' %></p>

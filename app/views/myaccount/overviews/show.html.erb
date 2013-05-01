@@ -1,0 +1,41 @@
+<hr style='color:#aac;'/>
+<div class='twelve column'>
+  <ul id='profile_details' >
+    <li>
+      <label>Email:</label>
+      <%= current_user.email %>
+    </li>
+
+    <li>
+      <%= link_to "Edit", edit_myaccount_overview_path(), :class => "button tiny" %>
+    </li>
+  </ul>
+  <hr style='color:#aac;'/>
+</div>
+
+<div class='twelve column'>
+  <div>
+    <% if current_user.shipping_address %>
+      <ul>
+        <li><span class="bold black"> Address </span></li>
+        <li>
+          <% current_user.shipping_address.address_lines_array.each do |line| %>
+            <%= line %><br/>
+          <% end %>
+        </li>
+        <li><%= current_user.shipping_address.city_state_zip %></li>
+        <li><%= current_user.shipping_address.phone_number %></li>
+      </ul>
+      <%= link_to "Edit", edit_myaccount_address_path(current_user.shipping_address), :class => "button tiny"  %>
+    <% else %>
+      No Address Saved.<br/>
+      <%= link_to "New", new_myaccount_address_path() %>
+    <% end %>
+  </div>
+  <% if current_user.store_credit.amount > 0.0 %>
+    <div>
+      <h4> Store Credits </h4>
+      <%= number_to_currency current_user.store_credit.amount %>
+    </div>
+  <% end %>
+</div>

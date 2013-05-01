@@ -1,0 +1,42 @@
+# You can use this to store API keys, mail server settings,
+# or any other kind of configuration data that your application needs.
+# In order to keep your production settings secret, store the production
+# copy of this file on your server under shared/config/config.yml and copy
+# it on deployment with this Capistrano task:#
+
+encryption_key: d8eb3e1eabf179edfa9e6dbf942db9b06f8d01819241a0a98350ddd0698f3946a206945c821d32234648573eefab9a069a00b2e6fd2a489fdce2550456dc0f36bad1cb8858826ff0934ce2
+mailer:
+  server: mail.example.com
+  username: someLOGIN
+  password: s0meth1ngs3cr3t
+vat: false
+require_state_in_address: true
+force_ssl: true
+redirect: true
+redirect_www: true
+
+in_signup_period: false
+allow_preorders: true
+allow_orders: false
+
+want_login_header: false
+
+# tax_per_state_id is a field for tax being applied at the state level or country wide level in "TaxRate model"
+tax_per_state_id: true
+
+email_list:
+  daily_report: ['drhenner@example.com', 'drhenner@example2.com']
+
+paperclip:
+  s3_protocol: https
+  s3_credentials:
+    access_key_id: <%= ENV['AWS_ACCESS_KEY_ID'] %>
+    secret_access_key: <%= ENV['AWS_SECRET_ACCESS_KEY'] %>
+  path: ':class/:attachment/:style/:hash.:extension'
+  bucket: <%= ENV['FOG_DIRECTORY'] %>
+  hash_secret: f8c07cf79094ec06f77b6024b5d7936c89b5227274fb8e82c00blaha
+google:
+  analytics_code: UA-38891059-1
+stripe:
+  secret_key: <%= ENV['STRIPE_SECRET_KEY'] %>
+  secret_publishable_key: <%= ENV['STRIPE_PUBLISHABLE_KEY'] %>

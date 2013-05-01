@@ -1,0 +1,235 @@
+#preorder-products-page {
+  font-family:"Helvetica", Helvetica,Arial, san-serif;
+  text-transform:uppercase;
+
+  .us-canada-text,
+  .remove_upsell_x,
+  .remove_x {font-weight:bold;}
+  .remove_x,
+  .remove_upsell_x {margin: 0; padding: 10px 5px;}
+  .remove_upsell_x {padding-top: 0;}
+  .us-canada-text {font-size: 12px;}
+  .sentence-case {text-transform:none;}
+  .product-title {font-size: 1.425em;}
+
+  h2, h3, h4, h5 {
+    color:#222;
+    font-weight:bold;
+  }
+  h3 {
+    font-size: 20px;
+  }
+  > h3 {
+    margin-bottom: 27px;
+    margin-top: 22px;
+  }
+  .large-bullet {
+    background-color: #ed1c24;
+    bottom: 0;
+    display: inline-block;
+    font-size: 22px;
+    height: 35px;
+    line-height: 35px;
+    margin-right: 12px;
+    padding: 0;
+    text-align: center;
+    width: 35px;
+  }
+  .has-tip {
+    border-bottom:0px;
+  }
+
+  .right-list{text-align:right;}
+  .upsell-products{
+    text-align:center;
+    .button {
+      margin-left: auto;
+      margin-right: auto;
+      width: 65%;
+    }
+  }
+
+
+  .price-tag {color:#222;font-weight:bold;font-size:14px;}
+  .small-text {font-size:9px;font-weight:bold;}
+  form.custom div.custom.dropdown a.current {
+    font-size:11px;
+    line-height: 29px;
+  }
+  form.custom div.custom.dropdown {
+    width: 320px !important;
+  }
+  .line {
+    border-top: 2px solid #f2f2f2;
+    margin: 5px 15px;
+  }
+  .item-box {
+    border: 4px solid #f2f2f2;
+    padding: 7px 11px 5px;
+  }
+  .order-summary-box {
+    text-align: center;
+    padding: 10px;
+    background: #f2f2f2;
+  }
+  .cart-item-title {
+    color:#CC0000;
+    font-size:14px;
+    font-weight:bold;
+  }
+  .only-upsell{
+    padding-top:10px;
+    .upsell-title {
+      color: #000;
+      font-size: 1em;
+      font-weight:bold;
+    }
+  }
+
+  .cropped-100 {
+    width: 100px;
+    height: 100px;
+    background-position: center center;
+    background-repeat: no-repeat;
+  }
+
+  .cropped-150 {
+    width: 100%;
+    height: 100px;
+    background-repeat: no-repeat;
+    background-position: center center;
+  }
+
+  .cropped-250 {
+    width: 100%;  // change to desired width.
+    height: 250px; // change to desired height.*/
+    background-position: center center;
+    background-repeat: no-repeat;
+  }
+
+  .background-black {
+    background: #000;
+    h3{
+      color: #fff;
+    }
+  }
+
+  > .panel {
+    padding-top: 10px;
+    h3 {
+      margin-top: 24px;
+    }
+  }
+
+  .red {
+    color:#ee1c24;
+  }
+
+  .white {
+    color: #fff;
+  }
+  .black {
+    color: #000;
+  }
+  .dark-gray {
+    color: #909090;
+  }
+  .text-center {
+    text-align: center;
+  }
+  .text-10 {
+    font-size: 1.0em;
+  }
+  .text-09 {
+    font-size: 0.9em;
+  }
+  .text-08 {
+    font-size: 0.8em;
+  }
+  .bold {
+    font-weight: bold;
+  }
+  .left-20 {
+    margin-left: 20px;
+  }
+  .left-5 {
+    margin-left: 5px;
+  }
+  .top-5 {
+    margin-top: 5px;
+  }
+  .top-10 {
+    margin-top: 10px;
+  }
+  .right-5 {
+    margin-right: 5px;
+  }
+  .right-20 {
+    margin-right: 20px;
+  }
+  .bottom-10 {
+    margin-bottom: 10px;
+  }
+
+  .button {
+    background-color: #ed1c24;
+    border-color: #ed1c24;
+    box-shadow: none;
+    font-size: 14px;
+    font-weight: 700;
+    &:hover {
+      background-color: #cc0d14;
+      border-color: #cc0d14;
+    }
+  }
+
+  .button.success {
+    background-color: #6bb11e;
+    border-color: #6bb11e;
+    font-size: 16px;
+    &:hover {
+      background-color: #4f8811;
+      border-color: #4f8811;
+    }
+  }
+}
+
+
+/* FIREFOX Specific CSS */
+@-moz-document url-prefix() {
+  #preorder-products-page {
+    .large-bullet {
+      padding:4px 9px 0;
+    }
+  }
+}
+
+@media only screen and (max-width: 380px) {
+  #preorder-products-page {
+    form.custom div.custom.dropdown {
+      width: 260px !important;
+    }
+    .us-canada-text {
+      float: left;
+    }
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  #preorder-products-page {
+    > .panel {
+      text-align: center;
+      .pull-right {
+        float: none;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 850px) {
+  #preorder-products-page {
+    form.custom div.custom.dropdown {
+      width: 285px !important;
+    }
+  }
+}

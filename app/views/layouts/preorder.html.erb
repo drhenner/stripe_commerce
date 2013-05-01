@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>
+    <%= site_name %> <%= yield :title %>
+  </title>
+
+  <link rel="shortcut icon" href="/assets/favicon.ico" />
+
+  <%= stylesheet_link_tag "normalize.css" %>
+  <%= stylesheet_link_tag "foundation.css" %>
+  <%= stylesheet_link_tag "font-awesome.css" %>
+  <%= stylesheet_link_tag 'social_foundicons.css' %>
+  <%= stylesheet_link_tag 'site/app.css' %>
+  <%= stylesheet_link_tag 'site/preorder.css' %>
+
+  <!--[if lt IE 8]
+  <%= stylesheet_link_tag 'ie.css', :media => 'screen, projection'%>
+  <%= stylesheet_link_tag 'social_foundicons_ie7.css' %>
+  <![endif]-->
+  <!--[if lt IE 7]
+      <%= stylesheet_link_tag 'ie6.css', :media => 'screen, projection' %>
+  <![endif]-->
+  <%= stylesheet_link_tag 'cupertino/jquery-ui-1.8.12.custom.css' %>
+  <%= csrf_meta_tag %>
+  <%= javascript_include_tag 'application' %>
+
+  <%= yield :head %>
+
+</head>
+
+<body >
+<div id='body_wrapper'>
+
+    <%= render :partial => '/shared/welcome_header'%>
+    <% if notice || alert %>
+      <div class="row">
+        <div class="flash_messages">
+          <%= raw "<div data-alert class='alert-box warning'> #{notice} <a href='' class='close'>&times;</a></div>"  if notice %>
+          <%= raw "<div data-alert class='alert-box alert'>#{alert} <a href='' class='close'>&times;</a></div>"     if alert %>
+        </div>
+      </div>
+    <% end %>
+
+    <div id='content_wrapper' class='row'>
+      <%= yield %>
+    </div>
+    <div id='prefooter_wrapper'>&nbsp;</div>
+</div>
+
+  <%= render 'shared/main_footer' %>
+
+  <%= yield :bottom %>
+
+  <script>
+  jQuery(window).ready(
+    function() {
+      jQuery('.flash_notice').delay(6000).slideUp( 'slow');
+      jQuery('.flash_error').delay(6000).slideUp( 'slow');
+    }
+  );
+  </script>
+  <%= javascript_include_tag "foundation" %>
+  <script>
+    $(document).foundation();
+  </script>
+
+</body>
+  <%= render 'shared/google_analytics' unless @disable_ga %>
+  <%= yield :below_body %>
+</html>

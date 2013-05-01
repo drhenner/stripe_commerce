@@ -1,0 +1,14 @@
+
+<% if false && @user && @key %>
+  <p style='text-align:center;color:#AAA;'>
+    Consult your physician and follow all safety instructions before beginning any exercise program or using any supplement or meal replacement product.
+  </p>
+  <p style='text-align:center;color:#AAA;'>
+    DO NOT REPLY: Please do not reply to this email.
+    <%= link_to 'Click here for online assistance', I18n.t(:desk_dot_com_url) %>.
+  </p>
+  <p style='text-align:center;text-transform:uppercase;color:#AAA;'>
+    If you have subscribed in error or wish to unsubscribe at any time, Please <%= link_to 'click here', unsubscribe_url(:email => @user.email, :key => @key)%><br/>
+    Copyright &#169; <%= Time.zone.now.year %> <%= I18n.t(:company) %>.
+  </p>
+<% end %>

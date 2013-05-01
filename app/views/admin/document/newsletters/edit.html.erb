@@ -1,0 +1,11 @@
+<h1> Edit Newsletter </h1>
+
+<%= form_for @newsletter, :url => [:admin, :document, @newsletter] do |f| %>
+  <%=  render :partial => 'form', :locals => {:f => f} %>
+  <div class="actions"><%= f.submit 'Update' , :class => 'button' %></div>
+<% end %>
+
+<p>
+  <%= link_to "Show", [:admin, :document, @newsletter], :class => 'button' %> |
+  <%= link_to "View All", admin_document_newsletters_path, :class => 'button' %>
+</p>

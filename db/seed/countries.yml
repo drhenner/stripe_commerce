@@ -1,0 +1,1130 @@
+--- 
+countries_001: 
+  name: Afghanistan
+  abbreviation: AFG
+  id: 1
+ 
+countries_002: 
+  name: Albania
+  abbreviation: ALB
+  id: 2
+ 
+countries_003: 
+  name: Algeria
+  abbreviation: DZA
+  id: 3
+ 
+countries_004: 
+  name: American Samoa
+  abbreviation: ASM
+  id: 4
+ 
+countries_005: 
+  name: Andorra
+  abbreviation: AND
+  id: 5
+ 
+countries_006: 
+  name: Angola
+  abbreviation: AGO
+  id: 6
+ 
+countries_007: 
+  name: Anguilla
+  abbreviation: AIA
+  id: 7
+ 
+countries_008: 
+  name: Antigua and Barbuda
+  abbreviation: ATG
+  id: 8
+ 
+countries_009: 
+  name: Argentina
+  abbreviation: ARG
+  id: 9
+ 
+countries_010: 
+  name: Armenia
+  abbreviation: ARM
+  id: 10
+ 
+countries_011: 
+  name: Aruba
+  abbreviation: ABW
+  id: 11
+ 
+countries_012: 
+  name: Australia
+  abbreviation: AUS
+  id: 12
+ 
+countries_013: 
+  name: Austria
+  abbreviation: AUT
+  id: 13
+ 
+countries_014: 
+  name: Azerbaijan
+  abbreviation: AZE
+  id: 14
+ 
+countries_015: 
+  name: Bahamas
+  abbreviation: BHS
+  id: 15
+ 
+countries_016: 
+  name: Bahrain
+  abbreviation: BHR
+  id: 16
+ 
+countries_017: 
+  name: Bangladesh
+  abbreviation: BGD
+  id: 17
+ 
+countries_018: 
+  name: Barbados
+  abbreviation: BRB
+  id: 18
+ 
+countries_019: 
+  name: Belarus
+  abbreviation: BLR
+  id: 19
+ 
+countries_020: 
+  name: Belgium
+  abbreviation: BEL
+  id: 20
+ 
+countries_021: 
+  name: Belize
+  abbreviation: BLZ
+  id: 21
+ 
+countries_022: 
+  name: Benin
+  abbreviation: BEN
+  id: 22
+ 
+countries_023: 
+  name: Bermuda
+  abbreviation: BMU
+  id: 23
+ 
+countries_024: 
+  name: Bhutan
+  abbreviation: BTN
+  id: 24
+ 
+countries_025: 
+  name: Bolivia
+  abbreviation: BOL
+  id: 25
+ 
+countries_026: 
+  name: Bosnia and Herzegovina
+  abbreviation: BIH
+  id: 26
+ 
+countries_027: 
+  name: Botswana
+  abbreviation: BWA
+  id: 27
+ 
+countries_028: 
+  name: Brazil
+  abbreviation: BRA
+  id: 28
+ 
+countries_029: 
+  name: Brunei Darussalam
+  abbreviation: BRN
+  id: 29
+ 
+countries_030: 
+  name: Bulgaria
+  abbreviation: BGR
+  id: 30
+ 
+countries_031: 
+  name: Burkina Faso
+  abbreviation: BFA
+  id: 31
+ 
+countries_032: 
+  name: Burundi
+  abbreviation: BDI
+  id: 32
+ 
+countries_033: 
+  name: Cambodia
+  abbreviation: KHM
+  id: 33
+ 
+countries_034: 
+  name: Cameroon
+  abbreviation: CMR
+  id: 34
+ 
+countries_035: 
+  name: Canada
+  abbreviation: CAN
+  id: 35
+ 
+countries_036: 
+  name: Cape Verde
+  abbreviation: CPV
+  id: 36
+ 
+countries_037: 
+  name: Cayman Islands
+  abbreviation: CYM
+  id: 37
+ 
+countries_038: 
+  name: Central African Republic
+  abbreviation: CAF
+  id: 38
+ 
+countries_039: 
+  name: Chad
+  abbreviation: TCD
+  id: 39
+ 
+countries_040: 
+  name: Chile
+  abbreviation: CHL
+  id: 40
+ 
+countries_041: 
+  name: China
+  abbreviation: CHN
+  id: 41
+ 
+countries_042: 
+  name: Colombia
+  abbreviation: COL
+  id: 42
+ 
+countries_043: 
+  name: Comoros
+  abbreviation: COM
+  id: 43
+ 
+countries_044: 
+  name: Congo
+  abbreviation: COG
+  id: 44
+ 
+countries_045: 
+  name: Congo, Democratic Republic
+  abbreviation: COD
+  id: 45
+ 
+countries_046: 
+  name: Cook Islands
+  abbreviation: COK
+  id: 46
+ 
+countries_047: 
+  name: Costa Rica
+  abbreviation: CRI
+  id: 47
+ 
+countries_048: 
+  name: Cote D'Ivoire
+  abbreviation: CIV
+  id: 48
+ 
+countries_049: 
+  name: Croatia
+  abbreviation: HRV
+  id: 49
+ 
+countries_050: 
+  name: Cuba
+  abbreviation: CUB
+  id: 50
+ 
+countries_051: 
+  name: Cyprus
+  abbreviation: CYP
+  id: 51
+ 
+countries_052: 
+  name: Czech Republic
+  abbreviation: CZE
+  id: 52
+ 
+countries_053: 
+  name: Denmark
+  abbreviation: DNK
+  id: 53
+ 
+countries_054: 
+  name: Djibouti
+  abbreviation: DJI
+  id: 54
+ 
+countries_055: 
+  name: Dominica
+  abbreviation: DMA
+  id: 55
+ 
+countries_056: 
+  name: Dominican Republic
+  abbreviation: DOM
+  id: 56
+ 
+countries_057: 
+  name: Ecuador
+  abbreviation: ECU
+  id: 57
+ 
+countries_058: 
+  name: Egypt
+  abbreviation: EGY
+  id: 58
+ 
+countries_059: 
+  name: El Salvador
+  abbreviation: SLV
+  id: 59
+ 
+countries_060: 
+  name: Equatorial Guinea
+  abbreviation: GNQ
+  id: 60
+ 
+countries_061: 
+  name: Eritrea
+  abbreviation: ERI
+  id: 61
+ 
+countries_062: 
+  name: Estonia
+  abbreviation: EST
+  id: 62
+ 
+countries_063: 
+  name: Ethiopia
+  abbreviation: ETH
+  id: 63
+ 
+countries_064: 
+  name: Falkland Islands (Malvinas)
+  abbreviation: FLK
+  id: 64
+ 
+countries_065: 
+  name: Faroe Islands
+  abbreviation: FRO
+  id: 65
+ 
+countries_066: 
+  name: Fiji
+  abbreviation: FJI
+  id: 66
+ 
+countries_067: 
+  name: Finland
+  abbreviation: FIN
+  id: 67
+ 
+countries_068: 
+  name: France
+  abbreviation: FRA
+  id: 68
+ 
+countries_069: 
+  name: French Guiana
+  abbreviation: GUF
+  id: 69
+ 
+countries_070: 
+  name: French Polynesia
+  abbreviation: PYF
+  id: 70
+ 
+countries_071: 
+  name: Gabon
+  abbreviation: GAB
+  id: 71
+ 
+countries_072: 
+  name: Gambia
+  abbreviation: GMB
+  id: 72
+ 
+countries_073: 
+  name: Georgia
+  abbreviation: GEO
+  id: 73
+ 
+countries_074: 
+  name: Germany
+  abbreviation: DEU
+  id: 74
+ 
+countries_075: 
+  name: Ghana
+  abbreviation: GHA
+  id: 75
+ 
+countries_076: 
+  name: Gibraltar
+  abbreviation: GIB
+  id: 76
+ 
+countries_077: 
+  name: Greece
+  abbreviation: GRC
+  id: 77
+ 
+countries_078: 
+  name: Greenland
+  abbreviation: GRL
+  id: 78
+ 
+countries_079: 
+  name: Grenada
+  abbreviation: GRD
+  id: 79
+ 
+countries_080: 
+  name: Guadeloupe
+  abbreviation: GLP
+  id: 80
+ 
+countries_081: 
+  name: Guam
+  abbreviation: GUM
+  id: 81
+ 
+countries_082: 
+  name: Guatemala
+  abbreviation: GTM
+  id: 82
+ 
+countries_083: 
+  name: Guinea
+  abbreviation: GIN
+  id: 83
+ 
+countries_084: 
+  name: Guinea-Bissau
+  abbreviation: GNB
+  id: 84
+ 
+countries_085: 
+  name: Guyana
+  abbreviation: GUY
+  id: 85
+ 
+countries_086: 
+  name: Haiti
+  abbreviation: HTI
+  id: 86
+ 
+countries_087: 
+  name: Holy See (Vatican City State)
+  abbreviation: VAT
+  id: 87
+ 
+countries_088: 
+  name: Honduras
+  abbreviation: HND
+  id: 88
+ 
+countries_089: 
+  name: Hong Kong
+  abbreviation: HKG
+  id: 89
+ 
+countries_090: 
+  name: Hungary
+  abbreviation: HUN
+  id: 90
+ 
+countries_091: 
+  name: Iceland
+  abbreviation: ISL
+  id: 91
+ 
+countries_092: 
+  name: India
+  abbreviation: IND
+  id: 92
+ 
+countries_093: 
+  name: Indonesia
+  abbreviation: IDN
+  id: 93
+ 
+countries_094: 
+  name: Iran
+  abbreviation: IRN
+  id: 94
+ 
+countries_095: 
+  name: Iraq
+  abbreviation: IRQ
+  id: 95
+ 
+countries_096: 
+  name: Ireland
+  abbreviation: IRL
+  id: 96
+ 
+countries_097: 
+  name: Israel
+  abbreviation: ISR
+  id: 97
+ 
+countries_098: 
+  name: Italy
+  abbreviation: ITA
+  id: 98
+ 
+countries_099: 
+  name: Jamaica
+  abbreviation: JAM
+  id: 99
+ 
+countries_100: 
+  name: Japan
+  abbreviation: JPN
+  id: 100
+ 
+countries_101: 
+  name: Jordan
+  abbreviation: JOR
+  id: 101
+ 
+countries_102: 
+  name: Kazakhstan
+  abbreviation: KAZ
+  id: 102
+ 
+countries_103: 
+  name: Kenya
+  abbreviation: KEN
+  id: 103
+ 
+countries_104: 
+  name: Kiribati
+  abbreviation: KIR
+  id: 104
+ 
+countries_105: 
+  name: North Korea
+  abbreviation: PRK
+  id: 105
+ 
+countries_106: 
+  name: South Korea
+  abbreviation: KOR
+  id: 106
+ 
+countries_107: 
+  name: Kuwait
+  abbreviation: KWT
+  id: 107
+ 
+countries_108: 
+  name: Kyrgyzstan
+  abbreviation: KGZ
+  id: 108
+ 
+countries_109: 
+  name: Lao People's Democratic Republic
+  abbreviation: LAO
+  id: 109
+ 
+countries_110: 
+  name: Latvia
+  abbreviation: LVA
+  id: 110
+ 
+countries_111: 
+  name: Lebanon
+  abbreviation: LBN
+  id: 111
+ 
+countries_112: 
+  name: Lesotho
+  abbreviation: LSO
+  id: 112
+ 
+countries_113: 
+  name: Liberia
+  abbreviation: LBR
+  id: 113
+ 
+countries_114: 
+  name: Libyan Arab Jamahiriya
+  abbreviation: LBY
+  id: 114
+ 
+countries_115: 
+  name: Liechtenstein
+  abbreviation: LIE
+  id: 115
+ 
+countries_116: 
+  name: Lithuania
+  abbreviation: LTU
+  id: 116
+ 
+countries_117: 
+  name: Luxembourg
+  abbreviation: LUX
+  id: 117
+ 
+countries_118: 
+  name: Macao
+  abbreviation: MAC
+  id: 118
+ 
+countries_119: 
+  name: Macedonia
+  abbreviation: MKD
+  id: 119
+ 
+countries_120: 
+  name: Madagascar
+  abbreviation: MDG
+  id: 120
+ 
+countries_121: 
+  name: Malawi
+  abbreviation: MWI
+  id: 121
+ 
+countries_122: 
+  name: Malaysia
+  abbreviation: MYS
+  id: 122
+ 
+countries_123: 
+  name: Maldives
+  abbreviation: MDV
+  id: 123
+ 
+countries_124: 
+  name: Mali
+  abbreviation: MLI
+  id: 124
+ 
+countries_125: 
+  name: Malta
+  abbreviation: MLT
+  id: 125
+ 
+countries_126: 
+  name: Marshall Islands
+  abbreviation: MHL
+  id: 126
+ 
+countries_127: 
+  name: Martinique
+  abbreviation: MTQ
+  id: 127
+ 
+countries_128: 
+  name: Mauritania
+  abbreviation: MRT
+  id: 128
+ 
+countries_129: 
+  name: Mauritius
+  abbreviation: MUS
+  id: 129
+ 
+countries_130: 
+  name: Mexico
+  abbreviation: MEX
+  id: 130
+ 
+countries_131: 
+  name: Micronesia
+  abbreviation: FSM
+  id: 131
+ 
+countries_132: 
+  name: Moldova
+  abbreviation: MDA
+  id: 132
+ 
+countries_133: 
+  name: Monaco
+  abbreviation: MCO
+  id: 133
+ 
+countries_134: 
+  name: Mongolia
+  abbreviation: MNG
+  id: 134
+ 
+countries_135: 
+  name: Montserrat
+  abbreviation: MSR
+  id: 135
+ 
+countries_136: 
+  name: Morocco
+  abbreviation: MAR
+  id: 136
+ 
+countries_137: 
+  name: Mozambique
+  abbreviation: MOZ
+  id: 137
+ 
+countries_138: 
+  name: Myanmar
+  abbreviation: MMR
+  id: 138
+ 
+countries_139: 
+  name: Namibia
+  abbreviation: NAM
+  id: 139
+ 
+countries_140: 
+  name: Nauru
+  abbreviation: NRU
+  id: 140
+ 
+countries_141: 
+  name: Nepal
+  abbreviation: NPL
+  id: 141
+ 
+countries_142: 
+  name: Netherlands
+  abbreviation: NLD
+  id: 142
+ 
+countries_143: 
+  name: Netherlands Antilles
+  abbreviation: ANT
+  id: 143
+ 
+countries_144: 
+  name: New Caledonia
+  abbreviation: NCL
+  id: 144
+ 
+countries_145: 
+  name: New Zealand
+  abbreviation: NZL
+  id: 145
+ 
+countries_146: 
+  name: Nicaragua
+  abbreviation: NIC
+  id: 146
+ 
+countries_147: 
+  name: Niger
+  abbreviation: NER
+  id: 147
+ 
+countries_148: 
+  name: Nigeria
+  abbreviation: NGA
+  id: 148
+ 
+countries_149: 
+  name: Niue
+  abbreviation: NIU
+  id: 149
+ 
+countries_150: 
+  name: Norfolk Island
+  abbreviation: NFK
+  id: 150
+ 
+countries_151: 
+  name: Northern Mariana Islands
+  abbreviation: MNP
+  id: 151
+ 
+countries_152: 
+  name: Norway
+  abbreviation: NOR
+  id: 152
+ 
+countries_153: 
+  name: Oman
+  abbreviation: OMN
+  id: 153
+ 
+countries_154: 
+  name: Pakistan
+  abbreviation: PAK
+  id: 154
+ 
+countries_155: 
+  name: Palau
+  abbreviation: PLW
+  id: 155
+ 
+countries_156: 
+  name: Panama
+  abbreviation: PAN
+  id: 156
+ 
+countries_157: 
+  name: Papua New Guinea
+  abbreviation: PNG
+  id: 157
+ 
+countries_158: 
+  name: Paraguay
+  abbreviation: PRY
+  id: 158
+ 
+countries_159: 
+  name: Peru
+  abbreviation: PER
+  id: 159
+ 
+countries_160: 
+  name: Philippines
+  abbreviation: PHL
+  id: 160
+ 
+countries_161: 
+  name: Pitcairn
+  abbreviation: PCN
+  id: 161
+ 
+countries_162: 
+  name: Poland
+  abbreviation: POL
+  id: 162
+ 
+countries_163: 
+  name: Portugal
+  abbreviation: PRT
+  id: 163
+ 
+countries_164: 
+  name: Puerto Rico
+  abbreviation: PRI
+  id: 164
+ 
+countries_165: 
+  name: Qatar
+  abbreviation: QAT
+  id: 165
+ 
+countries_166: 
+  name: Reunion
+  abbreviation: REU
+  id: 166
+ 
+countries_167: 
+  name: Romania
+  abbreviation: ROM
+  id: 167
+ 
+countries_168: 
+  name: Russian Federation
+  abbreviation: RUS
+  id: 168
+ 
+countries_169: 
+  name: Rwanda
+  abbreviation: RWA
+  id: 169
+ 
+countries_170: 
+  name: Saint Helena
+  abbreviation: SHN
+  id: 170
+ 
+countries_171: 
+  name: Saint Kitts and Nevis
+  abbreviation: KNA
+  id: 171
+ 
+countries_172: 
+  name: Saint Lucia
+  abbreviation: LCA
+  id: 172
+ 
+countries_173: 
+  name: Saint Pierre and Miquelon
+  abbreviation: SPM
+  id: 173
+ 
+countries_174: 
+  name: Saint Vincent and the Grenadines
+  abbreviation: VCT
+  id: 174
+ 
+countries_175: 
+  name: Samoa
+  abbreviation: WSM
+  id: 175
+ 
+countries_176: 
+  name: San Marino
+  abbreviation: SMR
+  id: 176
+ 
+countries_177: 
+  name: Sao Tome and Principe
+  abbreviation: STP
+  id: 177
+ 
+countries_178: 
+  name: Saudi Arabia
+  abbreviation: SAU
+  id: 178
+ 
+countries_179: 
+  name: Senegal
+  abbreviation: SEN
+  id: 179
+ 
+countries_180: 
+  name: Seychelles
+  abbreviation: SYC
+  id: 180
+ 
+countries_181: 
+  name: Sierra Leone
+  abbreviation: SLE
+  id: 181
+ 
+countries_182: 
+  name: Singapore
+  abbreviation: SGP
+  id: 182
+ 
+countries_183: 
+  name: Slovakia
+  abbreviation: SVK
+  id: 183
+ 
+countries_184: 
+  name: Slovenia
+  abbreviation: SVN
+  id: 184
+ 
+countries_185: 
+  name: Solomon Islands
+  abbreviation: SLB
+  id: 185
+ 
+countries_186: 
+  name: Somalia
+  abbreviation: SOM
+  id: 186
+ 
+countries_187: 
+  name: South Africa
+  abbreviation: ZAF
+  id: 187
+ 
+countries_188: 
+  name: Spain
+  abbreviation: ESP
+  id: 188
+ 
+countries_189: 
+  name: Sri Lanka
+  abbreviation: LKA
+  id: 189
+ 
+countries_190: 
+  name: Sudan
+  abbreviation: SDN
+  id: 190
+ 
+countries_191: 
+  name: Suriname
+  abbreviation: SUR
+  id: 191
+ 
+countries_192: 
+  name: Svalbard and Jan Mayen
+  abbreviation: SJM
+  id: 192
+ 
+countries_193: 
+  name: Swaziland
+  abbreviation: SWZ
+  id: 193
+ 
+countries_194: 
+  name: Sweden
+  abbreviation: SWE
+  id: 194
+ 
+countries_195: 
+  name: Switzerland
+  abbreviation: CHE
+  id: 195
+ 
+countries_196: 
+  name: Syrian Arab Republic
+  abbreviation: SYR
+  id: 196
+ 
+countries_197: 
+  name: Taiwan
+  abbreviation: TWN
+  id: 197
+ 
+countries_198: 
+  name: Tajikistan
+  abbreviation: TJK
+  id: 198
+ 
+countries_199: 
+  name: Tanzania
+  abbreviation: TZA
+  id: 199
+ 
+countries_200: 
+  name: Thailand
+  abbreviation: THA
+  id: 200
+ 
+countries_201: 
+  name: Togo
+  abbreviation: TGO
+  id: 201
+ 
+countries_202: 
+  name: Tokelau
+  abbreviation: TKL
+  id: 202
+ 
+countries_203: 
+  name: Tonga
+  abbreviation: TON
+  id: 203
+ 
+countries_204: 
+  name: Trinidad and Tobago
+  abbreviation: TTO
+  id: 204
+ 
+countries_205: 
+  name: Tunisia
+  abbreviation: TUN
+  id: 205
+ 
+countries_206: 
+  name: Turkey
+  abbreviation: TUR
+  id: 206
+ 
+countries_207: 
+  name: Turkmenistan
+  abbreviation: TKM
+  id: 207
+ 
+countries_208: 
+  name: Turks and Caicos Islands
+  abbreviation: TCA
+  id: 208
+ 
+countries_209: 
+  name: Tuvalu
+  abbreviation: TUV
+  id: 209
+ 
+countries_210: 
+  name: Uganda
+  abbreviation: UGA
+  id: 210
+ 
+countries_211: 
+  name: Ukraine
+  abbreviation: UKR
+  id: 211
+ 
+countries_212: 
+  name: United Arab Emirates
+  abbreviation: ARE
+  id: 212
+ 
+countries_213: 
+  name: United Kingdom
+  abbreviation: GBR
+  id: 213
+ 
+countries_214: 
+  name: United States
+  abbreviation: USA
+  id: 214
+ 
+countries_215: 
+  name: Uruguay
+  abbreviation: URY
+  id: 215
+ 
+countries_216: 
+  name: Uzbekistan
+  abbreviation: UZB
+  id: 216
+ 
+countries_217: 
+  name: Vanuatu
+  abbreviation: VUT
+  id: 217
+ 
+countries_218: 
+  name: Venezuela
+  abbreviation: VEN
+  id: 218
+ 
+countries_219: 
+  name: Viet Nam
+  abbreviation: VNM
+  id: 219
+ 
+countries_220: 
+  name: Virgin Islands, British
+  abbreviation: VGB
+  id: 220
+ 
+countries_221: 
+  name: Virgin Islands, U.S.
+  abbreviation: VIR
+  id: 221
+ 
+countries_222: 
+  name: Wallis and Futuna
+  abbreviation: WLF
+  id: 222
+ 
+countries_223: 
+  name: Western Sahara
+  abbreviation: ESH
+  id: 223
+ 
+countries_224: 
+  name: Yemen
+  abbreviation: YEM
+  id: 224
+ 
+countries_225: 
+  name: Zambia
+  abbreviation: ZMB
+  id: 225
+ 
+countries_226: 
+  name: Zimbabwe
+  abbreviation: ZWE
+  id: 226

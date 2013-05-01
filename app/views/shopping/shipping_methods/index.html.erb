@@ -1,0 +1,48 @@
+<%= render :partial => '/shared/preorder_warning_banner' %>
+<div id="shipping-methods">
+  <div class="row">
+    <div class='four columns'>
+      <%= render :partial =>  'shopping/tabs' %>
+    </div>
+    <div class='eight columns'>
+      <div class='clearfix'>
+        <%= form_tag(shopping_shipping_method_path(session_order.id), :method => :put, :html => {:class => 'custom'}) do -%>
+          <% @order_items.group_by(&:shipping_category_id).each do |shipping_category_id, items| %>
+
+            <% items.each do |item| %>
+              <div class='row'>
+                <div class='four column bottom20'>
+                  <% if item.variant.product.product_type.name == 'Media'%>
+                    <div class="cropped-150 bottom-10" style="background-image:url('<%= item.variant.product.featured_image(:product) %>')"></div>
+                  <% else %>
+                    <%= image_tag item.variant.featured_image(:medium) %>
+                  <% end %>
+                </div>
+                <div class='eight column bottom20'>
+                  <h4 class='red bold text-10' style='margin-top:0px;'>
+                    <%= item.variant.product.name %>
+                  </h4>
+                  <ul>
+                    <li>Quantity: <%= item.quantity %> </li>
+                    <li><%= raw item.variant.display_property_details %></li>
+                    <% if item.variant.reoccurring_text.present? %>
+                      <li><%= item.variant.reoccurring_text %></li>
+                    <% end %>
+                  </ul>
+                </div>
+              </div>
+            <% end %>
+
+            <%= render :partial => 'shipping_rate_selections',
+                        :locals => {:shipping_category_id => shipping_category_id, :items => items} %>
+            <hr style='color:#aac;'/>
+          <% end %>
+          <div class='twelve clearfix '>
+            <%= submit_tag 'continue', :class => 'button ' %>
+          </div>
+
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

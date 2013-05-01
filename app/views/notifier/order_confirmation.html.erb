@@ -1,0 +1,63 @@
+<% @order.find_total %>
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+    <h1>Hi <%= @user.first_name %>,</h1>
+    <table width="600" cellpadding="0" cellspacing="0" border="0">
+      <%= render :partial => '/notifier/header_row', :locals => {:right_text => 'ORDER CONFIRMATION&nbsp;&nbsp;' } %>
+      <tr>
+        <td style="color:#000; font-family:helvetica; font-size:14px"valign="top" colspan="2"><br /><p>Hello <%= @user.name %>,
+
+        <p><b><span style="font-size:18px"><%= I18n.t(:company) %> Order Confirmation</span></b></p>
+
+            <p>Thank you for placing your order with <%= I18n.t(:company) %>. Below are the details of your order.</p>
+<br/>
+            <p><label><b>Shipping Address:</b></label>
+              <br/>
+              <% if @order.ship_address %>
+                <%= render :partial => '/shared/compact_address', :locals => { :shopping_address => @order.ship_address } %>
+              <% end %>
+            </p>
+<br/>
+            <p>
+              <label><b>Billing Address:</b></label>
+              <br/>
+              <% if @order.bill_address %>
+                <%= render :partial => '/shared/compact_address', :locals => { :shopping_address => @order.bill_address } %>
+              <% end %>
+            </p>
+<br/>
+            <p><label><b>Order Number:</b></label> <%= @order.number %></p>
+            <p><b>Order Summary:</b></p>
+            <ul style='list-style-type:none;margin-left:5px;'>
+              <% @order.order_items.group_by(&:variant).each do |variant, order_items| %>
+                <li><%= order_items.size %> <%= variant.product_name %></li>
+              <% end %>
+                <li>Order Total (<%= number_to_currency @invoice.amount %>)</li>
+            </ul>
+            <p>
+              Your order is currently being processed and you&lsquo;ll receive a shipping confirmation with tracking information via email. If any of the above information is incorrect or if you have any additional questions, please contact our customer service department at: <%= I18n.t(:desk_dot_com_url) %>
+              </p>
+              <br /><br /><br/>
+        </td>
+      </tr>
+      <tr></tr><tr>
+        <td colspan="3" bgcolor="#d82125" height="10">&nbsp;</td>
+      </tr><tr>
+        <td colspan="3" bgcolor="#5d170d" height="10">&nbsp;</td>
+      </tr><tr>
+        <td colspan="3" bgcolor="#000" height="10">&nbsp;</td>
+      </tr><tr>
+        <td align="right" style="color:#000; font-family:helvetica; font-size:12px" colspan="2">&nbsp;</th>
+      </tr>
+    </table>
+    <%= render :partial => 'notifier/main_footer' %>
+
+  </body>
+</html>
+
+

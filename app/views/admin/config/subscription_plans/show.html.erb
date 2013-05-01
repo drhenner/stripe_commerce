@@ -1,0 +1,28 @@
+<h3> Subscription Plan </h3>
+
+<ul>
+  <li>
+    <label>Name:</label>
+    <%= @subscription_plan.name %>
+  </li>
+  <li>
+    <label>Stripe:</label>
+    <%= @subscription_plan.stripe_id %>
+  </li>
+  <li>
+    <label>Amount:</label>
+    <%= @subscription_plan.amount %>
+  </li>
+  <li>
+    <label>Total Payments:</label>
+    <%= @subscription_plan.total_payments %>
+  </li>
+  <li>
+    <label>Interval:</label>
+    <%= @subscription_plan.interval %>
+  </li>
+</ul>
+<p>
+  <%= link_to "Edit", edit_admin_config_subscription_plan_path(@subscription_plan), :class => 'button' %> |
+  <%= link_to "View Plans", admin_config_subscription_plans_path, :class => 'button' %>
+</p>

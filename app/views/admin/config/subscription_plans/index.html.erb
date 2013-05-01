@@ -1,0 +1,38 @@
+<% content_for :head do -%>
+
+<% end %>
+
+<h3> Subscription Plans </h3>
+
+<div id="subscription_plan_grid_wrapper" class='pretty_table'>
+  <table>
+    <thead>
+      <tr class='odd'>
+
+          <th  class='column1_header'><%= sortable 'name', 'Name' %></th>
+          <th>Stripe</th>
+          <th>Amount</th>
+          <th>Total Payments</th>
+          <th>Interval</th>
+          <th></th>
+      </tr>
+    </thead>
+    <tbody>
+    <% for subscription_plan in @subscription_plans %>
+      <tr  class='<%= cycle("odd", "")%>'>
+
+          <td><%= link_to subscription_plan.name, [:admin, :config, subscription_plan] %></td>
+          <td><%= subscription_plan.stripe_id %></td>
+          <td><%= subscription_plan.amount %></td>
+          <td><%= subscription_plan.total_payments %></td>
+          <td><%= subscription_plan.interval %></td>
+        <td><%= link_to "edit", edit_admin_config_subscription_plan_path(subscription_plan) %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>
+
+<%= will_paginate @subscription_plans %>
+
+<p><%= link_to "New Subscription Plan", new_admin_config_subscription_plan_path, :class => 'button' %></p>

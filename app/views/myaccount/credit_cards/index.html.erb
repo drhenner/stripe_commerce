@@ -1,0 +1,35 @@
+<div class='twelve columns'>
+  <% if @credit_cards.empty? %>
+    <p>
+      You do not have a Credit Card on File
+    </p>
+  <% else %>
+    <table>
+      <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Last 4</th>
+        <th>Month</th>
+        <th>Year</th>
+        <th></th>
+      </tr>
+      </thead>
+      <tbody>
+      <% for credit_card in @credit_cards %>
+        <tr>
+          <td><%= credit_card.name %></td>
+          <td><%= credit_card.cc_type %></td>
+          <td><%= credit_card.last4 %></td>
+          <td><%= credit_card.month %></td>
+          <td><%= credit_card.year %></td>
+
+          <td><%= link_to "Remove", myaccount_credit_card_path(credit_card), :confirm => 'Are you sure?', :method => :delete %></td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+      <%= will_paginate @credit_cards %>
+  <% end %>
+  <p><%= link_to "New Credit Card", new_myaccount_credit_card_path, :class => 'button' %></p>
+</div>

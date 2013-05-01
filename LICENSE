@@ -1,0 +1,68 @@
+Copyright (c) 2013 David Henner / RoR-e.com
+
+ROR-E.COM PROFESSIONAL COMMERCIAL LICENSE
+Warning Important Notice
+
+The individual using this software represents and warrants that he or she has authority to enter into this agreement with RoR ecommerce on behalf of the Subscriber, that he or she has read the terms and conditions set out herein and that the Subscriber agrees to be bound by the terms and conditions. If the Subscriber does not agree with the terms and conditions the Subscriber must not use this software and must return the entire package to RoR ecommerce immediately.
+
+1.Definitions
+Accessible Code means source code contained within the Product that is accessible under the terms and conditions of this agreement.
+RoR ecommerce means RoR ecommerce 2101 Beekman Place APT 1H, Brooklyn, NY 11225.
+Authorised Person means an individual who is an employee, contractor, or consultant of the Subscriber.
+Authorised Use means, in relation to the Product, a single installation (for greater clarity a single deployment of the Product within a Unix application server) of the Product on a single physical server located at the Authorised Site, from where the Authorised Person may undertake use of the Product in accordance with the product documentation and populate the Subscriber’s website with the Product for the use of the Subscriber’s customers.
+Authorised Site means the business premises of the Subscriber from time to time or the premises of a third party hosting provider contracted by Subscriber.
+Product means RoR ecommerce Software, including any updates provided under the terms of this agreement in accordance with clause 6.
+Protected Code means source code contained within the Product that is protected against access by RoR ecommerce.
+Subscriber means the individual or entity that has subscribed for the Product under the terms and conditions of this agreement.
+USD means United States dollars.
+
+2. License Fee
+There is an annual fee of USD 50,000.00 which is non-refundable and payable on renewal acceptance of the terms and conditions set out herein.
+3. Grant of Licence
+Subject to the terms of this agreement, RoR ecommerce grants to the Subscriber, and the Subscriber accepts from RoR ecommerce, a worldwide, non-exclusive, non-transferable, nonsublicencable licence to use the Product.
+
+4. No Warranty
+Any person using the Product does so on the basis that RoR ecommerce gives neither guarantee nor warranty nor makes any representations as to the correctness or completeness of the Product and no liability, contingent or otherwise is accepted by RoR ecommerce for errors in the Product or omissions from the Product.
+
+5. “As is” Basis
+The Product is provided on an “as is” basis without warranty, express or implied, of any kind or nature, including, but not limited to, any warranties of performance or merchantability or fitness for a particular purpose. Without limitation, RoR ecommerce will not be liable to any person for any loss, damage, cost, expense or other claim (including consequential damages and loss of profits) in relation to the Product including, without limitation: (1) any use or reliance on a Product by the person (including the form and content of errors in and/or omissions from any information contained in a Product); (2) any delay, interruption or other failure in the provision of the Product; or (3) any change in the form or content of the Product.
+
+6. RoR ecommerce’s Obligations
+RoR ecommerce will supply the Subscriber with the Product and provide basic technical support for a period of 6 months from the Commencement Date, which will include all generally available updates and/or enhancements from time to time. For the avoidance of doubt, such technical support will include e-mail support for technical issues relating to the use of the Product but will not include any on-site visits to the Authorised Site or any other third party locations.
+
+7. Subscriber Obligations
+The Subscriber must at all times: (a) ensure that only an Authorised Person may use the Product and only for Authorised Use at the Authorised Site in accordance with the terms and conditions of this agreement; (b) install all updates and enhancements which RoR ecommerce reasonably determines to be necessary to ensure the Subscriber’s continued and effective use of the Product; (c) immediately advise RoR ecommerce in writing if the Subscriber becomes aware of any unauthorised use of the Product by any person; (d) with respect to any use of the Product, include an attribution to RoR ecommerce to be included on all user interfaces in the following format: “Powered by RoR ecommerce”, which must in every case include a hyperlink to http://www.RoR ecommerce.
+
+8. Unauthorised Use and Distribution
+Where as a result of any deliberate or negligent act or omission by the Subscriber, a Product is supplied to or obtained by any person (other than an Authorised Person) without the prior written consent of RoR ecommerce, RoR ecommerce will immediately have the right (in addition to any other right or claim that RoR ecommerce may have against the Subscriber) to retroactively charge the Subscriber (in addition to any other fees paid or payable by the Subscriber under this agreement) a fee equal to the Licence Fee specified in clause 2 multiplied by the number of persons to whom the Product has been wrongfully supplied or obtained (whether for gain or sale or otherwise).
+
+9. Investigation of Unauthorised Use and Distribution
+Where, after due investigation, RoR ecommerce reasonably suspects that a Product has been supplied to or obtained by any person (other than an Authorised Person) without RoR ecommerce’s prior written consent, RoR ecommerce has the right to request from the Subscriber a certificate of compliance for the purpose of calculating the total number and type of users and/or end-users of the Product so that RoR ecommerce may ascertain whether it may exercise its rights under clause 8.
+
+10. Subscriber’s Restrictions
+During the term of this agreement, the Subscriber must not without the prior written consent of RoR ecommerce (which may be withheld and which may include certain conditions): (a) decompile, reverse engineer, disassemble, modify, adapt, create derivative works from, or otherwise attempt to derive, the Protected Code; (b) sell, redistribute, reproduce, transmit, circulate, disseminate, translate or reduce to or from any electronic medium or machine readable form the Product or any data/information provided to the Subscriber through the Product to a person (except that nothing in this paragraph (b) is intended to prevent an Authorised Person undertaking Authorised Use at the Authorised Site); (c) vary or amend the Authorised Use without RoR ecommerce’s prior written approval; (d) publish, promote, broadcast, circulate or refer publicly to the RoR ecommerce name or logo, without the prior written consent of RoR ecommerce; (e) commit any act or omission the likely result of which is that RoR ecommerce’s reputation will be brought into disrepute or which act or omission could reasonably be expected to have or does have a material and adverse effect on RoR ecommerce’s interests. For the avoidance of doubt, subject to the terms and conditions contained herein, Subscriber is permitted to modify the Accessible Code to develop bug fixes, customizations, or additional features, solely for the purpose of using the Product as defined in, and during the term of, this Agreement. Under no circumstance may Subscriber embed the Accessible Code into another application without a separate OEM license agreement, nor shall Subscriber copy elements of the Accessible Code into other applications. In addition, the Product includes license protection mechanisms that are designed to manage and protect the intellectual property rights of RoR ecommerce. Subscriber must not modify or alter those features to try to defeat the Product use rules that the license protection mechanisms are designed to enforce. The
+Accessible Code must be destroyed after the termination of this Agreement.
+
+11. Term
+This agreement commences on the date that the Subscriber receiving the Product (“the Commencement Date”) and will continue in full force and effect until terminated in accordance with clause 12.
+
+12.Termination
+This agreement may be terminated by either party if the other party commits a material breach, being a breach of any one of Clauses 2,6,7, 8, 10 or 17.
+
+13. Limitation of Liability
+Where any law implies in this agreement any term, condition or warranty and that law avoids or prohibits a provision of this agreement excluding or modifying the application of or liability under any term, condition or warranty then the liability of RoR ecommerce is limited to:(1) the re-supply of the Product; or (2) the payment of the cost of having the Product supplied again.
+
+14. Intellectual Property
+The Subscriber acknowledges that the Product and all intellectual property rights in relation to the Product are the property of RoR ecommerce and RoR ecommerce is entitled to take whatever action it may decide in order to protect its intellectual property rights in the Product.
+
+15. Publicity Rights
+The Subscriber grants RoR ecommerce the right to include the Subscriber as a customer on RoR ecommerce’s website or other promotional material in relation to the Product. Within thirty (30) Business Days of the Subscriber’s written request, RoR ecommerce will remove the Subscriber’s name from its website customer list and will make no further reference to the Subscriber in any future material promoting Product.
+
+16. No assignment or amendment
+This agreement may not be assigned or amended without the prior written consent of the parties.
+
+17. Tax
+Payments made by the Subscriber under this Agreement exclude any taxes or duties payable in respect of the goods or services supplied in the jurisdiction where the payment is either made or received. To the extent that any such taxes or duties are payable by RoR ecommerce, the Subscriber must pay to RoR ecommerce the amount of such taxes or duties in addition to the Licence Fee under this Agreement. Notwithstanding the foregoing, the Subscriber shall not be liable for any taxes or duties from which it is exempt at the time such taxes or duties are levied or assessed. RoR ecommerce must provide the Subscriber with such documents as will enable the Subscriber to obtain a refund or credit for the amount so paid from any relevant revenue authority if such a refund or credit is available.
+
+18. Governing Law
+This agreement is governed by the laws of California, United States and the parties irrevocably and unconditionally submit to the non-exclusive jurisdiction of the courts of California, United States.

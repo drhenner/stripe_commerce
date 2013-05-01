@@ -1,0 +1,118 @@
+<% content_for :below_body do -%>
+  <%= javascript_include_tag 'preorders/products_page.js' %>
+<% end %>
+<%= render :partial => '/shared/preorder_warning_banner' %>
+
+<div id='preorder-products-page' class="twelve columns">
+
+  <h3 id='your-cart-items'><span class="large-bullet alert label">1</span>Items in your cart</h3>
+  <div class='row'>
+    <div class='eight large-8 columns'>
+      <div class='item-box'>
+          <% session_cart.shopping_cart_items.each do |item| %>
+            <% upsell = item.variant %>
+            <div class="row"><div class="line"></div></div>
+            <div class="row top-10 bottom-10">
+              <div class='two column'>
+                <div class="cropped-100 bottom-10" style="background-image:url('<%= upsell.featured_image(:small) %>')"></div>
+              </div>
+              <div class='seven mobile-three column'>
+                <div class="black bold product-title"><%= raw upsell.product_name %></div>
+                <div class='upsell-price top-10'><%= number_to_currency upsell.price %></div>
+                <% if upsell.reoccurring_text.present? %>
+                  <div  class="top-10 text-10 sentence-case"><%= raw upsell.reoccurring_text %></div>
+                <% end %>
+              </div>
+              <div class="three mobile-one column">
+                <%= link_to 'x', upsell_path(item), :method => 'delete', :class => 'text-10 dark-gray pull-right remove_upsell_x' %>
+              </div>
+            </div>
+          <% end %>
+      </div>
+    </div>
+
+    <div id='order-summary' class='four large-4 columns'>
+      <div class="order-summary-box">
+        <ul class='vertical-list'>
+          <li class="">
+            <h3>ORDER SUMMARY</h3>
+          </li>
+          <li class='price-tag'>
+            Sub-Total: <%= number_to_currency session_cart.sub_total %>
+          </li>
+          <li >
+            <%= link_to checkout_shopping_order_path('checkout'), :class => 'button success top20 checkout-button' do %>
+              Proceed to checkout <i class='icon-caret-right'></i>
+            <% end %>
+          </li>
+        </ul>
+      </div>
+
+      <ul class='vertical-list'>
+        <li>
+          <div class="pull-right">
+            <%= image_tag "preorder/90-day.png"  %>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <h3><span class="large-bullet alert label">2</span>Take Advantage of these special offers for our <%= I18n.t(:company) %> community</h3>
+  <div class='row upsell-products'>
+    <% upsells.sort{ |x,y| y.price <=> x.price }.each do |upsell| %>
+      <div class='four large-4 columns'>
+        <div  class='small-text' style='height: 385px;'>
+          <ul class='vertical-list '>
+            <li>
+              <div class="cropped-250 bottom-10" style="background-image:url('<%= upsell.featured_image(:product) %>');background-repeat: no-repeat;"></div>
+            </li>
+            <li>
+              <span class="black text-09"><%= raw upsell.product_name %></span>
+            </li>
+            <li>
+              <p class="small-text text-08 sentence-case"><%= raw upsell.short_description %></p>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <ul class='vertical-list'>
+            <li>
+              <span class='upsell-price'><%= number_to_currency upsell.price %></span>
+            </li>
+            <li>
+              <%= link_to upsell_path(upsell), :class => 'button top20 add-to-cart-button', :method => 'PUT' do %>
+                Add to Cart
+              <% end %>
+            </li>
+            <% if upsell.reoccurring_text.present? %>
+              <li class="small-text text-08 top20 sentence-case">
+                <%= raw upsell.reoccurring_text %>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    <% end %>
+    <% (4-upsells.count).times do %>
+      <div class="three large-3 columns"></div>
+    <% end %>
+  </div>
+
+  <div class="row">
+    <p class="small-text columns">For continuity items, your credit card will be billed as follows: Today you will be charged plus any applicable tax and shipping and processing. Then every thirty days from today you will be charged.</p>
+  </div>
+
+  <div class="row panel background-black">
+    <div class="pull-left mobile-four">
+      <h3>ORDER SUMMARY</h3>
+    </div>
+    <div class="pull-right">
+      <span class="dark-gray bold">SUB-TOTAL ( <%= session_cart.shopping_cart_items.size %> items ):</span> <span class="white bold right-5"><%= number_to_currency session_cart.sub_total %></span>
+      <%= link_to checkout_shopping_order_path('checkout'), :class => 'button large success top-10 checkout-button' do %>
+        Proceed to checkout <i class='icon-caret-right'></i>
+      <% end %>
+    </div>
+  </div>
+</div>

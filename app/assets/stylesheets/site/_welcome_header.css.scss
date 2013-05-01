@@ -1,0 +1,10 @@
+nav {
+  &.top-bar {
+    text-transform:uppercase;
+    ul {
+      li.name a:not(.button) {
+        margin-left:25px;
+      }
+    }
+  }
+}

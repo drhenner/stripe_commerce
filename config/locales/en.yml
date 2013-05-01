@@ -1,0 +1,72 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+en:
+  company:              'RoR ecommerce'
+  company_address1:     '1389 Jefferson Street'
+  company_address2:
+  company_address3:     'Oakland, CA 94612'
+  company_description:  'This is the Best site ever!'
+  customer_service_number: ''
+  hello:                'Hello'
+  out_of_stock_notice:  'Sorry this item is out of stock.'
+  item_saved_for_later: 'The item will be saved for later.'
+  reset_password_title: 'Confirm your identity to reset password'
+  reset_password_text:  'Enter your email below and Click the Continue button.'
+  something_went_wrong: 'Sorry something went wrong'
+  item_failed_update:   'Item failed to be updated.'
+  item_passed_update:   'Item was successfully updated.'
+  could_not_process:    "Could not process"
+  the_credit_card:      "the Credit Card."
+  credit_card:          "Credit Card"
+  the_order:            "the Order."
+  the_order_purchased:  "The order has been purchased."
+  is_not_valid:         'is not valid.'
+  login_title:          'SIGN-UP & REGISTRATION'
+  login_successful:     "Login successful!"
+  login_failure:        "Invalid email or password."
+  logout_successful:    "Logout successful!"
+
+# Social Links
+  company_domain:  'ror-e.com'
+  twitter_url:  'https://twitter.com/rorecommerce'
+  facebook_url: 'https://www.facebook.com/rorecommerce'
+  desk_dot_com_url: 'http://support.rorecommerce.com/'
+  contact_us_url: 'http://support.rorecommerce.com/customer/portal/emails/new'
+  google_plus_url:  ''
+  youtube_url:      'http://www.youtube.com/rorecommerce'
+  instagram_url: 'http://instagram.com/rorecommerce'
+
+  nothing_in_cart:       "You don't have anything in your cart."
+  only_items_saved_for_later: "You only have items Saved for Later."
+  add_items_saved_for_later: "Move items to the cart to checkout."
+
+  select_address_before_shipping_method:  'Select an address before you select a shipping method.'
+  shipping_method_created:                'Shipping method was successfully created.'
+  shipping_method_updated:                'Shipping method was successfully updated.'
+  all_shipping_methods_must_be_selected:  'All the Shipping Methods must be selected'
+  do_not_have_anything_in_your_cart:      "You don't have anything in your cart"
+
+  no_addresses_saved:                     'Currently no addresses saved.'
+
+  label_create_shipment_button: 'Create Shipment'
+
+  date:
+    formats:
+      # Use the strftime parameters for formats.
+      # When no format has been given, it uses default.
+      # You can provide other formats here if you like!
+      default: "%m/%d/%Y"
+      short: "%b %d"
+      long: "%B %d, %Y"
+      us_date: "%m/%d/%Y"
+      file_date: "%Y-%d-%m"
+      moulton_date: "%Y%m%d"
+  time:
+    formats:
+      us_date: "%m/%d/%Y"
+      us_time: "%m/%d/%Y @ %I:%M %p"
+      long_date: "%B %d, %Y"
+      file_date: "%Y-%d-%m"
+      file_time: "%Y-%d-%m-%I-%M-%S"
+      moulton_date: "%Y%m%d"

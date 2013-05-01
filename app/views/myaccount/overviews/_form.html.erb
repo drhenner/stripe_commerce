@@ -1,0 +1,33 @@
+<div id='myaccount-profile_name_form' class='row clearfix'>
+  <fieldset id="myaccount-profile" class='six '>
+     <ul>
+       <li>
+         <%= f.label :first_name %>
+         <%= f.text_field :first_name, :placeholder => "First Name" %>
+        </li>
+        <li>
+          <%= f.label :last_name %>
+          <%= f.text_field :last_name %>
+        </li>
+     </ul>
+  </fieldset>
+</div>
+<div id='myaccount-profile_form' class='row clearfix' >
+  <fieldset id="myaccount-profile-password" class='six '>
+    <ul>
+      <li>
+        <%= label_tag :old_password %>
+        <%= password_field_tag :old_password %>
+      </li>
+      <li>
+        <%= f.label :password, 'Password (optional)' %>
+        <%= f.password_field :password %>
+      </li>
+      <li>
+        <%= f.label :password_confirmation, 'Confirm Password (Needed if changing Password)' %>
+        <%= f.password_field :password_confirmation %>
+      </li>
+    </ul>
+  </fieldset>
+  <div class="actions twelve " style='margin-left:12px;'><%= f.submit 'Update' , :class => 'button' %></div>
+</div>

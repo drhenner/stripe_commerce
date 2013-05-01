@@ -1,0 +1,86 @@
+
+<% content_for :head do -%>
+  <%= stylesheet_link_tag 'tables.css' %>
+<% end %>
+
+
+
+<div id='order-wrapper' class='row'>
+  <h1> ORDER <%= @order.number %></h1>
+  <div class='twelve large-12 '>
+    <div class='row'>
+      <div  class=' six large-6 columns ' >
+        <div class='bottom20'>
+          <h3 style='margin-top:0px;'>PAYMENT INFORMATION</h3>
+          <% @order.payment_profile %>
+          <p>
+          Card Type: <%= @order.payment_profile.cc_type %> <br/>
+          Card Number: ************ <%= @order.payment_profile.last4 %>  <br/>
+          Expiration Date: <%= @order.payment_profile.month %>/<%= @order.payment_profile.year %> <br/>
+          </p>
+        </div>
+        <div id='final-order-shipping-address' class=' bottom20 ' >
+          <h3>SHIPPING INFORMATION</h3>
+          <%= render :partial => '/shared/compact_address', :locals => {:shopping_address => @order.ship_address} %>
+          <div style='height:5px;width:100%;'> &nbsp </div>
+        </div>
+        <div id='final-order-shipping-address' class='bottom20' >
+          <h3>BILLING INFORMATION</h3>
+          <%= render :partial => '/shared/compact_address', :locals => {:shopping_address => @order.bill_address} %>
+          <div style='height:5px;width:100%;'> &nbsp </div>
+        </div>
+      </div><%# end of first six columns %>
+
+    <div class='six large-6 columns '>
+      <div class='panel radius centered'>
+        <h3>ORDER SUMMARY</h3>
+        <ul class='no-bullet vertical-list clearfix order-summary'>
+          <% @order.order_items.each do |item| %>
+            <li class='clearfix <%= cycle("odd", "")%> '>
+            <label class="pull-left"><%= item.variant.product.name %></label>
+            <span class="pull-right"><%= number_to_currency item.total %></span>
+            </li>
+          <% end %>
+          <li class='clearfix <%= cycle("odd", "")%> '>
+          <label class="pull-left">Sub-total</label>
+          <span class="pull-right"><%= number_to_currency @order.sub_total %></span>
+          </li>
+          <li class='clearfix <%= cycle("odd", "")%> '>
+          <label class="pull-left">Shipping Charges</label>
+          <span class="pull-right"><%= number_to_currency @order.shipping_charges %></span>
+          </li>
+          <% if @order.coupon_amount > 0.0 %>
+            <li class='clearfix <%= cycle("odd", "")%> '>
+            <label class="pull-left">Coupon</label>
+            <span class="pull-right"><%= number_to_currency @order.coupon_amount %></span>
+            </li>
+          <% end %>
+          <% if @order.deal_amount && @order.deal_amount > 0.0 %>
+            <li class='clearfix <%= cycle("odd", "")%> '>
+            <label class="pull-left">Promotion</label>
+            <span class="pull-right"><%= number_to_currency @order.deal_amount %></span>
+            </li>
+          <% end %>
+          <li class="clearfix">
+          <label class="pull-left">Tax</label><span class="pull-right"><%= number_to_currency @order.taxed_amount %></span>
+          </li>
+          <% if @order.amount_to_credit && @order.amount_to_credit > 0.0 %>
+            <li class='clearfix <%= cycle("odd", "")%> '>
+            <label class="pull-left">Credits</label>
+            <span class="pull-right"><%= number_to_currency @order.amount_to_credit %></span>
+            </li>
+          <% end %>
+
+        </ul>
+        <blockquote class='total' id='credited_total' data-integer_credited_total='<%= @order.integer_credited_total %>'>
+          <h2>Total <span> &nbsp; <%= number_to_currency @order.credited_total %></span></h2>
+        </blockquote>
+
+      </div>
+    </div><%# end of second six columns%>
+
+
+
+  </div><%# end of row %>
+ </div>
+</div>

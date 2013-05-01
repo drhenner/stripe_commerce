@@ -1,0 +1,22 @@
+<h1> Export Documents </h1>
+
+<div id="admin_export_document_grid_wrapper" class='pretty_table'>
+  <table>
+    <thead>
+      <tr class='odd'>
+        <th class='column1_header'>Export Type</th>
+        <th>Info</th>
+        <th>Download</th>
+      </tr>
+    </thead>
+    <% for export_document in @export_documents %>
+      <tr class='<%= cycle("odd", "")%>'>
+          <td><%= export_document.export_type_name %></td>
+          <td><%= export_document.info %></td>
+          <td><%= link_to 'Download',   "#{export_document.doc}" %></td>
+      </tr>
+    <% end %>
+  </table>
+</div>
+
+<%= will_paginate @export_documents %>

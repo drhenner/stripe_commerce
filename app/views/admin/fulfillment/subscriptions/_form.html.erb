@@ -1,0 +1,22 @@
+
+  <%= f.error_messages %>
+<ul>
+  <li class="field">
+    <%= f.label :next_bill_date %>
+    <div  class='date-select'>
+    <%= f.date_select :next_bill_date %>
+    </div>
+  </li>
+  <li class="field">
+    <%= f.label :remaining_payments %>
+    <%= f.number_field :remaining_payments %>
+  </li>
+  <li class="field">
+    <%= f.label :shipping_address_id %>
+    <%= f.select :shipping_address_id, user_addresses %>
+  </li>
+  <li class="field">
+    <%= f.label :billing_address_id %>
+    <%= f.select :billing_address_id, user_addresses %>
+  </li>
+</ul>

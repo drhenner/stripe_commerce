@@ -1,0 +1,5 @@
+defaults: &defaults <%= ENV['REDIS_URL'] || ENV['REDISTOGO_URL'] || 'redis://127.0.0.1:6379/' %>
+development: *defaults
+test: *defaults
+production: *defaults
+staging: *defaults

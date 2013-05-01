@@ -1,0 +1,72 @@
+
+@mixin left-text($buffer: 4px) {
+  text-align: left;
+  padding-left: $buffer;
+}
+
+@mixin padding($pad: 5px) {
+  padding: $pad;
+}
+
+@mixin margin($pad: 4px) {
+  margin: $pad;
+}
+
+@mixin left-right-margin($pad: 4px) {
+  margin-left: $pad;
+  margin-right: $pad;
+}
+@mixin top-rounded($radius: 4px) {
+  -moz-border-radius:$radius $radius 0px 0px;
+  -webkit-border-radius:$radius $radius 0px 0px;
+  -khtml-border-radius:$radius $radius 0px 0px;
+  border-radius:$radius $radius 0px 0px;
+  behavior:url(border-radius.htc);
+}
+
+
+@mixin bottom-rounded($radius: 4px) {
+  -moz-border-radius:0px 0px $radius $radius;
+  -webkit-border-radius:0px 0px $radius $radius;
+  -khtml-border-radius:0px 0px $radius $radius;
+  border-radius:0px 0px $radius $radius;
+  behavior:url(border-radius.htc);
+}
+
+@mixin rounded($radius: 4px) {
+  -moz-border-radius:$radius;
+  -webkit-border-radius:$radius;
+  -khtml-border-radius:$radius;
+  border-radius:$radius;
+  behavior:url(border-radius.htc);
+}
+
+@mixin admin-page-wrapper($width: 24) {
+  @include span($width);
+  @include last;
+}
+
+@mixin admin-grid-wrapper($width: 18) {
+  @include span($width);
+}
+
+@mixin admin-new-button($width: 6) {
+  @include column($width);
+  @include last;
+}
+
+@mixin admin-form-wrapper($width: 10) {
+  @include span($width);
+  p {
+    @include span(10);
+    }
+}
+@mixin gradient($start_color: #E6E6E6, $end_color: #FFFFFF) {
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, $start_color), color-stop(1.0, $end_color));
+  background-image: -webkit-linear-gradient(center top, $start_color 0%, $end_color 100%);
+  background: -moz-linear-gradient(center top, $start_color 0%, $end_color 100%) repeat-x scroll center top $end_color;
+  background-image: -o-linear-gradient(top, $start_color 0%, $end_color 100%);
+  background-image: -ms-linear-gradient(top, $start_color 0%,$end_color 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#E6E6E6', endColorstr='#FFFFFF',GradientType=0 );
+  background-image: linear-gradient(bottom, $start_color 0%,$end_color 100%);
+}

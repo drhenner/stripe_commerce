@@ -1,0 +1,71 @@
+<% content_for :sidemenu do %>
+
+  <div class='admin_filters'>
+    <%= form_tag admin_fulfillment_subscriptions_path, :method => 'get', :id => "invoices_search" do %>
+
+      <label>Email</label>
+      <%= text_field_tag :email, params[:email] %>
+
+      <div style="text-align:center; margin-top: 15px">
+        <%= submit_tag "Search", :name => nil, :class => 'button red-button' %>
+      </div>
+      </p>
+      <div id="order_hidden">
+        <%= hidden_field_tag :direction, params[:direction] %>
+        <%= hidden_field_tag :sort, params[:sort] %>
+      </div>
+    <% end %>
+    <div class='clearfix'></div>
+  </div>
+<% end %>
+
+<h1> Subscriptions </h1>
+
+<div id="subscription_grid_wrapper" class='pretty_table'>
+  <table>
+    <thead>
+      <tr class='odd'>
+
+          <th  class='column1_header'><%= sortable 'subscription_plan_id', 'Subscription Plan' %></th>
+          <th>User</th>
+          <th>Order Item</th>
+          <th>Active</th>
+          <th>Next Bill Date</th>
+          <th>Failed Attempts</th>
+          <th>Remaining Payments</th>
+          <th></th>
+          <th></th>
+      </tr>
+    </thead>
+    <tbody>
+    <% for subscription in @subscriptions %>
+      <tr class='<%= "inactive-row" unless subscription.is_active? %>' >
+
+          <td><%= link_to subscription.subscription_plan_name, [:admin, :fulfillment, subscription] %></td>
+          <td><%= subscription.user.name %></td>
+          <td style='font-size:10px;'><%= subscription.order_item.variant.product_name %></td>
+          <td style='text-align:center;'>
+            <span  class='round label <%= " alert " unless subscription.is_active? %>'>
+            <%= subscription.is_active? ? "Yes" : "No" %>
+            </span>
+          </td>
+          <td><%= subscription.next_bill_date %></td>
+          <td><%= subscription.failed_attempts %></td>
+          <td><%= subscription.remaining_payments %></td>
+        <td>
+          <% if subscription.is_active? %>
+            <%= link_to "change", edit_admin_fulfillment_subscription_path(subscription) %>
+          <% end %>
+        </td>
+        <td>
+          <% if subscription.is_active? %>
+          <%= link_to "cancel", [:admin, :fulfillment, subscription], :data => { :confirm => 'Are you sure?' }, :method => :delete, :style => 'color:red;' %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>
+
+<%= will_paginate @subscriptions %>

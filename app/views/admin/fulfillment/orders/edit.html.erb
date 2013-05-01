@@ -1,0 +1,103 @@
+<h2>Shipment for Order # <%= @order.number %>  </h2>
+<div class='' >
+  <b>Shipment for <%= link_to @order.user.name, admin_user_path(@order.user) %></b>
+</div>
+<div class='clear'></div>
+<div id='order-shipment-items' class='four large-4 column'>
+  <div class='panel'>
+    <h4>Order Items</h4>
+    <% @order.order_items.each_with_index do |item,i| %>
+      <ul class='vertical-list compact'>
+        <li> <b><%= item.variant.product_name %></b> </li>
+        <li> <label>SKU:</label> <%= item.variant.sku %> </li>
+        <li> <label>Price:</label> <%= number_to_currency item.variant.price %> </li>
+        <% if item.shipped? %>
+          <li> <label>Shipped:</label> <%= item.shipment.display_shipped_at %> </li>
+          <li> <label>Shipping #:</label> <%= item.shipment.number %> </li>
+        <% else %>
+          <li>Not Shipped Yet,  <%= item.shipping_rate.try(:shipping_method).try(:name) %></li>
+        <% end %>
+      </ul>
+
+      <b><%= item.state.upcase %></b>
+
+    <% end %>
+<hr/>
+    <% if @order.paid? && @order.order_items.any?(&:unshipped?) %>
+      <%= link_to 'New Shipment',
+                    new_admin_fulfillment_partial_order_shipment_path( @order ),
+                    :class => 'button' %>
+      <% if !@order.shipped? %>
+      <br/>
+        <%= link_to 'Cancel Order',
+                    admin_fulfillment_order_path(@order, :invoice_id => @order.completed_invoices.first.try(:id) ),
+                    {:method   => 'DELETE',:class    => 'button alert',
+                    :confirm  => 'Are you sure you want to cancel?'}
+                     %>
+      <% end %>
+    <% elsif !@order.shipped? && !@order.canceled? %>
+      <%= link_to 'Cancel Order',
+                  admin_fulfillment_order_path(@order, :invoice_id => @order.completed_invoices.first.try(:id) ),
+                  {:method   => 'DELETE',:class    => 'button alert',
+                  :confirm  => 'Are you sure you want to cancel?'}
+                   %>
+    <% end %>
+    <% if current_user.super_admin? && @order.can_collect_payment? %>
+      <%= link_to 'Collect Payment',
+                  collect_admin_fulfillment_order_path(@order, :invoice_id => @order.completed_invoices.last.try(:id) ),
+                  {:method   => 'PUT',:class    => 'button success',
+                  :confirm  => 'Are you sure you want to collect the funds?'}
+                   %>
+    <% end %>
+  </div>
+</div>
+<div class=' four large-4 column' >
+  <div class='panel'>
+    <h4>Shipping address</h4>
+    <div class='well'>
+      <%= render :partial => '/shared/compact_address', :locals => {:shopping_address => @order.ship_address} if @order.ship_address %>
+    </div>
+  </div>
+</div>
+<div id="shipment-details-box" class=' four large-4 column'>
+    <%= render :partial => 'admin/fulfillment/orders/shipment_details', :locals => {:order => @order} %>
+</div>
+<div class='clearfix'></div>
+
+<div class='row'>
+  <div class=' six large-6 column' style='text-align:left;'>
+    <div class='panel'>
+      <h4>Invoice</h4>
+      <% @order.invoices.each do |invoice| %>
+        <div id='invoice-line-<%= invoice.id %>'>
+          <% if @order.invoices.last.id == invoice.id %>
+              <%= render :partial => 'invoice_details', :locals => { :invoice => @order.invoices.last } %>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <div class=' six large-6 column'>
+    <div class=' panel'>
+      <h4>Return Merchandise Authorization:</h4>
+      <% if @order.return_authorizations.size > 0 %>
+         <%= link_to 'View RMAs', admin_rma_order_return_authorizations_path(@order),
+                                  :class => 'button ' %>
+         <br/><br/>
+      <% elsif @order.shipped? %>
+        <%= link_to 'Create RMA', new_admin_rma_order_return_authorization_path(@order),
+                                  :class => 'button ' %>
+      <% else %>
+        <p>This order has not shipped yet.</p>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<% content_for :head do -%>
+  <%= stylesheet_link_tag "cupertino/jquery-ui-1.8.12.custom" %>
+<% end %>
+
+<% content_for :bottom do -%>
+  <%= javascript_include_tag "admin/fulfillment" %>
+<% end %>

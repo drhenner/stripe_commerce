@@ -1,0 +1,11 @@
+<h3> Edit Subscription Plan </h3>
+
+<%= form_for @subscription_plan, :url => [:admin, :config, @subscription_plan] do |f| %>
+  <%=  render :partial => 'form', :locals => {:f => f} %>
+  <div class="actions"><%= f.submit 'Update' , :class => 'button' %></div>
+<% end %>
+
+<p>
+  <%= link_to "Show", [:admin, :config, @subscription_plan], :class => 'button' %> |
+  <%= link_to "View All", admin_config_subscription_plans_path, :class => 'button' %>
+</p>

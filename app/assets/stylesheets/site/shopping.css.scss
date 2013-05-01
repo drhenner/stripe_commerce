@@ -1,0 +1,50 @@
+#shipping-addresses, #shipping-methods, #billing-addresses,
+#payment-info, #order-details, #order-confirmation, #shipping-warning {
+  .background-gray { background: #f2f2f2; }
+  .padding-left-10 { padding-left: 10px; }
+  .padding-left-30 { padding-left: 30px; }
+  .padding-top-10 { padding-top: 10px; }
+  .padding-top-30 { padding-top: 30px; }
+  .margin-left-10 { margin-left: 10px; }
+  .bottom-10 {    margin-bottom: 10px;  }
+  .border-1 { border: 1px solid #ccc; }
+  .text-10 { font-size: 1.0em }
+  .line-height { line-height: 20px; }
+  .top-box {
+    &.red-border-left {  border-left: 3px solid #cc0000; }
+    &.padding-10 { padding: 10px 0px 0px 0px; }
+  }
+
+  .background-black { background: #000; color: #fff;}
+  .margin-0 { margin: 0px;}
+  .center-text { text-align: center; }
+  .white { color:#fff; }
+  .red {    color:#CC0000;  }
+  .black { color: #000;}
+  .dark-gray { color: #666666;}
+  .bold { font-weight: bold; }
+  .padding-10 { padding: 10px; }
+  .top-bar{
+    background: asset-url('preorder/bg-top-bar.png', image);
+  }
+
+  .cropped-150 {
+    width: 100%;
+    height: 100px;
+    background-position: center center;
+    background-repeat: no-repeat;
+  }
+
+  .tabs.vertical {
+    dd {
+      border-right: 1px solid #ccc;
+      border-bottom: 1px solid #ccc;
+    }
+  }
+  .order-summary {
+    li {
+      padding: 5px 0px 5px 0px;
+      border-bottom: 1px solid #666666;
+    }
+  }
+}

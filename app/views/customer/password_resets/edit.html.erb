@@ -1,0 +1,8 @@
+
+<div class='seven columns bottom20'>
+  <h1> <%= site_name.upcase %> Password Reset </h1>
+
+  <%= form_for(@user, :url => customer_password_reset_path(:id => @user.perishable_token)) do |f| %>
+    <%= render :partial => 'form', :locals => {:f => f} %>
+  <% end %>
+</div>

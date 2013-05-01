@@ -1,0 +1,16 @@
+<div id="shipping-addresses">
+  <div class='row'>
+    <div class='four columns'>
+      <%= render :partial =>  'shopping/tabs' %>
+    </div>
+    <div class='eight large-8 columns'>
+
+      <h1>Edit Address</h1>
+      <div class='row'>
+        <%= form_for(@form_address, :url => shopping_address_path(@form_address), :html => {:class => 'custom'}) do |f| %>
+          <%= render :partial => 'form', :locals => {:f => f} %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

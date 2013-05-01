@@ -1,0 +1,31 @@
+<% content_for :head do -%>
+
+<% end %>
+
+<h1> Signups </h1>
+
+<div id="signup_grid_wrapper" class='pretty_table'>
+  <table>
+    <thead>
+      <tr class='odd'>
+
+          <th  class='column1_header'><%= sortable 'email', 'Email' %></th>
+          <th></th>
+          <th></th>
+      </tr>
+    </thead>
+    <tbody>
+    <% for signup in @signups %>
+      <tr  class='<%= cycle("odd", "")%>'>
+        <td><%= link_to signup.email, [:admin, signup] %></td>
+        <td><%= link_to "edit", edit_admin_signup_path(signup) %></td>
+        <td><%= link_to "delete", [:admin, signup], :data => { :confirm => 'Are you sure?' }, :method => :delete %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>
+
+<%= will_paginate @signups %>
+
+<p><%#= link_to "New Signup", new_admin_signup_path, :class => 'button' %></p>

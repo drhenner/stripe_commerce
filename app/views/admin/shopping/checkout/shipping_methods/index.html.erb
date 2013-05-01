@@ -1,0 +1,37 @@
+<h2>Pick a Shipping Method</h2>
+
+
+  <%= form_tag(admin_shopping_checkout_shipping_method_path(session_admin_order.id), :method => :put) do -%>
+    <% @order_items.group_by(&:ship_category_id).each do |shipping_category_id, items| %>
+      <div class='column float-left last'>
+          <% items.each do |item| %>
+            <div class=' panel shipping_methods_admin_panel clearfix' >
+                <div class='seven large-7 columns'>
+                  <%= image_tag(item.variant.product.featured_image(:mini)) %><br/>
+                  <%= item.variant.product.name %> Quantity: <%= item.quantity %>
+                </div>
+                <div class='five large-5 columns' style='text-align:left;'>
+                  <% item.variant.variant_properties.each do |vp| %>
+                    <label class='five large-5 columns'><%= vp.property.display_name %></label> <div class='seven large-7 columns'> <%= vp.description %></div>
+                  <% end %>
+                </div>
+            </div>
+          <% end %>
+          <ul class=' panel callout'>
+            <% items.first.shipping_rate_options(session_admin_order.sub_total).each do |rate| %>
+              <li>
+                <label for='<%= "shipping_category_#{shipping_category_id}_#{rate.id}" %>' class='long' style='font-size: 16px;color:#222;'>
+                  <%= radio_button_tag "shipping_category[#{shipping_category_id}]", rate.id %>
+                  <%= rate.name_with_rate %>
+                </label>
+                <% if rate.minimum_charge > 0.0 %>
+                  <%= "(Qualified because you have more than #{number_to_currency rate.minimum_charge} of items)" %>
+                <% end %>
+              </li>
+            <% end %>
+          </ul>
+      </div>
+    <% end %>
+
+    <%= submit_tag 'continue', :class => 'button'%>
+  <% end %>

@@ -1,0 +1,59 @@
+<% content_for :head do -%>
+  <%= stylesheet_link_tag 'site/temp_signup_form.css' %>
+<% end %>
+
+<% content_for :bottom do -%>
+  <%= javascript_include_tag 'rotate_images'%>
+  <%= javascript_include_tag 'password_reset'%>
+  <script>
+    Hadean.Welcome.rotateImages.speed = 500000;
+  </script>
+<% end %>
+
+  <div id='key-to-changing'>
+
+  </div>
+  <div id='password_reset_form_wrapper' class='row'>
+    <div class='clearfix  '>
+      <div  id='input-fields' class='seven column'>
+        <div id='mobile-banner' style='display:none;'>
+          <%= image_tag 'landing_page/mobile_banner.png' %>
+        </div>
+        <div id='background-transparent'>
+
+        </div>
+        <div id='background-non-transparent'>
+          <h2>Forget your password?</h2>
+          <div id='please-subscribe' class=' white-text' >
+            Enter your e-mail address, click reset password.  <br/>We will send you an email with instructions to reset your password.
+          </div>
+          <div id='congrats_user' style='display:none;' class=' white-text'>
+             Congrats, you will receive instructions soon!
+          </div>
+          <div style='max-width: 450px; '>
+            <%= form_for  @user,
+                        :url => customer_password_reset_path(@user),
+                        :html => {:class => 'twelve ', :id => 'reset-password'} do |form| %>
+
+               <ul id='signup_form' style='padding-top: 10px;'>
+                  <li class='seven column' style='padding: 0 5px 0 0;'>
+                      <%= form.email_field :email, :autocomplete => 'off', :autocapitalize => 'off', :placeholder => 'Email' %>
+                  </li>
+                  <li class='five ' style='padding: 0;' >
+                    <div class='nofity-button-wrapper' >
+                    <%= link_to "RESET PASSWORD",'#reset_password', :class => 'button small', :id => 'submit-notify' %>
+                    </div>
+                  </li>
+               </ul>
+            <% end %>
+          </div>
+
+        </div>
+      </div>
+      <div id='rore-logo' class='five column' style='padding:0;'>
+        <%#= image_tag 'landing_page/signup.png', :class =>' ', :id => 'main-landing-signup-image' %>
+        <%= image_tag 'landing_page/home300.png', :style =>'display:none;', :id => 'mobile-landing-signup-image' %>
+      </div>
+    </div>
+
+  </div>

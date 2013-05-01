@@ -1,0 +1,8 @@
+<h1> New State </h1>
+
+<%= form_for @state, :url => admin_config_states_path(@state) do |f| %>
+  <%=  render :partial => 'form', :locals => {:f => f} %>
+  <div class="actions"><%= f.submit 'Create' , :class => 'button' %></div>
+<% end %>
+
+<p><%= link_to "Back to List", admin_config_states_path, :class => 'button' %></p>

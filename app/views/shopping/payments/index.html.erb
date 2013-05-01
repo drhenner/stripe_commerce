@@ -1,0 +1,110 @@
+<% content_for :below_body do -%>
+  <%= javascript_include_tag 'validators.js' %>
+  <%= javascript_include_tag 'shopping/checkout.js' %>
+<% end %>
+<%= render :partial => '/shared/preorder_warning_banner' %>
+
+<div id="payment-info">
+  <div class="row">
+    <div class='four columns'>
+      <%= render :partial =>  'shopping/tabs' %>
+    </div>
+    <div class='eight columns'>
+      <%= form_tag( shopping_payments_path,
+                                    :method => :post, :class => 'custom ', :id => 'new_payment') do  %>
+        <div class="top-box background-gray red-border-left">
+
+
+
+          <% unless  payment_profiles.empty? %>
+            <h4 class="margin-0 text-10 bold margin-left-10 padding-left-10 padding-top-10">USE A CREDIT CARD ON FILE</h4>
+          <% end %>
+          <div class='row padding-10'>
+            <% payment_profiles.limit(3).each do |payment_method| %>
+              <div class='four large-4 columns last box'>
+                TYPE: <%= payment_method.cc_type %><br />
+                LAST DIGITS: <%= payment_method.last4 %><br />
+                EX. DATE: <%= payment_method.month %>/<%= payment_method.year %>
+              </div>
+            <% end %>
+            <% (3-payment_profiles.count).times do %>
+              <div class='four large-4 columns last box'></div>
+            <% end %>
+          </div>
+          <div class='row padding-10'>
+            <% payment_profiles.limit(3).each do |payment_method| %>
+              <div class='four large-4 columns last box'>
+                <%= link_to 'Use', select_card_shopping_payment_path(payment_method), :method => 'PUT', :class => "button tiny" %>
+              </div>
+            <% end %>
+            <% (3-payment_profiles.count).times do %>
+              <div class='four large-4 columns last box'></div>
+            <% end %>
+          </div>
+        </div>
+
+        <% if payment_profiles.present? %>
+          <hr/>
+        <% end %>
+        <div class=''>
+          <fieldset>
+            <legend>PAYMENT INFO</legend>
+            <div id='valid-cc'  data-month='<%= (Time.zone.now + 3.months).month %>'
+                      data-year='<%= (Time.zone.now + 3.months).year %>'
+                      data-mindate='<%= (Time.zone.now + 3.months).strftime("%B - %Y") %>'
+                      style='display:none;'></div>
+            <div class='payment-errors' style='display:none;color:#d06050;font-weight:bold;'></div>
+            <div class='row'>
+
+              <div class="field six large-6 column">
+                <%= label_tag 'Number'%> <%= '4242424242424242' if Rails.env != 'production' %>
+                <%= text_field_tag(:number, '' ,:class => ' disableAutoComplete', :autocomplete => "off", name: nil) %>
+                <%= hidden_field_tag('stripe_card_token', nil) %>
+                <%= hidden_field_tag('token_amount', nil) %>
+              </div>
+
+              <div class="field three column">
+                <%= label_tag :verification_value, 'VCC'%>
+                <%= text_field_tag(:verification_value, '' ,:class => 'disableAutoComplete', :autocomplete => "off", name: nil) %>
+              </div>
+
+              <div class="field three column ">
+                <%= label_tag :brand, 'Type'%>
+                <%= select_tag(:brand, options_for_select(['Visa', 'MasterCard', 'Discover', 'American Express'])) %>
+              </div>
+            </div>
+            <div class='row '>
+              <div class="field six large-4 column">
+                <%= label_tag :name %>
+                <%= text_field_tag(:full_name, '') %>
+              </div>
+
+              <div class="field three column">
+                <%= label_tag :month %>
+                <%= select_tag(:month, options_for_select(['01', '02',  '03', '04', '05', '06', '07', '08', '09', '10', '11', '12' ])) %>
+              </div>
+
+              <div class="field three column" style=''>
+                <%= label_tag :year %>
+                <%= select_tag(:year, options_for_select((Time.zone.now.year..(Time.zone.now.year + 12)))) %>
+              </div>
+            </div>
+            <div class='row '>
+              <div class="field twelve column">
+              <label for="save_card">
+                <input type="checkbox" id="save_card" name='save_card' style="">
+                <span class="custom checkbox"></span>
+                Save Card
+              </label>
+              </div>
+            </div>
+            <div class='twelve column top20 bottom20'>
+              <%= submit_tag 'Continue', :class => 'button  cart-submit-button' %>
+            </div>
+          </div>
+          </fieldset>
+        </div>
+      <% end %><%# end of form %>
+    </div>
+  </div>
+</div>

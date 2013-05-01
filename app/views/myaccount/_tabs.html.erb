@@ -1,0 +1,17 @@
+<dl class="vertical tabs"><!-- Tabs - navigation -->
+  <dd class="background-black" style="border-left: 4px solid #000; padding: 15px 20px;">
+  <h3 class="margin-0 white">ACCOUNT DETAILS</h3>
+  </dd>
+  <dd class="<%= 'active' if selected_myaccount_tab('profile') %>">
+    <%= link_to 'PROFILE', myaccount_overview_path %>
+  </dd>
+  <dd class="<%= 'active' if selected_myaccount_tab('address') %>">
+    <%= link_to 'ADDRESSES', myaccount_addresses_path %>
+  </dd>
+  <dd class="<%= 'active' if selected_myaccount_tab('credit_cards') %>">
+    <%= link_to 'CREDIT CARDS', myaccount_credit_cards_path %>
+  </dd>
+  <dd class="<%= 'active' if selected_myaccount_tab('orders') %>">
+    <%= link_to 'ORDERS', myaccount_orders_path %>
+  </dd>
+</dl>

@@ -1,0 +1,43 @@
+<dl class="vertical tabs"><!-- Tabs - navigation -->
+  <dd class="background-black" style="border-left: 4px solid #000; padding: 15px 20px;">
+  <h3 class="margin-0 center-text white">CHECKOUT PROCESS</h3>
+  </dd>
+    <dd class="<%= 'active' if selected_checkout_tab('shipping-address') %>">
+      <% if session_order.ship_address_id %>
+        <%= link_to '1. SHIPPING ADDRESS', shopping_addresses_path %>
+      <% else %>
+        <span>1. SHIPPING ADDRESS</span>
+      <% end %>
+    </dd>
+    <dd class="<%= 'active' if selected_checkout_tab('shipping-method') %>">
+      <% if session_order.ship_address_id %>
+        <%= link_to '2. SHIPPING METHODS', shopping_shipping_methods_path %>
+      <% else %>
+        <span>2. SHIPPING METHODS</span>
+      <% end %>
+    </dd>
+    <dd class="<%= 'active' if selected_checkout_tab('billing-address') %>">
+      <% if session_order.bill_address_id %>
+        <%= link_to '3. BILLING ADDRESS', shopping_billing_addresses_path %>
+      <% else %>
+        <span>3. BILLING ADDRESS</span>
+      <% end %>
+    </dd>
+    <dd class="<%= 'active' if selected_checkout_tab('payment-info') %>">
+      <% if session_order.bill_address_id && session_order.ship_address_id && session_order.all_order_items_have_a_shipping_rate? %>
+        <%= link_to '4. PAYMENT INFO', shopping_payments_path %>
+      <% else %>
+        <span>4. PAYMENT INFO</span>
+      <% end %>
+    </dd>
+    <dd class="<%= 'active' if selected_checkout_tab('order-details') %>">
+      <% if session_order.bill_address_id && session_order.ship_address_id && session_order.payment_profile_id && session_order.all_order_items_have_a_shipping_rate? %>
+        <%= link_to '5. ORDER DETAILS', shopping_orders_path %>
+      <% else %>
+        <span>5. ORDER DETAILS</span>
+      <% end %>
+    </dd>
+    <dd class="<%= 'active' if selected_checkout_tab('confirmation') %>">
+      <span>CONFIRMATION</span>
+    </dd>
+</dl>

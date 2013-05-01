@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= site_name %></title>
+  <link rel="shortcut icon" href="/assets/favicon.ico" />
+
+  <%= stylesheet_link_tag "font-awesome.css" %>
+  <%= stylesheet_link_tag "admin/foundation.css" %>
+  <%= stylesheet_link_tag "admin/normalize.css" %>
+  <%= stylesheet_link_tag "admin/app.css" %>
+  <!--[if lt IE 8]
+    <%= stylesheet_link_tag "admin/ie.css" %>
+  <![endif]-->
+  <%= csrf_meta_tag %>
+
+  <%= javascript_include_tag 'application' %>
+  <%= javascript_include_tag "foundation" %>
+
+  <%= yield :head %>
+
+</head>
+<body class="bp">
+  <div class="container" style='<%= "background: #f6f6ff;" unless Rails.env == "production" %>'>
+    <div class="row">
+      <% if notice || alert %>
+        <div class="flash_messages">
+          <%= raw "<div data-alert class='alert-box warning'> #{notice} <a href='' class='close'>&times;</a>"  if notice %>
+          <%= raw "<div data-alert class='alert-box alert'> #{alert} <a href='' class='close'>&times;</a>"  if alert %>
+        </div>
+      <% end %>
+
+      <%= render :partial => "shared/admin/header_bar" %>
+
+      <% if content_for? :header_sub_bar %>
+        <div id='header_sub_bar'>
+          <%= yield :header_sub_bar %>
+        </div>
+      <% end %>
+
+      <% if content_for?(:sidemenu) %>
+        <div class='row'>
+          <div class="admin_main_content nine large-9 columns">
+            <%= yield %>
+          </div>
+          <div class="three large-3 columns sidebar" >
+            <%= yield :sidemenu %>
+          </div>
+        </div>
+      <% else %>
+        <div class='admin_main_content'>
+          <%= yield %>
+        </div>
+      <% end %>
+    </div>
+    <div class="footer">
+      <p class="left"><%= site_name %></p>
+      <p class="right">Powered by <%= link_to "RoR eCommerce", "http://ror-e.com" %>. v<%= RoReCommerce::Version %></p>
+    </div>
+  </div>
+
+  <%= yield :bottom %>
+
+  <script>
+  jQuery(window).ready(
+    function() {
+      jQuery('.flash_notice').delay(6000).slideUp( 'slow');
+      jQuery('.flash_error').delay(6000).slideUp( 'slow');
+    }
+  );
+  </script>
+
+</body>
+  <%= yield :below_body %>
+</html>

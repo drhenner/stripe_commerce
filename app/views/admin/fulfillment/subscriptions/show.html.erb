@@ -1,0 +1,46 @@
+<h1> Subscription </h1>
+
+<ul class='vertical-list long slight-underline eight large-8' style='color:<%= "red" unless @subscription.is_active? %>;'>
+  <li>
+    <label class='long' style='color:<%= "red" unless @subscription.is_active? %>;'>Subscription Plan:</label>
+    <%= @subscription.subscription_plan_name %>
+  </li>
+  <li>
+    <label>User:</label>
+    <%= link_to @subscription.user.name, admin_user_path(@subscription.user) %>
+  </li>
+  <li>
+    <label>Item:</label>
+    <%= link_to @subscription.order_item.variant.product_name,
+                admin_fulfillment_order_path(@subscription.order_item.order) %>
+  </li>
+  <li>
+    <label>Next Bill Date:</label>
+    <%= @subscription.next_bill_date.to_s %>
+  </li>
+  <li>
+    <label>Failed Attempts:</label>
+    <%= @subscription.failed_attempts %>
+  </li>
+  <li>
+    <label>Active:</label>
+    <%= @subscription.is_active? ? "Yes" : "No" %>
+  </li>
+  <li>
+    <label>Remaining Payments:</label>
+    <%= @subscription.remaining_payments %>
+  </li>
+  <li>
+    <label>Shipping Address:</label>
+    <div>
+      <%= render  :partial => '/shared/compact_address',
+                  :locals  => {:shopping_address => @subscription.shipping_address} if  @subscription.shipping_address %>
+    </div>
+  </li>
+</ul>
+<p>
+  <% unless @subscription.canceled %>
+  <%= link_to "Cancel", [:admin, :fulfillment, @subscription], :data => { :confirm => 'Are you sure?' }, :method => :delete, :class => 'button' %> |
+  <% end %>
+  <%= link_to "#{@subscription.user.name.possessive} Subscriptions", admin_fulfillment_subscriptions_path(:email => @subscription.user.email ), :class => 'button' %>
+</p>

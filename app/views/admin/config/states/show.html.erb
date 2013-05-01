@@ -1,0 +1,32 @@
+<h1> State </h1>
+
+<ul>
+  <li>
+    <label>Name:</label>
+    <%= @state.name %>
+  </li>
+  <li>
+    <label>Abbreviation:</label>
+    <%= @state.abbreviation %>
+  </li>
+  <li>
+    <label>Described As:</label>
+    <%= @state.described_as %>
+  </li>
+  <li>
+    <label>Country:</label>
+    <%= @state.country.try(:name) %>
+  </li>
+  <li>
+    <label>Shipping Zone:</label>
+    <%= @state.shipping_zone.try(:name)%>
+  </li>
+</ul>
+<p>
+  <% if @state.active %>
+    <%= link_to "InActivate", [:admin, :config, @state], :data => { :confirm => 'Are you sure?' }, :method => :delete, :class => 'button alert' %>
+  <% else %>
+    <%= link_to "Activate", admin_config_state_path(@state), :method => 'PUT', :class => 'success button' %>
+  <% end %> |
+  <%= link_to "View All", admin_config_states_path, :class => 'button' %>
+</p>

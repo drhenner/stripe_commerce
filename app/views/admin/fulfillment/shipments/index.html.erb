@@ -1,0 +1,71 @@
+<% content_for :sidemenu do %>
+
+  <div class='admin_filters'>
+    <%= form_tag admin_fulfillment_shipments_path, :method => 'get', :id => "invoices_search" do %>
+      <label>Order #</label>
+      <%= text_field_tag :order_number, params[:order_number] %>
+      <label>Email</label>
+      <%= text_field_tag :email, params[:email] %>
+
+      <div style="text-align:center; margin-top: 15px">
+        <%= submit_tag "Search", :name => nil, :class => 'button red-button' %>
+      </div>
+      </p>
+      <div id="order_hidden">
+        <%= hidden_field_tag :direction, params[:direction] %>
+        <%= hidden_field_tag :sort, params[:sort] %>
+      </div>
+    <% end %>
+    <div class='clearfix'></div>
+  </div>
+<% end %>
+
+
+
+<% if @order %>
+  <h3>Shipments for Order # <%= @order.number %></h3>
+<% else %>
+  <h3>Shipments</h3>
+<% end %>
+
+<table style='width:770px;font-size: 15px;'>
+  <thead>
+  <tr class='odd'>
+    <th class='column1_header'>Ship #</th>
+    <th>Order #</th>
+    <th>Shipped at</th>
+    <th>Tracking</th>
+    <th>Status</th>
+    <th>Items</th>
+    <th></th>
+    <th></th>
+  </tr>
+  </thead>
+
+<% @shipments.each do |shipment| %>
+  <% if shipment.has_items? %>
+      <tr class='<%= cycle("odd", "")%>'>
+        <td><%= link_to shipment.number, admin_fulfillment_shipment_path(shipment) %></td>
+        <td><%= link_to shipment.order.number, edit_admin_fulfillment_order_path(shipment.order) %></td>
+        <td><%= I18n.localize(shipment.shipped_at, :format => :us_time) if shipment.shipped_at %></td>
+        <td><%= shipment.tracking %></td>
+        <td><%= shipment.state %></td>
+        <td style='font-size:10px;'>
+          <%= raw shipment.order_items.collect {|item| item.variant.product_name }.join('<br/>')  %>
+        </td>
+        <td><%= link_to  edit_admin_fulfillment_shipment_path(shipment) do %>
+          <i data-tooltip class="icon-edit" title='Edit Shipment'></i>
+          <% end %>
+        </td>
+        <td>
+          <% unless shipment.shipped? %>
+            <%= button_to 'Mark Shipped',
+                          ship_admin_fulfillment_shipment_path(shipment, :order_id => shipment.order.number),
+                          :confirm => "Are you sure?",
+                          :method => :put %>
+          <% end %>
+        </td>
+      </tr>
+  <% end %>
+<% end %>
+</table>

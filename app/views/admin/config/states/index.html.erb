@@ -1,0 +1,42 @@
+<% content_for :head do -%>
+
+<% end %>
+
+<h1> States </h1>
+
+<div id="state_grid_wrapper" class='pretty_table'>
+  <table>
+    <thead>
+      <tr class='odd'>
+
+          <th  class='column1_header'><%= sortable 'name', 'Name' %></th>
+          <th>Abbreviation</th>
+          <th>Described As</th>
+          <th>Country</th>
+          <th>Shipping Zone</th>
+          <th></th>
+      </tr>
+    </thead>
+    <tbody>
+    <% for state in @states %>
+      <tr  class='<%= cycle("odd", "")%>'>
+
+          <td><%= link_to state.name, [:admin, :config, state] %></td>
+          <td><%= state.abbreviation %></td>
+          <td><%= state.described_as %></td>
+          <td><%= state.country.try(:name) %></td>
+          <td><%= state.shipping_zone.try(:name) %></td>
+          <% if state.active %>
+            <td><%= link_to "inactivate", [:admin, :config, state], :data => { :confirm => 'Are you sure?' }, :method => :delete %></td>
+          <% else %>
+            <td><%= link_to "activate", admin_config_state_path(state), :method => 'PUT' %></td>
+          <% end %>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>
+
+<%= will_paginate @states %>
+
+<p><%#= link_to "New State", new_admin_config_state_path, :class => 'button' %></p>

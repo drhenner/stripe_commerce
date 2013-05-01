@@ -1,0 +1,11 @@
+<h1> Edit Signup </h1>
+
+<%= form_for @signup, :url => [:admin, @signup] do |f| %>
+  <%=  render :partial => 'form', :locals => {:f => f} %>
+  <div class="actions"><%= f.submit 'Update' , :class => 'button' %></div>
+<% end %>
+
+<p>
+  <%= link_to "Show", [:admin, @signup], :class => 'button' %> |
+  <%= link_to "View All", admin_signups_path, :class => 'button' %>
+</p>

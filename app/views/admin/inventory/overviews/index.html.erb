@@ -1,0 +1,41 @@
+<h3>Product Overview</h3>
+
+<div class="admin_inventory_overviews">
+  <% @products.each do |product| %>
+    <table>
+      <thead>
+        <tr  class='odd'>
+          <th colspan='3' class='column1_header' >
+            <%= product.name %></th>
+          <th>
+          <%= link_to 'edit product', edit_admin_merchandise_product_path(product), :class => 'button tiny', :style => 'margin:0;' %>
+          <%= link_to 'change inventory', admin_inventory_adjustment_path(product), :class => 'button tiny', :style => 'margin:0;' %>
+          </th>
+        </tr>
+        <tr>
+          <th style='width:180px;'>SKU</th>
+          <th style='width:100px;'>price</th>
+          <th style='width:100px;'>Qty</th>
+          <th>description</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% product.variants.each do |variant|%>
+          <tr class='<%= cycle("odd", "")%>'>
+            <td><%= variant.sku %></td>
+            <td><%= number_to_currency variant.price %></td>
+            <td><%= variant.count_on_hand %></td>
+            <td>
+              <% variant.variant_properties.each do |vp| %>
+                <%= vp.property_name %>: <%= vp.description %> <br/>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% end %>
+</div>
+
+<%= will_paginate @products %>

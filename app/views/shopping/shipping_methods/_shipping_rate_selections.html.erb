@@ -1,0 +1,21 @@
+<div class="top-box background-gray red-border-left">
+  <h4 class="margin-0 text-10 bold margin-left-10 padding-left-10 padding-top-10">SELECT A SHIPPING METHOD</h4>
+
+  <div class="row padding-10">
+    <ul class='vertical-list padding-left-30'>
+    <% items.first.shipping_rate_options(session_order.sub_total).each do |rate| %>
+      <li class='row'>
+        <label for='<%= "shipping_category_#{shipping_category_id}_#{rate.id}" %>'  style='color:#000' class='five large-5 column'>
+          <%= radio_button_tag "shipping_category[#{shipping_category_id}]", rate.id %>
+          <%= rate.name_with_rate %>
+        </label>
+        <% if rate.minimum_charge > 0.0 %>
+          <span  style='color:#333' class='seven large-7 column'>
+            (Qualified because you have more than <%= "#{number_to_currency rate.minimum_charge}" %> of items)
+          </span>
+        <% end %>
+      </li>
+    <% end %>
+    </ul>
+  </div>
+</div>

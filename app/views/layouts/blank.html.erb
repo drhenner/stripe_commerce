@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="<%= I18n.t(:company_description) %>">
+
+    <title>
+      <%= site_name %> <%= yield :title %>
+    </title>
+    <link rel="shortcut icon" href="/assets/favicon.ico" />
+
+    <%= csrf_meta_tag %>
+    <%= yield :head %>
+
+  </head>
+  <body >
+
+    <%= yield %>
+
+    <%= yield :bottom %>
+
+  </body>
+  <%= render 'shared/google_analytics' unless @disable_ga %>
+
+  <%= yield :below_body %>
+</html>

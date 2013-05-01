@@ -1,0 +1,24 @@
+
+  <%= f.error_messages %>
+<ul>
+  <li class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </li>
+  <li class="field">
+    <%= f.label :abbreviation %>
+    <%= f.text_field :abbreviation %>
+  </li>
+  <li class="field">
+    <%= f.label :described_as %>
+    <%= f.text_field :described_as %>
+  </li>
+  <li class="field">
+    <%= f.label :country_id %>
+    <%= f.select :country_id, countries %>
+  </li>
+  <li class="field">
+    <%= f.label :shipping_zone_id %>
+    <%= f.select :shipping_zone_id, shipping_zones %>
+  </li>
+</ul>

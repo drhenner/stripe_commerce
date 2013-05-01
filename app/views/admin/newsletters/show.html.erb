@@ -1,0 +1,21 @@
+<h1> Newsletter </h1>
+
+<%= customer.name %>
+<ul>
+  <li>
+    <label>Name:</label>
+    <%= @newsletter.name %>
+  </li>
+  <li>
+    <label>Autosubscribe:</label>
+    <%= @newsletter.autosubscribe %>
+  </li>
+  <li>
+    <label>Subscribed ?:</label>
+    <%= customer.newsletters.map(&:id).include?(@newsletter.id) %>
+  </li>
+</ul>
+<p>
+  <%= link_to "Change Preferences", edit_admin_user_newsletter_path(customer, 'preferences'), :class => 'button' %> |
+  <%= link_to "View All", admin_user_newsletters_path(customer), :class => 'button' %>
+</p>

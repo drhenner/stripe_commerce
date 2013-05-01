@@ -1,0 +1,8 @@
+<h1> New Newsletter </h1>
+
+<%= form_for @newsletter, :url => admin_document_newsletters_path(@newsletter) do |f| %>
+  <%=  render :partial => 'form', :locals => {:f => f} %>
+  <div class="actions"><%= f.submit 'Create' , :class => 'button alert' %></div>
+<% end %>
+
+<p><%= link_to "Back to List", admin_document_newsletters_path, :class => 'button' %></p>

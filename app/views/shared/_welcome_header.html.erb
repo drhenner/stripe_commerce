@@ -1,0 +1,144 @@
+<div class="">
+  <nav class="top-bar">
+    <ul>
+      <!-- Title Area -->
+      <li class="name">
+        <h1>
+          <%= link_to  root_path do %>
+            <%= image_tag 'header/banner.png', :alt => '', :style => 'width: 125px;' %>
+          <% end %>
+        </h1>
+      </li>
+      <li class="toggle-topbar"><a href="#"></a></li>
+    </ul>
+
+    <section>
+      <!-- Left Nav Section -->
+      <ul class="left">
+        <% if Settings.allow_orders %>
+          <li class="divider"></li>
+          <li class="has-dropdown">
+            <%= link_to 'Products', products_path, :class => 'active' %>
+            <ul class="dropdown">
+              <% product_types.each do |pt_tab| %>
+                <li> <%= link_to_unless_current pt_tab.name.capitalize, products_path(:product_type_id => pt_tab.id) %> </li>
+              <% end %>
+              <li class="divider"></li>
+              <li>
+                <%= link_to 'All Products', products_path %>
+              </li>
+            </ul>
+          </li>
+          <li class="divider hide-for-small"></li>
+        <% end %>
+      </ul>
+
+      <!-- Right Nav Section -->
+      <ul class="right">
+        <% unless Settings.in_signup_period %>
+          <li class="divider show-for-large"></li>
+          <li>
+            <%= link_to 'Home', root_path %>
+          </li>
+          <% if display_preorder_button? %>
+          <li class="divider show-for-large"></li>
+          <li>
+            <%= link_to preorders_path, :method => 'post' do %>
+              <span style="font-weight: bold;padding: 7px 14px 6px;" class='button small'>
+                <% if Settings.allow_orders %>
+                  ORDER
+                <% else %>
+                  PRE-ORDER
+                <% end %>
+              </span>
+            <% end %>
+          </li>
+          <% end %>
+        <% end %>
+        <li class="divider show-for-medium-and-up"></li>
+        <li>
+          <%= link_to I18n.t(:facebook_url), :style => 'padding: 0 5px;', :target => '_blank' do %>
+            <i class="foundicon-facebook"></i>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to I18n.t(:twitter_url), :style => 'padding: 0 5px;', :target => '_blank' do %>
+            <i class="foundicon-twitter"></i>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to I18n.t(:instagram_url), :style => 'padding: 0 5px;', :target => '_blank' do %>
+            <i class="foundicon-instagram"></i>
+          <% end %>
+        </li>
+        <% if I18n.t(:google_plus_url).present? && I18n.t(:google_plus_url).length > 4 %>
+          <li>
+            <%= link_to I18n.t(:google_plus_url), :style => 'padding: 0 5px;', :target => '_blank' do %>
+              <i class="foundicon-google-plus"></i>
+            <% end %>
+          </li>
+        <% end %>
+        <% if I18n.t(:youtube_url).present? && I18n.t(:youtube_url).length > 4 %>
+          <li>
+            <%= link_to I18n.t(:youtube_url), :style => 'padding: 0 5px;', :target => '_blank' do %>
+              <i class="foundicon-youtube"></i>
+            <% end %>
+          </li>
+        <% end %>
+        <% unless Settings.in_signup_period %>
+          <li class="divider show-for-medium-and-up"></li>
+          <li>
+            <%= link_to I18n.t(:desk_dot_com_url), :style => 'padding: 0 5px;', :target => '_blank' do %>
+              <i class="icon-question-sign"></i>
+            <% end %>
+          </li>
+        <% end %>
+        <% if Settings.allow_orders && session_cart.shopping_cart_items.size > 0 %>
+        <li class="divider show-for-medium-and-up"></li>
+          <li>
+            <%= link_to shopping_cart_items_path,  :style => 'color: #f2362f;' do %>
+              <i class="icon-shopping-cart" style="color: #fff;"></i> <%= session_cart.shopping_cart_items.size %>
+            <% end %>
+          </li>
+        <% end %>
+        <li class="divider show-for-medium-and-up"></li>
+        <li class="has-dropdown">
+          <% unless current_user %>
+            <li><%= link_to 'Log In',  login_path %></li>
+          <% else %>
+            <a href="#">Your Account</a>
+          <% end %>
+          <% if current_user %>
+            <ul class="dropdown">
+              <% if current_user.admin? %>
+                <li><%= link_to 'Admin', admin_users_path %></li>
+              <% end %>
+              <li class="divider"></li>
+              <li>
+                <%= link_to myaccount_overview_path do %>
+                  Account
+                <% end %>
+              </li>
+              <li><%= link_to 'Orders', myaccount_orders_path %></li>
+              <li><%= link_to 'Addresses', myaccount_addresses_path %></li>
+              <li><%= link_to 'Credit Cards', myaccount_credit_cards_path %></li>
+              <li class="divider"></li>
+              <li><%= link_to 'Log Out', logout_path %></li>
+            </ul>
+          <% end %>
+        </li>
+      </ul>
+    </section>
+  </nav>
+</div>
+
+<div class="top-grey-bar"></div>
+
+<div data-alert class='alert-box alert browser' style="display:none">
+
+  <a href='#' class='close'>&times;</a>
+</div>
+<div id="myIEUpgradeModal" style="display:none;">
+  <h2>Please Upgrade.</h2>
+  <p >Your browser needs to be upgraded. Try <a href='https://www.google.com/intl/en/chrome/browser/' style="color:#000;">Chrome</a> or <a href='http://www.mozilla.org/en-US/firefox/new/' style="color:#000;">Firefox</a>.</p>
+</div>

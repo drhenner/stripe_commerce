@@ -1,0 +1,139 @@
+<% content_for :head do -%>
+<% end %>
+
+<% content_for :bottom do -%>
+<% end %>
+
+<div id="preorder-landing-wrapper"><!-- Begin Main Wrapper -->
+
+  <!-- Region 5 Wrap -->
+  <div class="container region5wrap bottom20">
+    <div class="maincontent ">
+      <div class="preorder-banner">
+
+        <%= link_to preorders_path, :method => 'post' do %>
+          <%= image_tag 'preorder/HomeBanner.jpg', :width => '1000' %>
+          <h4 class="four"><b>Dave </b>Creator</h4>
+          <p class="offset-by-six columns"><em>E</em>commerce <em>T</em>hat <em>S</em>cales</p>
+
+          <h1 class="five columns"><%= image_tag 'header/banner.png', :width => '352', :alt => site_name %></h1>
+          <blockquote class="four offset-by-eight">"You don't have to pre-order.<br/>but... Why wouldn't you?"<cite>David Henner</cite></blockquote>
+          <span  class="text-center three">Pre-order now</span>
+        <% end %>
+
+        <h2 class="column text-center top10 ">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. <sup>TM</sup></h2>
+        <div class="twelve columns"><hr class="top10"/></div>
+      </div>
+
+      <!--video start-->
+      <div class="video-box top10 twelve columns">
+        <h3><b><%= company_name %> SNEAK PEEK</b></h3>
+
+        <div class="row">
+          <div class="nine columns">
+            <div class="flex-video widescreen">
+              <iframe width="640"
+                height="360"
+                src="https://www.youtube.com/embed/Q9pkIAb3MRU"
+                frameborder="0" allowfullscreen="">
+              </iframe>
+            </div>
+          </div>
+
+          <div class="three columns">
+            <h4>Lorem ipsum dolor sit amet, consectetur adipisicing elit <br /><br />sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. <br /><br /><b>Time to Shop!</b></h4>
+          </div>
+
+        </div>
+        <br />
+        <br />
+      </div>
+      <!--video end-->
+      <div class="twelve columns">
+        <hr class="top10"/>
+        <div class="row preorder promotion">
+          <div class="six columns">
+            <%= image_tag 'preorder/PreOrder_package.png'%>
+          </div>
+          <div class="six columns">
+            <h2>The product</h2>
+            <ul class="square">
+              <li>12 Lorem ipsum dolor</li>
+              <li>10-Lorem ipsum dolor</li>
+              <li>132-page Lorem ipsum dolor<span>consectetur adipisicing elit</span></li>
+            </ul>
+            <%= link_to 'PRE-ORDER NOW', preorders_path, :class => 'button seven columns centered', :method => 'post' %>
+          </div>
+
+        </div>
+        <hr class="top10"/>
+      </div>
+
+      <!--success stories 3 start-->
+
+      <!--success stories 3 end -->
+
+      <div class="twelve columns text-center">
+        <h3 class="bottom20 ordinary">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut <br /> aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </h3>
+        <hr />
+      </div>
+
+
+
+      <div class="twelve columns preorder-package">
+        <%= link_to preorders_path, :method => 'post' do %>
+          <%= image_tag 'preorder/PreOrder_package.png', :width => "1000", :height => "476" %>
+          <span class="four columns">Pre-order now</span>
+        <% end %>
+      </div>
+
+      <!-- Portfolio Item Description -->
+      <div class="twelve columns preorder">
+        <div class="row">
+          <div class="six columns">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<sup>TM</sup></p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            </p>
+          </div>
+          <div class="six columns lifestyle-program">
+            <h2>The product</h2>
+            <ul class="square">
+              <li>12 Lorem ipsum dolor</li>
+              <li>10-Lorem ipsum dolor</li>
+              <li>132-page Lorem ipsum dolor<span>consectetur adipisicing elit</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <!-- End Portfolio Item Description -->
+
+      <!-- Portfolio Item - Similar Works -->
+      <div class="twelve columns">
+        <hr class="top10 bottom20"/>
+      </div>
+
+      <div class="twelve columns dolce-lifestyle">
+        <div class="row">
+          <div class="eight columns">
+            <h2>Meet your creator</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.<br/><strong>sunt in culpa qui officia deserunt mollit anim id est laborum.</strong></p>
+            <h4>Brownie<span>Creator</span></h4>
+          </div>
+
+          <div class="four mobile-three columns">
+            <%= image_tag 'preorder/brownie.png', :width => '370', :height => '232', :class => 'coach' %>
+          </div>
+            <%= image_tag 'preorder/btm_lines.png', :width => '1000', :class => 'bottom-line' %>
+        </div>
+        </div>
+
+      <!-- End Portfolio Item - Similar Works -->
+    </div>
+
+    <!-- Back To Top -->
+    <a href="#" class="scrollup">Scroll</a>
+    <!-- End Back To Top -->
+
+  </div><!-- End Region 5 Wrap -->
+</div><!-- End Main Wrapper -->

@@ -1,0 +1,22 @@
+#login-wrapper {
+  h4, h5 {text-transform:uppercase;}
+  .statement {
+    font-size: 12px;
+    color: #909090;
+    cursor: pointer;
+    display: block;
+    font-weight: 500;
+    margin-bottom: 8px;
+    text-transform:uppercase;
+  }
+  .please-agree {
+    text-transform:uppercase;
+  }
+}
+
+@media only screen and (min-width: 1023px) {
+  #login-wrapper {
+    #login {padding-left: 0;}
+    #signup {padding-right: 0;}
+  }
+}

@@ -1,0 +1,8 @@
+<h3> New Subscription Plan </h3>
+
+<%= form_for @subscription_plan, :url => admin_config_subscription_plans_path(@subscription_plan) do |f| %>
+  <%=  render :partial => 'form', :locals => {:f => f} %>
+  <div class="actions"><%= f.submit 'Create' , :class => 'button' %></div>
+<% end %>
+
+<p><%= link_to "Back to List", admin_config_subscription_plans_path, :class => 'button' %></p>

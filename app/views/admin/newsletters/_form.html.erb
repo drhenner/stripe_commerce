@@ -1,0 +1,11 @@
+
+  <%= f.error_messages %>
+<ul>
+  <% newsletters.each do |newsletter| %>
+    <li class="property_form left span-9 last">
+      <% checked = customer.newsletters.map(&:id).include?(newsletter.id) %>
+      <%= check_box_tag "user[newsletter_ids][]", newsletter.id, checked %>
+      <%= newsletter.name %>
+    </li>
+  <% end %>
+</ul>

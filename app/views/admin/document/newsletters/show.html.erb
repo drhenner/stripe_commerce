@@ -1,0 +1,21 @@
+<h1> Newsletter </h1>
+
+<ul>
+  <li>
+    <label>Name:</label>
+    <%= @newsletter.name %>
+  </li>
+  <li>
+    <label>Mail Chimp List ID:</label>
+    <%= @newsletter.mailchimp_list_id %>
+  </li>
+  <li>
+    <label>Autosubscribe:</label>
+    <%= @newsletter.autosubscribe %>
+  </li>
+</ul>
+<p>
+  <%= link_to "Edit", edit_admin_document_newsletter_path(@newsletter), :class => 'button' %> |
+  <%= link_to "Destroy", [:admin, :document, @newsletter], :data => { :confirm => 'Are you sure?' }, :method => :delete, :class => 'button' %> |
+  <%= link_to "View All", admin_document_newsletters_path, :class => 'button' %>
+</p>

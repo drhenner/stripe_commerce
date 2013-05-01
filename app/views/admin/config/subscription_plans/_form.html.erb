@@ -1,0 +1,24 @@
+
+  <%= f.error_messages %>
+<ul>
+  <li class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </li>
+  <li class="field">
+    <%= f.label :stripe_id %>
+    <%= f.text_field :stripe_id %>
+  </li>
+  <li class="field">
+    <%= f.label :amount %>
+    <%= f.number_field :amount %>
+  </li>
+  <li class="field">
+    <%= f.label :total_payments %>
+    <%= f.number_field :total_payments %>
+  </li>
+  <li class="field">
+    <%= f.label :interval %>
+    <%= f.select :interval, SubscriptionPlan::PLANS %>
+  </li>
+</ul>

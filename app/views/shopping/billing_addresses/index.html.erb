@@ -1,0 +1,46 @@
+<%= render :partial => '/shared/preorder_warning_banner' %>
+<div id="billing-addresses">
+  <div class="row">
+    <div class='four columns'>
+      <%= render :partial =>  'shopping/tabs' %>
+    </div>
+    <div class='eight columns'>
+      <div class="top-box background-gray red-border-left">
+        <% unless  @shopping_addresses.empty? %>
+          <h4 class="margin-0 text-10 bold margin-left-10 padding-left-10 padding-top-10">SELECT A BILLING ADDRESS</h4>
+        <% end %>
+
+        <div id='shopping_addresses_selections' class='row padding-10'>
+          <% @shopping_addresses.limit(3).each do |shopping_address| %>
+            <div class='four large-4 columns last box'>
+              <%= render :partial => '/shared/compact_address', :locals => {:shopping_address => shopping_address} %>
+            </div>
+          <% end %>
+          <% (3-@shopping_addresses.count).times do %>
+            <div class='four large-4 columns last box'></div>
+          <% end %>
+        </div>
+        <div class="row padding-left-10">
+          <% @shopping_addresses.limit(3).each do |shopping_address| %>
+            <div class='four large-4 columns last box' style='margin-bottom:10px;'>
+              <%= link_to 'Use', select_address_shopping_billing_address_path(shopping_address), :class => 'button tiny', :method => :put %> &nbsp; &nbsp;
+              <%= link_to 'Edit', edit_shopping_billing_address_path(shopping_address), :class => 'button tiny' %>
+            </div>
+          <% end %>
+          <% (3-@shopping_addresses.count).times do %>
+            <div class='four large-4 columns last box'></div>
+          <% end %>
+
+        </div>
+      </div>
+      <hr style='color:#aac;'/>
+
+      <%= form_for @form_address, :url => shopping_billing_addresses_path, :html => {:class => 'custom'} do |address_form| %>
+        <fieldset>
+          <legend>NEW BILLING ADDRESS</legend>
+          <%= render :partial =>  'form', :locals => {:f => address_form}  %>
+        </fieldset>
+      <% end %>
+    </div>
+  </div>
+</div>

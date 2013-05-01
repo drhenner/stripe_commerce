@@ -1,0 +1,39 @@
+<%
+loop_footer_tabs = {
+  'About'         => about_path,
+  'Home'                  => root_path,
+  'Privacy Policy'        => privacy_policy_path,
+  #'Exchanges and Returns' => shipping_returns_path,
+  'Terms & Conditions'    => terms_path,
+  'FAQs'                  => faqs_path,
+  'Contact Us'           =>  contact_us_url
+  #'Customer Service'    => faq_customer_service_path
+}
+%>
+<div class='footer-buffer-wrapper'>
+  <div class='footer-buffer twelve large-12'>
+    &nbsp;
+  </div>
+</div>
+<div id="footer_wrapper" >
+  <div class='background_wrapper'>
+    <div class='row inner-footer_wrapper'>
+      <div class="four large-4 columns">
+        <ul  class='inline-list'>
+          <li class="copyright">&copy; <%= Time.zone.now.year %> <%= company_name %>. ALL RIGHTS RESERVED.</li>
+        </ul>
+      </div>
+      <div  class='eight large-8 columns'>
+        <ul id='main-footer-tabs' class='inline-list'>
+          <% if !Settings.in_signup_period || !in_production? %>
+            <% loop_footer_tabs.each_pair do |tab_name, tab_path| %>
+              <li><span> <%= link_to_unless_current tab_name, tab_path %> </span></li>
+            <% end %>
+          <% else %>
+            <li> &nbsp; </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

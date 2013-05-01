@@ -1,0 +1,423 @@
+#proof-wrapper {
+   .nine {
+    position: relative;
+   }
+  .fighters {
+    position: absolute;
+    width: auto;
+    display: block;
+  }
+  .about {
+    background-color: #e6e5e5;
+    padding: 15px 15px 25px;
+    img {
+      display: block;
+      margin: 0 auto;
+    }
+  }
+  cite,
+  cite span,
+  blockquote {
+    color: #666;
+    font-family: Times New Roman, Georgia, serif;
+  }
+  cite,
+  blockquote {
+    font-size: 27px;
+    font-style: italic;
+  }
+  blockquote {
+    border-left: none;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 12px;
+    margin-top: 39px;
+  }
+  cite {
+    display: block;
+    text-align: left;
+    padding-left: 25px;
+    span {
+      font-size: 14px;
+      display: block;
+      margin-top: -4px;
+    }
+  }
+  p {
+    color: #5d5d5d;
+    font-size: 17px;
+    line-height: 1.5;
+    margin-bottom: 24px;
+    text-align: right;
+  }
+}
+
+@media only screen and (min-width: 960px) {
+  #proof-wrapper {
+    .section-top,
+    .section-middle,
+    .section-bottom {
+      height: 740px;
+    }
+    .nine {
+      margin-left: 30%;
+      width: 573px;
+    }
+    .fighters {
+      top: 15px;
+    }
+    .section-top {
+      .fighters {
+        left: 15%;
+      }
+    }
+
+    .section-bottom {
+      .fighters {
+        left: 10.5%;
+      }
+    }
+    .section-middle {
+      .nine {
+        margin-left: 16%;
+        width: 620px;
+      }
+      .fighters {
+        right: 9%;
+      }
+      blockquote {
+        padding-right: 90px;
+        padding-left: 40px;
+      }
+      .about {
+        padding-left: 15px;
+        padding-right: 15px;
+      }
+      p {
+        padding-right: 100px;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 767px) {
+  #proof-wrapper {
+    .section-top {
+      cite {
+        display: inline;
+        padding-left: 0;
+        span {
+          text-align: center;
+          padding-left: 0;
+        }
+      }
+    }
+    cite {
+      span {
+        padding-left: 100px;
+      }
+    }
+  }
+}
+
+
+@media only screen and (min-width: 767px) and (max-width: 959px) {
+  #proof-wrapper {
+    .section-top,
+    .section-middle,
+    .section-bottom {
+      height: 720px;
+    }
+    .nine {
+      margin-left: 22%;
+      width: 573px;
+    }
+    .fighters {
+      top: 30px;
+      position: absolute;
+      height: 680px;
+    }
+    .section-middle {
+      .nine {
+        margin-left: 3%;
+        width: 620px;
+      }
+      .about {padding-right: 25px;}
+      .fighters {
+        right: 3%;
+        height: 680px;
+      }
+      p {
+        padding-right: 100px;
+      }
+      blockquote {
+        padding-left: 35px;
+        padding-right: 65px;
+      }
+    }
+    .section-top {
+      .fighters {
+        left: 5%;
+      }
+    }
+    .section-bottom {
+      .fighters {
+        left: 1%;
+        height: 650px;
+      }
+      p {
+        padding-left: 20px;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 879px) and (max-width: 959px) {
+  #proof-wrapper {
+    .section-middle {
+      .nine {
+        margin-left: 5%;
+        width: 620px;
+      }
+      .fighters {
+        right: 6%;
+        height: 660px;
+      }
+      blockquote {
+        padding-left: 35px;
+        padding-right: 85px;
+      }
+    }
+  }
+}
+
+
+@media only screen and (min-width: 921px) and (max-width: 959px) {
+  #proof-wrapper {
+    .section-middle {
+      .nine {
+        margin-left: 15%;
+        width: 620px;
+      }
+      .fighters {
+        right: 9%;
+        height: 680px;
+      }
+      blockquote {
+        padding-left: 35px;
+        padding-right: 85px;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 767px) {
+  #proof-wrapper {
+    .about,
+    blockquote {
+      padding-left: 50px;
+      padding-right: 25px;
+    }
+  }
+}
+
+@media only screen and (min-width: 640px) and (max-width: 767px) {
+  #proof-wrapper {
+    .section-top,
+    .section-middle,
+    .section-bottom {
+      height: 650px;
+      blockquote {
+        padding-right: 15px;
+        padding-left: 230px;
+      }
+    }
+    .nine {
+      margin-left: 0;
+    }
+    .fighters {
+      top: 25px;
+      height: 615px;
+    }
+    cite,
+    blockquote {
+      font-size: 22px;
+    }
+    cite {
+      display: block;
+      text-align: center;
+    }
+    .about {
+      float: right;
+      padding-left: 8%;
+      padding-bottom: 25px;
+      padding-right: 15px;
+      width: 79%;
+    }
+    p {
+      font-size: 15px;
+    }
+    .section-top {
+      .fighters {
+        left: 15px;
+      }
+    }
+    .section-middle {
+      .nine {
+        margin-left: 0;
+      }
+      .fighters {
+        right: 15px;
+      }
+      .about {
+        float: left;
+        padding-right: 15px;
+        padding-bottom: 25px;
+        padding-left: 15px;
+        width: 79%;
+      }
+      blockquote {
+        padding-left: 15px;
+        padding-right: 230px;
+      }
+      p {
+        padding-right: 65px;
+        padding-left: 15px;
+        text-align:left;
+      }
+    }
+    .section-bottom {
+      .fighters {
+        left: 15px;
+        height: 600px;
+      }
+      p {
+        padding-left: 25px;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 640px) and (max-width: 690px) {
+  #proof-wrapper {
+    .about {
+      img {
+        float: right;
+        margin: 0;
+      }
+    }
+    .section-middle {
+      .about {
+        img {
+          float: left;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 639px) {
+  #proof-wrapper {
+    .section-top {
+      height: auto;
+      blockquote {
+        background: image-url('pages/tiago.png') no-repeat 0 0;
+        background-size: 30% auto;
+      }
+    }
+    .section-middle {
+      height: auto;
+      blockquote {
+        background: image-url('pages/johnny.png') no-repeat 0 0;
+        background-size: 26% auto;
+      }
+    }
+    .section-bottom {
+      height: auto;
+      blockquote {
+        background: image-url('pages/gray.png') no-repeat 0 0;
+        background-size: 32% auto;
+      }
+    }
+
+    .nine {
+      margin-left: 0;
+      position: relative;
+    }
+    .fighters {
+      display: none;
+    }
+    cite,
+    blockquote {
+      font-size: 22px;
+    }
+    blockquote {
+      width: auto;
+      float: right;
+      padding-bottom: 40px;
+      padding-right: 15px;
+      padding-left: 40%;
+    }
+    cite {
+      display: block;
+      text-align: center;
+    }
+    .about {
+      float: right;
+      padding-left: 15px;
+      padding-bottom: 15px;
+      padding-right: 15px;
+      width: auto;
+    }
+    p {
+      font-size: 14px;
+      text-align: left;
+    }
+  }
+}
+
+@media only screen and (max-width: 420px) {
+  #proof-wrapper {
+    cite,
+    blockquote {
+      font-size: 16px;
+    }
+    cite {
+      font-size: 14px;
+      span {
+        font-size: 11px;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 459px) and (max-width: 639px) {
+  #proof-wrapper {
+    .section-top {
+      blockquote {
+        background-size: 20% auto;
+        background-position: 15px 0;
+        padding-left: 30%;
+        padding-top: 25px;
+      }
+    }
+    .section-middle {
+      blockquote {
+        background-size: 20% auto;
+        background-position: 15px 0;
+        padding-left: 30%;
+        padding-top: 25px;
+        padding-bottom: 55px;
+      }
+    }
+    .section-bottom {
+      blockquote {
+        background-size: 24% auto;
+        background-position: 15px 0;
+        padding-left: 30%;
+        padding-top: 25px;
+        padding-bottom: 55px;
+      }
+    }
+  }
+}

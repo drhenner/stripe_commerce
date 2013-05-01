@@ -1,0 +1,102 @@
+
+.myaccount {
+
+  .background-black { background: #000; color: #fff;}
+  .margin-0 { margin: 0px;}
+  .center-text { text-align: center; }
+  .white { color:#fff; }
+  .black { color:#000; }
+  .tabs.vertical {
+    dd {
+      border-right: 1px solid #e8e8e8;
+      border-left: 4px solid #cfcfcf;
+      a {
+        border-bottom: 1px solid #e8e8e8;
+        border-top: 1px solid #f6f6f6;
+      }
+      &.active {
+        border-top: none;
+        border-left-color: #000;
+        a {
+          border-top-color: #a59999;
+          border-bottom-color: #cc0000;
+        }
+      }
+    }
+  }
+  .bold { font-weight: bold }
+  h3 {font-weight: 400;}
+  .eight.columns hr:first-child {margin-top: 1px;}
+
+  .button {
+    background-color: #c60000;
+    border-color: #c60000;
+    box-shadow: none;
+    cursor: pointer;
+    &:hover {
+      background-color: #a30000;
+      border-color: #a30000;
+    }
+    &.success {
+      background-color: #6bb11e;
+      border-color: #6bb11e;
+      &:hover {
+        background-color: #4f8811;
+        border-color: #4f8811;
+      }
+    }
+    &.secondary {
+      background-color: #e9e9e9;
+      border-color: #e9e9e9;
+      &:hover {
+        background-color: #d0d0d0;
+        border-color: #d0d0d0;
+      }
+    }
+  }
+
+
+
+  /*font-family: MyriadPro, 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;*/
+  /*h1, h2, h3, h4 {*/
+    /*font-family: minion-pro-1,minion-pro-2,HighTower,Georgia,serif;*/
+  /*}*/
+  #profile_details {
+    li {
+      text-align:left;
+      display:block;
+      margin-bottom: 5px;
+      label {
+        font-size: 1em;
+        cursor: auto;
+        display:inline-block;
+        width:80px;
+      }
+    }
+  }
+  fieldset {
+    border: solid 0px #F6F6F6;
+  }
+  ul {
+    list-style-type: none;
+  }
+
+  // form for profile
+  #myaccount-profile {
+    margin-bottom:0px;
+  }
+
+  // myaccount orders page
+  .order-list-item {
+    li {
+      text-align:left;
+      display:block;
+      label {
+        font-size: 1em;
+        cursor: auto;
+        display:inline-block;
+        width:120px;
+      }
+    }
+  }
+}

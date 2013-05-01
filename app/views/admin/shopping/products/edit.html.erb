@@ -1,0 +1,43 @@
+<h2>Add Products</h2>
+<p id="notice"><%= notice %></p>
+
+<% if @product.variants.empty? %>
+  Sorry This product has no variants
+<% else %>
+  <%= form_tag admin_shopping_product_path(@product), :method => 'put' do %>
+    <% @product.active_variants.each_with_index do |variant, i| %>
+      <div class='panel radius product_admin_panel'>
+        <ul  id='variant-<%= i %>'
+              class='clear row clearfix' style='margin-bottom:10px;'>
+          <li style='padding-right:5px;' class='eight large-8  columns'>
+              <span><%= variant.display_title %></span><br/>
+            <% variant.variant_properties.each do |vp| %>
+              <label><%= vp.property.display_name %></label> <%= vp.description %><br/>
+            <% end %>
+            <hr/>
+            <%= image_tag variant.featured_image %>
+          </li>
+          <li id='variant-qty-<%= i %>' class='four large-4 columns' style='diplay:inline-block;'>
+            <div>
+              <div class='six large-6 columns'>Quantity: </div>
+              <div class='six large-6 columns'>
+                <%= text_field_tag("variant[#{ variant.id }]", session_admin_cart.number_of_variants(variant.id), :class => 'one column', :style => 'width:50px;') %>
+              </div>
+            </div>
+            <div class='twelve large-12 columns'>
+              Qty in Stock: <%= variant.display_stock_status %>(<%= variant.quantity_available %>)
+            </div>
+            <div class='twelve large-12 columns'>
+              <b>Price: &nbsp; <%= number_to_currency( variant.price ) %></b>
+            </div>
+          </li>
+
+        </ul>
+      </div>
+    <% end %>
+
+    <%= submit_tag 'Add Items' %>
+  <% end %>
+<% end %>
+
+<%= link_to 'Back', admin_shopping_products_path %>

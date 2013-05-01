@@ -1,0 +1,135 @@
+
+<div class='twelve large-12'>
+  <%= image_tag 'header/sign-in_header.jpg' %>
+</div>
+<% if Settings.want_login_header %>
+<h1><%= I18n.t(:login_title) %></h1>
+<% end %>
+<div id='login-wrapper'>
+  <div id='login' class='four large-4 columns' style='margin-bottom:20px;'>
+
+    <%= form_for  @user_session,
+                  :url => user_sessions_path(@user_session),
+                  :html => {:class => 'custom'} do |form| %>
+      <fieldset>
+         <legend>SIGN-IN</legend>
+
+         <% if flash[:session_alert] -%>
+           <div class="flash_messages">
+             <%= raw "<div data-alert class='alert-box warning'> #{flash[:session_alert]} <a href='' class='close'>&times;</a>"  if flash[:session_alert].present? %>
+           </div>
+         <% end %>
+
+
+         <ul id='login_form' class='no-bullet'>
+
+              <li>
+                  <%=form.label :email, 'Email Address' %>
+                  <%= form.email_field :email, :autocomplete => 'off', :autocapitalize => 'off' %>
+              </li>
+
+              <li>
+                  <%=form.label :password, 'Password' %>
+                  <%= form.password_field :password, :autocomplete => 'off', :autocapitalize => 'off' %>
+              </li>
+
+         </ul>
+
+        <%= form.submit "Log In", :class => 'medium button  bottom20' %>
+
+      </fieldset>
+    <% end %>
+    <% if !Settings.in_signup_period %>
+      <div class='statement'>Forgot your Password, <%= link_to 'Click Here', new_customer_password_reset_path() %>.</div>
+    <% end %>
+  </div>
+  <% if !Settings.in_signup_period %>
+    <div id='signup' class='eight large-8 columns'>
+      <%= form_for @user, :url => customer_registrations_path(@user), :html => {:class => 'custom'} do |form| %>
+        <fieldset>
+          <legend>REGISTER</legend>
+
+          <div class="row">
+            <div class="twelve columns">
+              <div class="row">
+                <div class="six columns">
+                  <%=form.label :first_name, 'First Name' %>
+                  <% if @user.errors[:first_name].first %>
+                    <span class='error-text'><%= @user.errors[:first_name].first %></span>
+                  <% end %>
+                  <%= form.text_field :first_name, :autocapitalize => 'off' %>
+                </div>
+                <div class="six columns">
+                  <%=form.label :last_name, 'Last Name' %>
+                  <% if @user.errors[:last_name].first %>
+                    <span class='error-text'><%= @user.errors[:last_name].first %></span>
+                  <% end %>
+                  <%= form.text_field :last_name, :autocapitalize => 'off' %>
+                </div>
+              </div>
+              <div class="row">
+                <div class="six columns">
+                  <%= form.label :email, 'Email Address' %>
+                  <% if @user.errors[:email].first %>
+                    <span class='error-text'><%= @user.errors[:email].first %></span>
+                  <% end %>
+                  <%= form.email_field :email, :autocapitalize => 'off' %>
+                </div>
+                <div class="six columns">
+                  <div class="">
+                      <%= form.label :country_id, 'Country' %>
+                      <% if @user.errors[:country_id].first %>
+                        <span class='error-text'><%= @user.errors[:country_id].first %></span>
+                      <% end %>
+                      <%= form.select :country_id, select_countries, {:prompt => "Country"} %>
+
+                  </div>
+
+                </div>
+              </div>
+            </div>
+              <div class="six columns">
+                <%=form.label :password, 'Password' %>
+                <% if @user.errors[:password].first %>
+                  <span class='error-text'><%= @user.errors[:password].first %></span>
+                <% end %>
+                <%= form.password_field :password, :autocomplete => 'off', :autocapitalize => 'off'  %>
+              </div>
+              <div class="six columns">
+                <%=form.label :password_confirmation, 'Confirm Password' %>
+                <% if @user.errors[:password_confirmation].first %>
+                  <span class='error-text'><%= @user.errors[:password_confirmation].first %></span>
+                <% end %>
+                <%= form.password_field :password_confirmation, :autocomplete => 'off', :autocapitalize => 'off'  %>
+              </div>
+          </div>
+
+          <div class='statement'>I AGREE TO THE
+            <%= link_to 'TERMS AND CONDITIONS', terms_path %><br />
+            I UNDERSTAND THE
+            <%= link_to 'PRIVACY POLICY', privacy_policy_path %>
+          </div>
+          <% if flash[:terms_alert] -%>
+            <div class="flash_messages">
+              <%= raw "<div data-alert class='alert-box warning'> #{flash[:terms_alert]} <a href='' class='close'>&times;</a>"  if flash[:terms_alert].present? %>
+            </div>
+          <% end %>
+
+          <label class='please-agree' for='terms_true'>
+            <%= radio_button_tag "terms", true, false %>
+            I agree to these terms
+          </label>
+          <label class='please-agree' for='terms_false'>
+            <%= radio_button_tag "terms", false, true %>
+            I do not agree to these terms
+          </label>
+
+          <%= form.submit "Register", :class => 'medium button top20 bottom20' %>
+
+
+          </fieldset>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>

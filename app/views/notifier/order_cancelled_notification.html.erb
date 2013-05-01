@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+    <table width="600" cellpadding="0" cellspacing="0" border="0">
+      <%= render :partial => '/notifier/header_row', :locals => {:right_text => 'PRE-ORDER CANCEL CONFIRMATION&nbsp;&nbsp;' } %>
+      <tr>
+        <td style="color:#000; font-family:helvetica; font-size:14px"valign="top" colspan="2"><br /><p>Hello <%= @user.first_name %>,
+
+          <p><b><span style="font-size:18px"><%= I18n.t(:company) %> Order Cancel Confirmation</span></b></p>
+
+          <p>Your order with <%= I18n.t(:company) %> has been canceled. Below are the details of the canceled order.
+          </p>
+
+          <p>Order Summary:</p>
+          <ul style='list-style-type:none;margin-left:5px;'>
+            <% @order.order_items.group_by(&:variant).each do |variant, order_items| %>
+              <li><%= order_items.size %> <%= variant.product_name %></li>
+            <% end %>
+          </ul>
+          <p>Order Number: <%= @order.number %></p>
+
+          <p>
+          Your credit card will not be charged.
+          </p>
+          <br /><br /><br/>
+        </td>
+      </tr>
+      <tr></tr><tr>
+        <td colspan="3" bgcolor="#d82125" height="10">&nbsp;</td>
+        </tr><tr>
+        <td colspan="3" bgcolor="#5d170d" height="10">&nbsp;</td>
+        </tr><tr>
+        <td colspan="3" bgcolor="#000" height="10">&nbsp;</td>
+        </tr><tr>
+        <td align="right" style="color:#000; font-family:helvetica; font-size:12px" colspan="2">&nbsp;</th>
+      </tr>
+    </table>
+    <%= render :partial => 'notifier/main_footer' %>
+  </body>
+</html>

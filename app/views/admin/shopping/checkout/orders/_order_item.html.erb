@@ -1,0 +1,27 @@
+<div class='panel clearfix '>
+    <ul class='clear row clearfix' style='margin-bottom:10px;'>
+      <li style='padding-right:5px;' class='eight large-8  columns'>
+          <span><%= items.first.variant.display_title %></span><br/>
+        <% items.first.variant.variant_properties.each do |vp| %>
+          <label><%= vp.property.display_name %></label> <%= vp.description %><br/>
+        <% end %>
+        <hr/>
+        <%= image_tag items.first.variant.featured_image(:mini) %>
+      </li>
+      <li class='four large-4 columns'>
+        <div>
+          <div class='six large-6 columns'>Quantity: </div>
+          <div class='six large-6 columns'>
+            <%= items.size %>
+          </div>
+        </div>
+        <div class='twelve large-12 columns'>
+          Qty in Stock: <%= items.first.variant.display_stock_status %>(<%= items.first.variant.quantity_available %>)
+        </div>
+        <div class='twelve large-12 columns'>
+          <b>Price: &nbsp; <%= number_to_currency( items.first.variant.price ) %></b>
+        </div>
+      </li>
+
+    </ul>
+</div>

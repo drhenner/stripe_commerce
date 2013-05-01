@@ -1,0 +1,45 @@
+<div id="order-confirmation">
+  <div class="row">
+    <div class='four columns'>
+      <%= render :partial =>  'shopping/tabs' %>
+    </div>
+    <div class='eight columns'>
+      <div class="top-box background-gray red-border-left">
+        <h4 class="margin-0 text-10 bold black margin-left-10 padding-left-10 padding-top-10">THANK YOU, YOUR ORDER HAS BEEN PLACED</h4>
+        <div class='row padding-top-10 padding-left-30'>
+          <ul class='twelve large-12 columns'>
+            <li>
+              AN EMAIL CONFIRMATION HAS BEEN SENT TO YOU
+            </li>
+            <li>
+              ORDER NUMBER: <span class="bold black"><%= @order.number %></span>
+            </li>
+            <li>
+              <span class="bold black">ORDERS SHIP MID-MAY</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <hr style='color:#aac;'/>
+      <div class=' padding-10 border-1 margin-0'>
+        <% @order.order_items.each_with_index do |item, i| %>
+          <div class='row clearfix bottom20'>
+            <div class='four column top20'>
+              <% if item.variant.product.product_type.name == 'Media'%>
+                <div class="cropped-150 bottom-10" style="background-image:url('<%= item.variant.featured_image(:product) %>')"></div>
+              <% else %>
+                <%= image_tag item.variant.product.featured_image(:medium) %>
+              <% end %>
+            </div>
+            <div class='eight column'>
+              <h4 class='red bold text-10 top20'>
+                Item #<%= i + 1 %>: <%= raw item.variant.product_name %>
+              </h4>
+            </div>
+          </div>
+        <% end %>
+      </div>
+
+    </div>
+  </div>
+</div>

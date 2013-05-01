@@ -1,0 +1,23 @@
+<h1> Signup </h1>
+
+<ul>
+  <li>
+    <label>Email:</label>
+    <%= @signup.email %>
+  </li>
+</ul>
+
+<div>
+  <p>
+  <% if @user %>
+    <%= @user.id %>: <%= @user.name %>
+  <% else %>
+    No user exists.
+  <% end %>
+  </p>
+</div>
+<p>
+  <%= link_to "Edit", edit_admin_signup_path(@signup), :class => 'button' %> |
+  <%= link_to "Destroy", [:admin, @signup], :data => { :confirm => 'Are you sure?' }, :method => :delete, :class => 'button' %> |
+  <%= link_to "View All", admin_signups_path, :class => 'button' %>
+</p>

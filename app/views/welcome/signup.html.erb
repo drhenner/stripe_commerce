@@ -1,0 +1,64 @@
+<% content_for :head do -%>
+  <%= stylesheet_link_tag 'site/temp_signup_form.css' %>
+  <%= stylesheet_link_tag 'site/small_welcome.css', :media => 'only screen and -webkit-min-device-pixel-ratio: 2' %>
+  <%#= stylesheet_link_tag 'home_page.css' %>
+<% end %>
+
+<% content_for :bottom do -%>
+  <%= javascript_include_tag 'rotate_images'%>
+  <%= javascript_include_tag 'temp_signup_form'%>
+<% end %>
+
+
+  <div id='key-to-changing'>
+    <span class='line-one'> &ldquo;You don't have to sign up.</span> <br/>
+    <span class='line-three'>but... Why wouldn't you sign up?&rdquo;</span><br/>
+    <span class='line-five'>&mdash; David Henner</span>
+  </div>
+  <div id='signup_form_wrapper' class='row'>
+    <div class='clearfix  '>
+      <div  id='input-fields' class='seven column'>
+        <div id='mobile-banner' style='display:none;'>
+          <%= image_tag 'landing_page/mobile_banner.png' %>
+        </div>
+        <div id='background-transparent'>
+
+        </div>
+        <div id='background-non-transparent'>
+          <h2>Get Notified About&nbsp;Our launch</h2>
+          <div id='please-subscribe' class=' white-text' style='display:none;'>
+            Enter your email below to <br/>subscribe to our newsletter and be notified <br/>when we launch our new site!
+          </div>
+          <div id='congrats_user' style='display:none;' class=' white-text'>
+            Congrats, you will be notified <br/> when we launch!
+           </div>
+          <div style='max-width: 450px; '>
+            <%= form_for  @user,
+                        :url => user_sessions_path(@user),
+                        :html => {:class => 'twelve '} do |form| %>
+
+               <ul id='signup_form' style='padding-top: 10px;'>
+                  <li class='four column' style='padding: 0 5px 0 0;'>
+                      <%= form.email_field :email, :autocomplete => 'off', :autocapitalize => 'off', :placeholder => 'EMAIL' %>
+                  </li>
+                  <li class='three ' style='padding: 0;' >
+                    <div class='nofity-button-wrapper' >
+                    <%= link_to "Notify Me",'#new_user', :class => 'button small', :id => 'submit-notify' %>
+                    </div>
+                  </li>
+               </ul>
+            <% end %>
+          </div>
+          <span>
+            <%= link_to 'Privacy Policy', privacy_policy_path, :id => 'link-privacy',  :style => 'color:#555;'%>
+            <%= link_to 'Sign-up &amp; Registration'.html_safe, login_path, :id => 'link-login', :style => 'display: none; color:#555;'%>
+          </span>
+        </div>
+      </div>
+      <div id='rore-logo' class='five column' style='padding:0;'>
+        <%= image_tag 'landing_page/signup.png', :class =>' ', :id => 'main-landing-signup-image' %>
+        <%= image_tag 'landing_page/home300.png', :style =>'display:none;', :id => 'mobile-landing-signup-image' %>
+      </div>
+    </div>
+
+  </div>
