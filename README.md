@@ -1,4 +1,4 @@
-#ROR Ecommerce
+#Stripe Ecommerce
 
 ##Project Overview
 
