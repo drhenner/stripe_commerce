@@ -183,6 +183,7 @@ ul {
   list-style: none;
   &.vertical-list {
     display: block;
+    li {float: none;}
     label {
       display: inline-block;
       width: 150px;

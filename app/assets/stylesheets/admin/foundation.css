@@ -1935,6 +1935,47 @@ form.custom {
     width: 100%;
     height: 100%; }
 
+/* Tabs ---------------------- */
+.tabs { list-style: none; border-bottom: solid 1px $tab-border; display: block; height: 40px; padding: 0; margin-bottom: 20px; }
+.tabs.contained { margin-bottom: 0; margin-left: 0; }
+.tabs dt, .tabs li.section-title { color: #b3b3b3; cursor: default; display: block; float: left; font-size: 12px; height: 40px; line-height: 40px; padding: 0; padding-right: 9px; padding-left: 20px; font-weight: normal; width: auto; text-transform: uppercase; }
+.tabs dt:first-child, .tabs li.section-title:first-child { padding: 0; padding-right: 9px; }
+.tabs dd, .tabs li { display: block; float: left; padding: 0; margin: 0; }
+.tabs dd a, .tabs dd span, .tabs li a { color: #6f6f6f; display: block; font-size: 14px; height: 40px; line-height: 40px; padding: 0px 23.8px; }
+.tabs dd a:focus, .tabs li a:focus { font-weight: bold; color: $tab-fill; }
+.tabs dd.active, .tabs li.active { border-top: 3px solid $tab-border; margin-top: -3px; }
+.tabs dd.active a, .tabs dd.active span, .tabs li.active a { cursor: default; color: #fff; background: $tab-fill; border-left: 1px solid $tab-border; border-right: 1px solid $tab-border; font-weight: bold; }
+.tabs dd:first-child, .tabs li:first-child { margin-left: 0; }
+.tabs.vertical { height: auto; border-bottom: 1px solid #e6e6e6; }
+.tabs.vertical dt, .tabs.vertical dd, .tabs.vertical li { float: none; height: auto; }
+.tabs.vertical dd, .tabs.vertical li { border-left: 3px solid #cccccc; }
+.tabs.vertical dd a, .tabs.vertical li a { background: #f2f2f2; border: none; border: 1px solid #e6e6e6; border-width: 1px 1px 0 0; color: #555; display: block; font-size: 14px; height: auto; line-height: 1; padding: 15px 20px; -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset; -moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset; box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset; }
+.tabs.vertical dd.active, .tabs.vertical li.active { margin-top: 0; border-top: 1px solid $tab-border-top; border-left: 4px solid $tab-border; }
+.tabs.vertical dd.active a, .tabs.vertical li.active a { background: $tab-fill; border: none; color: #fff; height: auto; margin: 0; position: static; top: 0; -webkit-box-shadow: 0 0 0; -moz-box-shadow: 0 0 0; box-shadow: 0 0 0; }
+.tabs.vertical dd:first-child a.active, .tabs.vertical li:first-child a.active { margin: 0; }
+.tabs.pill { border-bottom: none; margin-bottom: 10px; }
+.tabs.pill dd, .tabs.pill li { margin-right: 10px; }
+.tabs.pill dd:last-child, .tabs.pill li:last-child { margin-right: 0; }
+.tabs.pill dd a, .tabs.pill li a { -webkit-border-radius: 1000px; -moz-border-radius: 1000px; -ms-border-radius: 1000px; -o-border-radius: 1000px; border-radius: 1000px; background: #e6e6e6; height: 26px; line-height: 26px; color: #666; }
+.tabs.pill dd.active, .tabs.pill li.active { border: none; margin-top: 0; }
+.tabs.pill dd.active a, .tabs.pill li.active a { background-color: $tab-fill; border: none; color: #fff; }
+.tabs.pill.contained { border-bottom: solid 1px #eee; margin-bottom: 0; }
+.tabs.pill.two-up dd, .tabs.pill.two-up li, .tabs.pill.three-up dd, .tabs.pill.three-up li, .tabs.pill.four-up dd, .tabs.pill.four-up li, .tabs.pill.five-up dd, .tabs.pill.five-up li { margin-right: 0; }
+.tabs.two-up dt a, .tabs.two-up dd a, .tabs.two-up li a, .tabs.three-up dt a, .tabs.three-up dd a, .tabs.three-up li a, .tabs.four-up dt a, .tabs.four-up dd a, .tabs.four-up li a, .tabs.five-up dt a, .tabs.five-up dd a, .tabs.five-up li a { padding: 0 17px; text-align: center; overflow: hidden; }
+.tabs.two-up dt, .tabs.two-up dd, .tabs.two-up li { width: 50%; }
+.tabs.three-up dt, .tabs.three-up dd, .tabs.two-up li { width: 33.33%; }
+.tabs.four-up dt, .tabs.four-up dd, .tabs.two-up li { width: 25%; }
+.tabs.five-up dt, .tabs.five-up dd, .tabs.two-up li { width: 20%; }
+
+ul.tabs-content { display: block; margin: 0 0 20px; padding: 0; }
+ul.tabs-content > li { display: none; }
+ul.tabs-content > li.active { display: block; }
+ul.tabs-content.contained { padding: 0; }
+ul.tabs-content.contained > li { border: solid 0 #e6e6e6; border-width: 0 1px 1px 1px; padding: 20px; }
+ul.tabs-content.contained.vertical > li { border-width: 1px 1px 1px 1px; }
+
+.no-js ul.tabs-content > li { display: block; }
+
 /* Sections */
 .section-container {
   width: 100%;

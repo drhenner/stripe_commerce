@@ -1235,3 +1235,117 @@ table.show-for-xlarge, table.show-for-large, table.hide-for-small, table.hide-fo
   .top-bar.expanded ul li.toggle-topbar a { content: ""; display: block; width: 0; height: 0; border: solid 8px; border-color: transparent transparent rgba(255, 255, 255, 0.5) transparent; top: auto; bottom: 50%; margin-bottom: -4px; }
   .top-bar ul li.has-button { padding: 0 22.5px 5px; }
   .top-bar ul li .button.small { margin: 0 !important; display: inline-block; width: 100%; } }
+
+/* Sections */
+.section-container {
+  width: 100%;
+  display: block;
+  margin-bottom: 1.25em;
+  border: 1px solid #cccccc;
+  border-top: none; }
+  .section-container section,
+  .section-container .section {
+    border-top: 1px solid #cccccc;
+    position: relative; }
+    .section-container section .title,
+    .section-container .section .title {
+      top: 0;
+      cursor: pointer;
+      width: 100%;
+      margin: 0;
+      background-color: #efefef; }
+      .section-container section .title a,
+      .section-container .section .title a {
+        padding: 0.9375em;
+        display: inline-block;
+        color: #333333;
+        font-size: 0.875em;
+        white-space: nowrap;
+        width: 100%; }
+      .section-container section .title:hover,
+      .section-container .section .title:hover {
+        background-color: #e2e2e2; }
+    .section-container section .content,
+    .section-container .section .content {
+      display: none;
+      padding: 0.9375em;
+      background-color: white; }
+      .section-container section .content > *:last-child,
+      .section-container .section .content > *:last-child {
+        margin-bottom: 0; }
+      .section-container section .content > *:first-child,
+      .section-container .section .content > *:first-child {
+        padding-top: 0; }
+      .section-container section .content > *:last-child,
+      .section-container .section .content > *:last-child {
+        padding-bottom: 0; }
+    .section-container section.active .content,
+    .section-container .section.active .content {
+      display: block; }
+    .section-container section.active .title,
+    .section-container .section.active .title {
+      background: #d5d5d5; }
+
+@media only screen and (min-width: 48em) {
+  .section-container.accordion .section {
+    padding-top: 0 !important; }
+
+  .section-container.vertical-nav {
+    border: 1px solid #cccccc;
+    border-top: none; }
+    .section-container.vertical-nav section,
+    .section-container.vertical-nav .section {
+      padding-top: 0 !important; }
+      .section-container.vertical-nav section .title a,
+      .section-container.vertical-nav .section .title a {
+        display: block;
+        width: 100%; }
+      .section-container.vertical-nav section .content,
+      .section-container.vertical-nav .section .content {
+        display: none; }
+      .section-container.vertical-nav section.active .content,
+      .section-container.vertical-nav .section.active .content {
+        display: block;
+        position: absolute;
+        left: 100%;
+        top: -1px;
+        z-index: 999;
+        min-width: 12.5em;
+        border: 1px solid #cccccc; }
+
+  .section-container.tabs {
+    border: 0;
+    position: relative; }
+    .section-container.tabs section,
+    .section-container.tabs .section {
+      padding-top: 0;
+      border: 0;
+      position: static; }
+      .section-container.tabs section .title,
+      .section-container.tabs .section .title {
+        top: 1px;
+        width: auto;
+        border: 1px solid #cccccc;
+        border-right: 0;
+        position: absolute;
+        z-index: 1; }
+        .section-container.tabs section .title a,
+        .section-container.tabs .section .title a {
+          width: 100%; }
+      .section-container.tabs section:last-child .title,
+      .section-container.tabs .section:last-child .title {
+        border-right: 1px solid #cccccc; }
+      .section-container.tabs section .content,
+      .section-container.tabs .section .content {
+        border: 1px solid #cccccc;
+        position: absolute;
+        z-index: 10; }
+      .section-container.tabs section.active .title,
+      .section-container.tabs .section.active .title {
+        background-color: white;
+        z-index: 11;
+        border-bottom: 0; }
+      .section-container.tabs section.active .content,
+      .section-container.tabs .section.active .content {
+        position: relative; } }
+
