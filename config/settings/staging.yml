@@ -17,7 +17,7 @@ redirect_www: true
 
 in_signup_period: false
 allow_preorders: true
-allow_orders: false
+allow_orders: true
 
 want_login_header: false
 
