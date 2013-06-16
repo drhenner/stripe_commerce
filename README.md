@@ -5,12 +5,12 @@
 Please create a ticket on github if you have issues.
 They will be addressed ASAP.
 
-Please look at the [homepage](http://www.ror-e.com) for more details.  Or take a look at the [github page](http://drhenner.github.com/ror_ecommerce/index.html)
+Please look at the [homepage](http://www.ror-e.com) for more details.  Or take a look at the [github page](http://drhenner.github.com/stripe_commerce/index.html)
 
-![RoR Ecommerce](http://ror-e.com/images/logo.png "ROR Ecommerce").
+![Stripe Ecommerce](http://ror-e.com/images/logo.png "ROR Ecommerce").
 
 This is a Rails e-commerce platform.
-ROR Ecommerce is a *Rails 3 application* with the intent to allow developers to create an ecommerce solution easily.
+Stripe Ecommerce is a *Rails 3 application* with the intent to allow developers to create an ecommerce solution easily.
 This solution includes an Admin for *Purchase Orders*, *Product creation*, *Shipments*, *Fulfillment* and *creating Orders*.
 There is a minimal customer facing shopping cart understanding that this will be customized.
 The cart allows you to track your customers' *cart history* and includes a *double entry accounting system*.
@@ -21,7 +21,7 @@ In spite of that, it is currently the most complete Rails solution, and it will 
 
 Please use *Ruby 1.9.3* and enjoy *Rails 3.2*.
 
-ROR Ecommerce is designed so that if you understand Rails you will understand ROR_ecommerce.
+Stripe Ecommerce is designed so that if you understand Rails you will understand Stripe_commerce.
 There is nothing in this project besides what you might see in a normal Rails application.
 If you don't like something, you are free to just change it like you would in any other Rails app.
 
@@ -35,8 +35,6 @@ Take a look at [The Demo](https://ror-e.herokuapp.com).
 The login name is test@ror-e.com with a password => test123
 
 ##Getting Started
-
-Please feel free to ask/answer questions in our [Google Group](http://groups.google.com/group/ror_ecommerce).
 
 Install RVM with Ruby 1.9.3.
 If you have 1.9.3 on your system you're good to go.
@@ -204,7 +202,7 @@ server.
 
 ##Author
 
-RoR Ecommerce was created by David Henner. [Contributors](https://github.com/drhenner/ror_ecommerce/blob/master/Contributors.md).
+Stripe_commerce was created by David Henner. [Contributors](https://github.com/drhenner/stripe_commerce/blob/master/Contributors.md).
 
 ##FYI:
 
