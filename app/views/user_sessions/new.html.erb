@@ -77,12 +77,13 @@
                 </div>
                 <div class="six columns">
                   <div class="">
-                      <%= form.label :country_id, 'Country' %>
-                      <% if @user.errors[:country_id].first %>
-                        <span class='error-text'><%= @user.errors[:country_id].first %></span>
+                      <%= form.fields_for :address do |ff| %>
+                        <%= ff.label :country_id, 'Country' %>
+                        <% if @user.errors[:country_id].first %>
+                          <span class='error-text'><%= @user.errors[:country_id].first %></span>
+                        <% end %>
+                        <%= ff.select :country_id, select_countries, {:prompt => "Country"} %>
                       <% end %>
-                      <%= form.select :country_id, select_countries, {:prompt => "Country"} %>
-
                   </div>
 
                 </div>
