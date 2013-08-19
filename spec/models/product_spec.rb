@@ -195,10 +195,23 @@ describe Product, "class methods" do
     it "should return deleted Products " do
       product1 = create(:product)
       product2 = create(:product)
+      product1.deleted_at = Time.zone.now - 1.second
+      product1.save
+      product2.deleted_at = Time.zone.now + 20.seconds
+      product2.save
       admin_grid = Product.admin_grid({}, false)
-      admin_grid.size.should == 0
-      admin_grid.include?(product1).should be_false
+      admin_grid.size.should == 1
+      admin_grid.include?(product1).should be_true
       admin_grid.include?(product2).should be_false
+    end
+
+    it "should return deleted Products " do
+      product1 = create(:product)
+      product2 = create(:product)
+      admin_grid = Product.admin_grid({}, nil)
+      admin_grid.size.should == 2
+      admin_grid.include?(product1).should be_true
+      admin_grid.include?(product2).should be_true
     end
   end
 end
