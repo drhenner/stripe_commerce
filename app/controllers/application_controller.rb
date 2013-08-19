@@ -15,7 +15,8 @@ class ApplicationController < ActionController::Base
                 :in_production?,
                 :display_shipping_warning?,
                 :display_preorder_button?,
-                :customer_confirmation_page_view
+                :customer_confirmation_page_view,
+                :recent_admin_users
 
   before_filter :redirect_without_www
   before_filter :secure_session
@@ -236,5 +237,9 @@ class ApplicationController < ActionController::Base
           :first_name         => params[:first_name],
           :last_name          => params[:last_name]
     }
+  end
+
+  def recent_admin_users
+    session[:recent_users] ||= []
   end
 end

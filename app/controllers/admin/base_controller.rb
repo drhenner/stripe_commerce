@@ -1,5 +1,4 @@
 class Admin::BaseController < ApplicationController
-  helper_method :recent_admin_users
   layout 'admin'
   skip_before_filter :redirect_to_welcome
 
@@ -11,10 +10,6 @@ class Admin::BaseController < ApplicationController
 
 
   private
-
-  def recent_admin_users
-    session[:recent_users] ||= []
-  end
 
   def add_to_recent_user(user)
     session[:recent_users] ||= []
