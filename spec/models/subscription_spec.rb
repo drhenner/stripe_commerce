@@ -10,7 +10,7 @@ describe Subscription do
     it "should inactivate the order" do
       subscription = FactoryGirl.create(:subscription, :active => true, :canceled => false, :remaining_payments => 1000, :next_bill_date => Date.today + 3.days)
       subscription.cancel!
-      expect(subscription.active).to eq false
+      expect(subscription.canceled).to eq true
     end
     it "should set the remaining_payments to ZERO" do
       subscription = FactoryGirl.create(:subscription, :active => true, :canceled => false, :remaining_payments => 1000, :next_bill_date => Date.today + 3.days)
