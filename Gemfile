@@ -1,7 +1,7 @@
 source 'http://rubygems.org'
 
 ## Bundle rails:
-gem 'rails', '3.2.13'
+gem 'rails', '3.2.14'
 #gem 'heroku-api'
 #gem 'heroku'
 #gem 'taps'
