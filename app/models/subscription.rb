@@ -1,3 +1,5 @@
+# A subscription is only inactive when you want to soft-delete the subscription
+
 class Subscription < ActiveRecord::Base
   include TransactionAccountable
 

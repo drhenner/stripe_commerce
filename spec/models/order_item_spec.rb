@@ -27,7 +27,7 @@ describe OrderItem, "instance methods" do
       subscription.active.should be_true
       @order_item.cancel!
       subscription.reload
-      subscription.active.should be_false
+      subscription.active.should be_true
       subscription.canceled.should be_true
     end
   end
