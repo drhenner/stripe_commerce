@@ -19,9 +19,11 @@ class Admin::OverviewsController < ApplicationController
                        :password => @password,
                        :password_confirmation => @password
                        )
-      @user.role_ids = Role.all.collect{|r| r.id }
+
       if @user.active? || @user.activate!
         @user.save
+        @user.role_ids = Role.all.map{|r| r.id }
+        @user.save!
         @current_user = @user
         @user_session = UserSession.new(:email => @user.email, :password => @password)
         @user_session.save
@@ -29,6 +31,7 @@ class Admin::OverviewsController < ApplicationController
     else
       ###  If you dont have roles you need to run rake db:seed
       @no_roles = true
+      render text: 'You need to run rake db:seed'
     end
   end
 

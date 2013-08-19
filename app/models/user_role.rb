@@ -10,5 +10,6 @@ class UserRole < ActiveRecord::Base
 
     def expire_user_roles
       Rails.cache.delete("cached_role_ids-#{user_id}")
+      true
     end
 end
