@@ -6,6 +6,7 @@ describe PreordersController do
 
   before do
     http_login
+    @controller.stubs(:redirect_if_accepting_orders)
   end
 
   it "index action should render index template" do
@@ -15,7 +16,8 @@ describe PreordersController do
     Settings.stubs(:allow_preorders).returns(true)
     cart = create(:cart)
     cart_item = create(:cart_item)
-    cart.stubs(:media_cart_items).returns([cart_item])
+    cart.stubs(:shopping_cart_items).returns([cart_item])
+
     @controller.stubs(:session_cart).returns(cart)
     get :index
     expect(response).to render_template(:index)
