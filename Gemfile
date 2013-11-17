@@ -25,7 +25,8 @@ gem 'dynamic_form', '~> 1.1.4'
 gem "friendly_id", "~> 3.3"
 gem 'haml',  ">= 3.0.13"#, ">= 3.0.4"#, "2.2.21"#,
 gem "gibbon", "~> 0.4.6"
-gem "jquery-rails"
+gem 'jquery-rails'
+gem 'jquery-ui-rails'
 gem 'json', '~>1.7.7'
 
 gem 'mandrill-api'#, :git => 'git@github.com:drhenner/mandrill-api-ruby.git'
