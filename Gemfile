@@ -1,7 +1,7 @@
 source 'http://rubygems.org'
 
 ## Bundle rails:
-gem 'rails', '3.2.14'
+gem 'rails', '3.2.15'
 #gem 'heroku-api'
 #gem 'heroku'
 #gem 'taps'
@@ -91,6 +91,6 @@ group :test do
   gem "autotest-rails-pure"
 
   gem "autotest-growl"
-  gem "ZenTest", '4.6.2'
+  gem "ZenTest", '4.9.5'
 
 end
