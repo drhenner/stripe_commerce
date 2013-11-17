@@ -57,6 +57,7 @@ GEM
       ZenTest (>= 4.4.1)
     autotest-growl (0.2.16)
     autotest-rails-pure (4.1.2)
+    awesome_print (1.2.0)
     aws-sdk (1.8.5)
       json (~> 1.4)
       nokogiri (>= 1.4.4)
@@ -114,6 +115,9 @@ GEM
       i18n (~> 0.5)
     fast_xs (0.8.0)
     ffi (1.9.3)
+    figaro (0.7.0)
+      bundler (~> 1.0)
+      rails (>= 3, < 5)
     foreman (0.63.0)
       dotenv (>= 0.7)
       thor (>= 0.13.6)
@@ -307,6 +311,7 @@ DEPENDENCIES
   autotest (~> 4.4.6)
   autotest-growl
   autotest-rails-pure
+  awesome_print
   aws-sdk (~> 1.8.5)
   bluecloth (~> 2.1.0)
   cancan (~> 1.6.8)
@@ -322,6 +327,7 @@ DEPENDENCIES
   factory_girl (~> 3.3.0)
   factory_girl_rails (~> 3.3.0)
   faker
+  figaro
   foreman
   friendly_id (~> 3.3)
   gibbon (~> 0.4.6)

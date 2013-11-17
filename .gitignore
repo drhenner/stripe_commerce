@@ -48,3 +48,6 @@ config/environments/*.local.yml
 
 vendor/bundle
 *.tmproj
+
+# Ignore application configuration
+/config/application.yml

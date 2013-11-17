@@ -41,14 +41,14 @@ google:
   analytics_code: UA-38891059-1
   rore_analytics_code: UA-38891059-1
 stripe:
-  secret_key: <%= ENV['STRIPE_SECRET_KEY'] %>
-  publishable_key: <%= ENV['STRIPE_PUBLISHABLE_KEY'] %>
+  secret_key: ENV['STRIPE_SECRET_KEY']
+  publishable_key: ENV['STRIPE_PUBLISHABLE_KEY']
 
 mandrill:
   host: smtp.mandrillapp.com
   port: 587
-  smtp_username: <%= ENV['MANDRILL_USERNAME'] %>
-  smtp_password: <%= ENV['MANDRILL_APIKEY'] %>
+  smtp_username: ENV['MANDRILL_USERNAME']
+  smtp_password: ENV['MANDRILL_APIKEY']
 
 mailchimp:
   api_key: <%= ENV['MAILCHIMP_API_KEY'] %>
