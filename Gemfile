@@ -91,6 +91,6 @@ group :test do
   gem "autotest-rails-pure"
 
   gem "autotest-growl"
-  gem "ZenTest", '4.6.2'
+  gem "ZenTest", '4.9.5'
 
 end
