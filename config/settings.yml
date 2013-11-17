@@ -1,4 +1,4 @@
-encryption_key: d8eb3e1eabf179edfa9e6dbf942db9b06f8d01819241a0a98350ddd0698f3946a206945c821d32234648573eefab9a069a00b2e6fd2a489fdce2550456dc0f36bad1cb8858826ff0934ce2
+encryption_key: someRandomBINARYKEY
 mailer:
   server: mail.example.com
   username: someLOGIN
