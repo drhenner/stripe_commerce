@@ -20,6 +20,7 @@ gem 'compass', '~> 0.12.2'
 gem 'compass-rails'
 gem 'chronic'
 gem 'dalli'#, '~> 1.0.2'
+gem 'figaro'
 
 gem 'dynamic_form', '~> 1.1.4'
 gem "friendly_id", "~> 3.3"
@@ -59,7 +60,7 @@ group :production, :staging do
 end
 
 group :development do
-  #gem 'awesome_print'
+  gem 'awesome_print'
   #gem 'annotate', :git => 'git://github.com/ctran/annotate_models.git'
   gem "autotest-rails-pure"
   gem "foreman"

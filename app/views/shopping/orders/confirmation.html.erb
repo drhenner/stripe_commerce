@@ -1,4 +1,6 @@
 <div id="order-confirmation">
+<div id="order-confirmation">
+<div id="order-confirmation">
   <div class="row">
     <div class='four columns'>
       <%= render :partial =>  'shopping/tabs' %>
@@ -33,7 +35,7 @@
             </div>
             <div class='eight column'>
               <h4 class='red bold text-10 top20'>
-                Item #<%= i + 1 %>: <%= raw item.variant.product_name %>
+                Item #<%= i + 1 %>: <%= raw item.variant.product_name %> <%= raw item.variant.sku %>
               </h4>
             </div>
           </div>

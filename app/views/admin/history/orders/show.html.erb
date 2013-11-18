@@ -21,7 +21,12 @@
           class=' panel '>
 
             <% @order.order_items.each do |item| %>
-              <%= item.variant.product_name %> <%= number_to_currency item.total %><br/>
+              <span class="pull-left">
+                <%= item.variant.product_name %> <%= item.variant.sku %> 
+              </span>
+              <span class="pull-right">
+                <%= number_to_currency item.total %>
+              </span><br/>
             <% end %>
     </div>
   </div>
