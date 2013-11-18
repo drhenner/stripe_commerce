@@ -31,7 +31,6 @@ Hadean::Application.configure do
       !  once you everything working with your specific Gateway.
       ############################################################################################
       "
-      puts "#{ENV['STRIPE_SECRET_KEY']}"
     end
   end
 end
