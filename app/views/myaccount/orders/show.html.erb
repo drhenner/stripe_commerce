@@ -37,7 +37,7 @@
         <ul class='no-bullet vertical-list clearfix order-summary'>
           <% @order.order_items.each do |item| %>
             <li class='clearfix <%= cycle("odd", "")%> '>
-            <label class="pull-left"><%= item.variant.product.name %></label>
+            <label class="pull-left"><%= item.variant.product.name %> <%= item.variant.sku %></label>
             <span class="pull-right"><%= number_to_currency item.total %></span>
             </li>
           <% end %>
