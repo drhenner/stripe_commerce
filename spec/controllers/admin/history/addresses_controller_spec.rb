@@ -28,7 +28,8 @@ describe Admin::History::AddressesController do
 
   it "create action should render new template when model is invalid" do
     Address.any_instance.stubs(:valid?).returns(false)
-    post :create, :order_id => @order.number
+    address = build(:address)
+    post :create, :order_id => @order.number, :admin_history_address => address.attributes
     response.should render_template(:new)
   end
 

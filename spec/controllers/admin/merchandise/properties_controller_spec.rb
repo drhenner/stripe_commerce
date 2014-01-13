@@ -44,14 +44,14 @@ describe Admin::Merchandise::PropertiesController do
   it "update action should render edit template when model is invalid" do
     @property = create(:property)
     Property.any_instance.stubs(:valid?).returns(false)
-    put :update, :id => @property.id
+    put :update, :id => @property.id, :property => {:display_name => 'dis', :identifing_name => 'test'}
     response.should render_template(:edit)
   end
 
   it "update action should redirect when model is valid" do
     @property = create(:property)
     Property.any_instance.stubs(:valid?).returns(true)
-    put :update, :id => @property.id
+    put :update, :id => @property.id, :property => {:display_name => 'dis', :identifing_name => 'test'}
     response.should redirect_to(admin_merchandise_properties_url)
   end
 

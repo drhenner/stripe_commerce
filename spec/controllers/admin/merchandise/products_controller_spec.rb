@@ -58,14 +58,14 @@ describe Admin::Merchandise::ProductsController do
   it "update action should render edit template when model is invalid" do
     @product = create(:product)
     Product.any_instance.stubs(:valid?).returns(false)
-    put :update, :id => @product.id
+    put :update, :id => @product.id, :product => product_attributes
     response.should render_template(:edit)
   end
 
   it "update action should redirect when model is valid" do
     @product = create(:product)
     Product.any_instance.stubs(:valid?).returns(true)
-    put :update, :id => @product.id
+    put :update, :id => @product.id, :product => product_attributes
     response.should redirect_to(admin_merchandise_product_url(assigns[:product]))
   end
 
@@ -89,5 +89,8 @@ describe Admin::Merchandise::ProductsController do
     delete :destroy, :id => @product.id
     response.should redirect_to(admin_merchandise_product_url(@product))
     Product.find(@product.id).active.should be_false
+  end
+  def product_attributes
+    {:name => 'cute pants', :set_keywords => 'test,one,two,three', :product_type_id => 1, :prototype_id => nil, :shipping_category_id => 1, :permalink => 'linkToMe', :available_at => Time.zone.now, :deleted_at => nil, :meta_keywords => 'cute,pants,bacon', :meta_description => 'good pants', :featured => true, :brand_id => 1}
   end
 end

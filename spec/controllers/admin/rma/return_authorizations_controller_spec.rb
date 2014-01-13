@@ -30,7 +30,7 @@ describe Admin::Rma::ReturnAuthorizationsController do
 
   it "create action should render new template when model is invalid" do
     ReturnAuthorization.any_instance.stubs(:valid?).returns(false)
-    post :create, :order_id => @order.id
+    post :create, :order_id => @order.id, :return_authorization => {:amount => '12.60', :user_id => 1}
     response.should render_template(:new)
   end
 
@@ -49,7 +49,7 @@ describe Admin::Rma::ReturnAuthorizationsController do
   it "update action should render edit template when model is invalid" do
     @return_authorization = create(:return_authorization)
     ReturnAuthorization.any_instance.stubs(:valid?).returns(false)
-    put :update, :id => @return_authorization.id, :order_id => @order.id
+    put :update, :id => @return_authorization.id, :order_id => @order.id, :return_authorization => {:amount => '12.67'}
     response.should render_template(:edit)
   end
 
