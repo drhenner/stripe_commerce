@@ -23,8 +23,6 @@
 #
 
 class Variant < ActiveRecord::Base
-
-
   has_many :variant_suppliers
   has_many :suppliers,         :through => :variant_suppliers
 

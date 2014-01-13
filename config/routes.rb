@@ -1,19 +1,21 @@
 Hadean::Application.routes.draw do
 
-  resource :google12299642d5975b38, :only => :show
-  resource :iuwhcbphqoimcsid,       :only => :show
-  match 'loaderio-79aeb8198cf6b8d1faffd0edad063326'  => 'welcome#load'
-  match 'loaderio-93a086e0760b88038535f27e6b626d2b'  => 'welcome#load'
+  # resource :google12299642d5975b38, :only => :show
+  # resource :iuwhcbphqoimcsid,       :only => :show
+  # match 'loaderio-79aeb8198cf6b8d1faffd0edad063326'  => 'welcome#load'
+  # match 'loaderio-93a086e0760b88038535f27e6b626d2b'  => 'welcome#load'
 
-  match 'admin'   => 'admin/users#index'
-  match 'login'   => 'user_sessions#new'
-  match 'signin'  => 'user_sessions#new'
-  match 'sign-in' => 'user_sessions#new'
+  get 'admin'   => 'admin/users#index'
+  get 'login'   => 'user_sessions#new'
+  get 'signin'  => 'user_sessions#new'
+  get 'sign-in' => 'user_sessions#new'
 
-  match 'logout'  => 'user_sessions#destroy'
-  match 'signout'  => 'user_sessions#destroy'
-  match 'signup'  => 'customer/registrations#new'
-  match 'admin/merchandise' => 'admin/merchandise/summary#index'
+  get    'logout' => 'user_sessions#destroy'
+  delete 'logout' => 'user_sessions#destroy'
+  get    'signout'  => 'user_sessions#destroy'
+  delete 'signout'  => 'user_sessions#destroy'
+  get    'signup'   => 'customer/registrations#new'
+  get    'admin/merchandise' => 'admin/merchandise/summary#index'
 
   resource  :about,             :only => [:show]
   resource  :contact_us,        :only => [:show]
@@ -105,7 +107,7 @@ Hadean::Application.routes.draw do
     end
     resources :overviews, :only => [:index]
 
-    match "help" => "help#index"
+    get  "help" => "help#index"
     namespace :reporting do
       resource :overview, :only => [:show]
     end

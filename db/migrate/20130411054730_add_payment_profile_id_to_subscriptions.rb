@@ -15,3 +15,4 @@ class AddPaymentProfileIdToSubscriptions < ActiveRecord::Migration
     remove_index :subscriptions, :payment_profile_id
   end
 end
+

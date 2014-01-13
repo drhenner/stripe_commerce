@@ -5,7 +5,7 @@ class Admin::Merchandise::Changes::PropertiesController < Admin::BaseController
   end
 
   def update
-    if @product.update_attributes(params[:product])
+    if @product.update_attributes(allowed_params)
       flash[:notice] = "Successfully updated properties."
       redirect_to admin_merchandise_product_url(@product.id)
     else
@@ -14,6 +14,11 @@ class Admin::Merchandise::Changes::PropertiesController < Admin::BaseController
   end
 
   private
+
+  def allowed_params
+    params.require(:product).permit!
+  end
+
   def all_properties
      @all_properties ||= Property.all.map{|p| [ p.identifing_name, p.id ]}
   end

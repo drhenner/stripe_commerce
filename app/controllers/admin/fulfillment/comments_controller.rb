@@ -2,10 +2,9 @@ class Admin::Fulfillment::CommentsController < Admin::Fulfillment::BaseControlle
   helper_method :order
 
   def index
-    #@comments = order.comments
     respond_to do |format|
-        format.json { render :json => order.comments.to_json, :status => 206}
-        format.html { render :action => 'index' }
+      format.json { render :json => order.comments.to_json, :status => 206}
+      format.html { render :action => 'index' }
     end
   end
 
@@ -22,7 +21,7 @@ class Admin::Fulfillment::CommentsController < Admin::Fulfillment::BaseControlle
   end
 
   def create
-    @comment              = order.comments.new(params[:comment])
+    @comment              = order.comments.new(allowed_params)
     @comment.created_by   = current_user.id
     @comment.user_id      = order.user_id
     respond_to do |format|
@@ -44,7 +43,7 @@ class Admin::Fulfillment::CommentsController < Admin::Fulfillment::BaseControlle
   def update
     @comment = Comment.find(params[:id])
     respond_to do |format|
-      if @comment.update_attributes(params[:comment])
+      if @comment.update_attributes(allowed_params)
         flash[:notice] = "Successfully updated comment."
         format.json { render :json => @comment.to_json}
         format.html { redirect_to admin_fulfillment_order_comment_url(order, @comment) }
@@ -63,6 +62,10 @@ class Admin::Fulfillment::CommentsController < Admin::Fulfillment::BaseControlle
   end
 
   private
+
+  def allowed_params
+    params.require(:comment).permit(:note)
+  end
 
   def order
     return @order if @order

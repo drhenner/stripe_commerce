@@ -21,23 +21,10 @@ class Admin::UsersController < Admin::BaseController
   end
 
   def create
-    attribs =  params[:user]
-    state       = params[:user][:state]
-    birth_date  = params[:user][:birth_date]
-
-    attribs.delete(:state)
-    attribs.delete(:birth_date)
-
-    @user = User.new(params[:user], role_saving)
-    @user.state     = state
+    @user = User.new(user_params)
     @user.format_birth_date(params[:user][:birth_date]) if params[:user][:birth_date].present?
     authorize! :create_users, current_user
     if @user.save
-      if current_user.super_admin? # NO IDEA WHY THIS WASNT WORKING
-        @user.reload
-        @user.role_ids = params[:user][:role_ids]
-        @user.save
-      end
       Resque.enqueue(Jobs::SendRegistrationEmail, @user.id)
       @user.active? || @user.activate! if @user.send(:password_changed?)
       add_to_recent_user(@user)
@@ -59,14 +46,8 @@ class Admin::UsersController < Admin::BaseController
     params[:user][:role_ids] ||= []
     @user = User.includes(:roles).find(params[:id])
     authorize! :create_users, current_user
-    @user.role_ids = params[:user][:role_ids]
     @user.format_birth_date(params[:user][:birth_date]) if params[:user][:birth_date].present?
-    @user.state = params[:user][:state]                 if params[:user][:state].present? #&& !@user.admin?
-    attribs =  params[:user]
-    attribs.delete(:role_ids)
-    attribs.delete(:state)
-    attribs.delete(:birth_date)
-    if @user.save && @user.update_attributes(attribs, role_saving)
+    if @user.update_attributes(user_params)
       flash[:notice] = "#{@user.name} has been updated."
       redirect_to admin_users_url
     else
@@ -76,6 +57,14 @@ class Admin::UsersController < Admin::BaseController
   end
 
   private
+
+  def user_params
+    if current_user.super_admin?
+      params.require(:user).permit(:password, :password_confirmation, :first_name, :last_name, :email, :state, :role_ids => [])
+    else
+      params.require(:user).permit(:password, :password_confirmation, :first_name, :last_name, :email, :state)
+    end
+  end
 
   def role_saving
     current_user.super_admin? ? {:as => :super_admin} : {:as => :admin}

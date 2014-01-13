@@ -14,7 +14,7 @@ class Admin::Document::NewslettersController < Admin::BaseController
   end
 
   def create
-    @newsletter = Newsletter.new(params[:newsletter])
+    @newsletter = Newsletter.new(allowed_params)
     if @newsletter.save
       redirect_to [:admin, :document, @newsletter], :notice => "Successfully created newsletter."
     else
@@ -28,7 +28,7 @@ class Admin::Document::NewslettersController < Admin::BaseController
 
   def update
     @newsletter = Newsletter.find(params[:id])
-    if @newsletter.update_attributes(params[:newsletter])
+    if @newsletter.update_attributes(allowed_params)
       redirect_to [:admin, :document, @newsletter], :notice  => "Successfully updated newsletter."
     else
       render :edit
@@ -42,6 +42,10 @@ class Admin::Document::NewslettersController < Admin::BaseController
   end
 
   private
+
+    def allowed_params
+      params.require(:newsletter).permit!
+    end
 
     def sort_column
       Newsletter.column_names.include?(params[:sort]) ? params[:sort] : "name"

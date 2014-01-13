@@ -12,7 +12,7 @@ class Admin::Inventory::SuppliersController < Admin::BaseController
   end
 
   def create
-    @supplier = Supplier.new(params[:supplier])
+    @supplier = Supplier.new(allowed_params)
 
     if @supplier.save
       redirect_to :action => :index
@@ -28,7 +28,7 @@ class Admin::Inventory::SuppliersController < Admin::BaseController
 
   def update
     @supplier = Supplier.find(params[:id])
-    if @supplier.update_attributes(params[:supplier])
+    if @supplier.update_attributes(allowed_params)
       redirect_to :action => :index
     else
       render :action => :edit
@@ -40,13 +40,14 @@ class Admin::Inventory::SuppliersController < Admin::BaseController
     respond_with(@supplier)
   end
 
-private
+  private
+
+  def allowed_params
+    params.require(:supplier).permit(:name, :email)
+  end
 
   def sort_column
     Supplier.column_names.include?(params[:sort]) ? params[:sort] : "id"
   end
 
-  def sort_direction
-    %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
-  end
 end

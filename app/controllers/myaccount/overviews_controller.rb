@@ -11,7 +11,7 @@ class Myaccount::OverviewsController < Myaccount::BaseController
     @user = current_user
 
     if @user.valid_password?(params[:old_password])
-      if @user.update_attributes(params[:user])
+      if @user.update_attributes(user_params)
         redirect_to myaccount_overview_url(), :notice  => "Successfully updated user."
       else
         render :edit
@@ -23,6 +23,10 @@ class Myaccount::OverviewsController < Myaccount::BaseController
   end
 
   private
+
+    def user_params
+      params.require(:user).permit(:password, :password_confirmation, :first_name, :last_name)
+    end
 
     def selected_myaccount_tab(tab)
       tab == 'profile'

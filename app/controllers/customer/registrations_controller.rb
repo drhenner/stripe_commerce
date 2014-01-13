@@ -13,7 +13,7 @@ class Customer::RegistrationsController < ApplicationController
   end
 
   def create
-    @user = User.get_new_user(params[:user])
+    @user = User.get_new_user(allowed_params)
     @user.format_birth_date(params[:user][:birth_date]) if params[:user][:birth_date].present?
     # Saving without session maintenance to skip
     # auto-login which can't happen here because
@@ -39,7 +39,11 @@ class Customer::RegistrationsController < ApplicationController
     end
   end
 
-  private
+  protected
+
+    def allowed_params
+      params.require(:user).permit(:password, :password_confirmation, :first_name, :last_name, :email)
+    end
 
     def agreed_to_terms?
       params[:terms] && params[:terms] == 'true'

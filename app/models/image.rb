@@ -26,8 +26,8 @@ class Image < ActiveRecord::Base
 
 #image_tag @product.photo.url(:small)
   validates_attachment_presence :photo
-  validates_attachment_size     :photo, :less_than => 5.megabytes
-  validates_attachment_content_type :photo, :content_type => ['image/jpeg', 'image/jpg', 'image/png', 'image/gif']
+  validates_attachment_size     :photo, less_than: 5.megabytes
+  validates_attachment_content_type :photo, content_type: ['image/jpeg', 'image/jpg', 'image/png', 'image/gif']
 
   validates :imageable_type,  :presence => true
   validates :imageable_id,    :presence => true
@@ -35,7 +35,7 @@ class Image < ActiveRecord::Base
 
   attr_accessor :photo_link
 
-  default_scope :order => 'position'
+  default_scope -> { order('position') }
 
   # save the w,h of the original image (from which others can be calculated)
   after_post_process :find_dimensions

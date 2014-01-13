@@ -16,7 +16,7 @@ class Admin::Config::SubscriptionPlansController < Admin::Config::BaseController
   end
 
   def create
-    @subscription_plan = SubscriptionPlan.new(params[:subscription_plan])
+    @subscription_plan = SubscriptionPlan.new(allowed_params)
     if @subscription_plan.save
       redirect_to [:admin, :config, @subscription_plan], :notice => "Successfully created subscription plan."
     else
@@ -30,7 +30,7 @@ class Admin::Config::SubscriptionPlansController < Admin::Config::BaseController
 
   def update
     @subscription_plan = SubscriptionPlan.find(params[:id])
-    if @subscription_plan.update_attributes(params[:subscription_plan])
+    if @subscription_plan.update_attributes(allowed_params)
       redirect_to [:admin, :config, @subscription_plan], :notice  => "Successfully updated subscription plan."
     else
       render :edit
@@ -39,11 +39,11 @@ class Admin::Config::SubscriptionPlansController < Admin::Config::BaseController
 
   private
 
-    def sort_column
-      SubscriptionPlan.column_names.include?(params[:sort]) ? params[:sort] : "name"
+    def allowed_params
+      params.require(:subscription_plan).permit!
     end
 
-    def sort_direction
-      %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
+    def sort_column
+      SubscriptionPlan.column_names.include?(params[:sort]) ? params[:sort] : "name"
     end
 end

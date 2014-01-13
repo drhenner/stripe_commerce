@@ -6,7 +6,7 @@ class UserSessionsController < ApplicationController
   end
 
   def create
-    @user_session = UserSession.new(params[:user_session])
+    @user_session = UserSession.new(user_params)
     if @user_session.save
       cookies[:hadean_uid] = @user_session.record.access_token
       session[:authenticated_at] = Time.now
@@ -34,6 +34,10 @@ class UserSessionsController < ApplicationController
   end
 
   private
+
+  def user_params
+    params.require(:user_session).permit(:password, :password_confirmation, :first_name, :last_name, :email)
+  end
 
   def set_user_to_cart_items
     if session_cart.user_id != @user_session.record.id

@@ -47,15 +47,17 @@
 #
 
 class Order < ActiveRecord::Base
-  has_friendly_id :number, :use_slug => false
+  extend FriendlyId
+  friendly_id :number, use: :finders
 
   has_many   :order_items, :dependent => :destroy
   has_many   :shipments
   has_many   :invoices
-  has_many   :completed_invoices,  :class_name => 'Invoice', :conditions => ['state = ? OR state = ? OR state = ?', 'authorized', 'paid', 'preordered']
-  has_many   :authorized_invoices, :class_name => 'Invoice', :conditions => ['state = ?', 'authorized']
-  has_many   :paid_invoices      , :class_name => 'Invoice', :conditions => ['state = ?', 'paid']
-  has_many   :canceled_invoices  , :class_name => 'Invoice', :conditions => ['state = ?', 'canceled']
+  has_many   :completed_invoices,   -> { where state: ['authorized', 'paid', 'preordered'] },  :class_name => 'Invoice'
+  has_many   :authorized_invoices,  -> { where state: 'authorized' }, :class_name => 'Invoice'
+  has_many   :paid_invoices      ,  -> { where state: 'paid' },       :class_name => 'Invoice'
+  has_many   :canceled_invoices,    -> { where state: 'canceled' }  , :class_name => 'Invoice'
+
   has_many   :return_authorizations
   has_many   :comments, :as => :commentable
 

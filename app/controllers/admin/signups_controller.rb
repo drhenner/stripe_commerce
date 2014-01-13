@@ -15,7 +15,7 @@ class Admin::SignupsController < Admin::BaseController
   end
 
   def create
-    @signup = Signup.new(params[:signup])
+    @signup = Signup.new(allowed_params)
     if @signup.save
       redirect_to [:admin, @signup], :notice => "Successfully created signup."
     else
@@ -29,7 +29,7 @@ class Admin::SignupsController < Admin::BaseController
 
   def update
     @signup = Signup.find(params[:id])
-    if @signup.update_attributes(params[:signup])
+    if @signup.update_attributes(allowed_params)
       redirect_to [:admin, @signup], :notice  => "Successfully updated signup."
     else
       render :edit
@@ -44,11 +44,10 @@ class Admin::SignupsController < Admin::BaseController
 
   private
 
-    def sort_column
-      Signup.column_names.include?(params[:sort]) ? params[:sort] : "signups.id"
+    def allowed_params
+      params.require(:signup).permit( :email )
     end
-
-    def sort_direction
-      %w[asc desc].include?(params[:direction]) ? params[:direction] : "desc"
+    def sort_column
+      Signup.column_names.include?(params[:sort]) ? params[:sort] : "signups.email"
     end
 end

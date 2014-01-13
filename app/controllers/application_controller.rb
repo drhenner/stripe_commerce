@@ -37,7 +37,7 @@ class ApplicationController < ActionController::Base
   end
 
   rescue_from ActiveRecord::DeleteRestrictionError do |exception|
-    notify_airbrake(exception)
+    #notify_airbrake(exception)
     redirect_to :back, alert: exception.message
   end
 
@@ -45,11 +45,11 @@ class ApplicationController < ActionController::Base
     @current_ability ||= Ability.new(current_user)
   end
 
+  private
+
   def product_types
     @product_types ||= ProductType.roots
   end
-
-  private
 
   def customer_confirmation_page_view
     false
@@ -241,5 +241,9 @@ class ApplicationController < ActionController::Base
 
   def recent_admin_users
     session[:recent_users] ||= []
+  end
+
+  def sort_direction
+    %w[asc desc].include?(params[:direction]) ? params[:direction] : "desc"
   end
 end

@@ -25,7 +25,8 @@
 class VariantRequiredError < StandardError; end
 
 class Product < ActiveRecord::Base
-  has_friendly_id :permalink, :use_slug => false
+  extend FriendlyId
+  friendly_id :permalink, use: :finders
 
   serialize :product_keywords, Array
 
@@ -41,13 +42,12 @@ class Product < ActiveRecord::Base
 
   has_many :variants
   has_many :image_groups
-  has_many :images, :as         => :imageable,
-                    :order      => :position,
-                    :dependent  => :destroy
+  has_many :images, -> {order(:position)},
+                    as:        :imageable,
+                    dependent: :destroy
 
-  has_many :active_variants,
-    :class_name => 'Variant',
-    :conditions => ["variants.deleted_at IS NULL", true]
+  has_many :active_variants,  -> { where("variants.deleted_at IS NULL") },
+                              class_name: 'Variant'
 
   before_validation :sanitize_data
   before_validation :not_active_on_create!, :on => :create

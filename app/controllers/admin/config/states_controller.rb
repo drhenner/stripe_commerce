@@ -16,7 +16,7 @@ class Admin::Config::StatesController < Admin::Config::BaseController
   end
 
   def create
-    @state = State.new(params[:state])
+    @state = State.new(allowed_params)
     if @state.save
       redirect_to [:admin, :config, @state], :notice => "Successfully created state."
     else
@@ -37,6 +37,10 @@ class Admin::Config::StatesController < Admin::Config::BaseController
   end
 
   private
+
+    def allowed_params
+      params.require(:state).permit!
+    end
 
     def shipping_zones
       @shipping_zones ||= ShippingZone.all.map{|sz| [sz.name, sz.id]}

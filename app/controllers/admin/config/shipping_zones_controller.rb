@@ -21,10 +21,10 @@ class Admin::Config::ShippingZonesController < Admin::Config::BaseController
 
   # POST /admin/config/shipping_zones
   def create
-    @shipping_zone = ShippingZone.new(params[:shipping_zone])
+    @shipping_zone = ShippingZone.new(allowed_params)
 
     if @shipping_zone.save
-      redirect_to(admin_config_shipping_zones_url(), :notice => 'Shipping zone was successfully created.')
+      redirect_to(admin_config_shipping_zones_url(), notice: 'Shipping zone was successfully created.')
     else
       render :action => "new"
     end
@@ -34,11 +34,17 @@ class Admin::Config::ShippingZonesController < Admin::Config::BaseController
   def update
     @shipping_zone = ShippingZone.find(params[:id])
 
-    if @shipping_zone.update_attributes(params[:shipping_zone])
-      redirect_to(admin_config_shipping_zones_url(), :notice => 'Shipping zone was successfully updated.')
+    if @shipping_zone.update_attributes(allowed_params)
+      redirect_to(admin_config_shipping_zones_url(), notice: 'Shipping zone was successfully updated.')
     else
       render :action => "edit"
     end
+  end
+
+  protected
+
+  def allowed_params
+    params.require(:shipping_zone).permit(:name)
   end
 
 end

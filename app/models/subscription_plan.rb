@@ -1,5 +1,4 @@
 class SubscriptionPlan < ActiveRecord::Base
-  attr_accessible :amount, :interval, :name, :stripe_id, :total_payments
 
   has_many  :variants
   has_many  :subscriptions

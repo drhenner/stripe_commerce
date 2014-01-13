@@ -16,7 +16,7 @@ class Admin::Merchandise::ImageGroupsController < Admin::BaseController
   end
 
   def create
-    @image_group = ImageGroup.new(params[:image_group])
+    @image_group = ImageGroup.new(allowed_params)
     if @image_group.save
       redirect_to edit_admin_merchandise_image_group_url( @image_group ), :notice => "Successfully created image group."
     else
@@ -30,7 +30,7 @@ class Admin::Merchandise::ImageGroupsController < Admin::BaseController
 
   def update
     @image_group = ImageGroup.find(params[:id])
-    if @image_group.update_attributes(params[:image_group])
+    if @image_group.update_attributes(allowed_params)
       redirect_to [:admin, :merchandise, @image_group], :notice  => "Successfully updated image group."
     else
       render :edit
@@ -38,6 +38,10 @@ class Admin::Merchandise::ImageGroupsController < Admin::BaseController
   end
 
   private
+
+    def allowed_params
+      params.require(:image_group).permit!
+    end
 
     def products
       @products ||= Product.all.map{|p|[p.name, p.id]}

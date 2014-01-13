@@ -37,7 +37,7 @@ class Admin::Rma::ReturnAuthorizationsController < Admin::Rma::BaseController
   # POST /return_authorizations
   def create
     load_info
-    @return_authorization = @order.return_authorizations.new(params[:return_authorization])
+    @return_authorization = @order.return_authorizations.new(allowed_params)
     @return_authorization.created_by = current_user.id
     @return_authorization.user_id    = @order.user_id
     if params[:return_authorization] && params[:return_authorization][:amount].present?
@@ -60,7 +60,7 @@ class Admin::Rma::ReturnAuthorizationsController < Admin::Rma::BaseController
     load_info
     @return_authorization = ReturnAuthorization.find(params[:id])
     if params[:return_authorization] && params[:return_authorization][:amount].present?
-      if @return_authorization.update_attributes(params[:return_authorization])
+      if @return_authorization.update_attributes(allowed_params)
         redirect_to(admin_rma_order_return_authorization_url(@order, @return_authorization), :notice => 'Return authorization was successfully updated.')
       else
         form_info
@@ -98,6 +98,10 @@ class Admin::Rma::ReturnAuthorizationsController < Admin::Rma::BaseController
       end
   end
 private
+
+  def allowed_params
+    params.require(:return_authorization).permit( :amount, :restocking_fee, :order_id, :active)
+  end
   def form_info
     @return_conditions  = ReturnCondition.select_form
     @return_reasons     = ReturnReason.select_form

@@ -25,7 +25,7 @@ class Shopping::AddressesController < Shopping::BaseController
   # POST /shopping/addresses
   def create
     if params[:address].present?
-      @shopping_address = current_user.addresses.new(params[:address])
+      @shopping_address = current_user.addresses.new(allowed_params)
       @shopping_address.default = true          if current_user.default_shipping_address.nil?
       @shopping_address.billing_default = true  if current_user.default_billing_address.nil?
       @shopping_address.save
@@ -46,7 +46,7 @@ class Shopping::AddressesController < Shopping::BaseController
   def update
     args = params[:address].clone
     args[:phones_attributes].each_pair{|i,p| p.delete('id')} if args[:phones_attributes].present?
-    @shopping_address = current_user.addresses.new(args)
+    @shopping_address = current_user.addresses.new(allowed_params)
     @shopping_address.replace_address_id = params[:id] # This makes the address we are updating inactive if we save successfully
 
     # if we are editing the current default address then this is the default address
@@ -61,7 +61,7 @@ class Shopping::AddressesController < Shopping::BaseController
         @form_address = current_user.addresses.find(params[:id])
         # the form needs to reflect the attributes to customer entered
         params[:address].delete('phones_attributes')
-        @form_address.attributes = params[:address]
+        @form_address.attributes = allowed_params
         @form_address.phones.build if @form_address.phones.empty?
         @states     = State.form_selector
         render :action => "edit"
@@ -82,6 +82,10 @@ class Shopping::AddressesController < Shopping::BaseController
   end
 
   private
+
+  def allowed_params
+    params.require(:address).permit(:first_name, :last_name, :address1, :address2, :city, :state_id, :state_name, :zip_code, :default, :billing_default, :country_id)
+  end
 
   def selected_checkout_tab(tab)
     tab == 'shipping-address'

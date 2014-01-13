@@ -18,7 +18,7 @@ class Admin::Fulfillment::SubscriptionsController < Admin::Fulfillment::BaseCont
 
   def update
     @subscription = Subscription.find(params[:id])
-    if @subscription.update_attributes(params[:subscription], :as => :admin)
+    if @subscription.update_attributes(allowed_params)
       redirect_to [:admin, :fulfillment, @subscription], :notice  => "Successfully updated subscription."
     else
       render :edit
@@ -32,6 +32,10 @@ class Admin::Fulfillment::SubscriptionsController < Admin::Fulfillment::BaseCont
   end
 
   private
+
+    def allowed_params
+      params.require(:subscription).permit!
+    end
     def user_addresses
       @subscription.user.shipping_addresses.map{|a| ["#{a.name}: #{a.address_lines} - #{a.city}" , a.id]}
     end

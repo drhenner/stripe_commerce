@@ -15,7 +15,6 @@
 
 class ExportDocument < ActiveRecord::Base
   belongs_to :export_type
-  attr_accessible :info, :export_type_id, :doc
 
   validates :export_type_id,        :presence => true
 

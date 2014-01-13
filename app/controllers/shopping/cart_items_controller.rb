@@ -28,7 +28,7 @@ class Shopping::CartItemsController < Shopping::BaseController
 
   # PUT /carts/1
   def update
-    if session_cart.update_attributes(params[:cart])
+    if session_cart.update_attributes(allowed_params)
       if params[:commit] && params[:commit] == "checkout"
         redirect_to( checkout_shopping_order_url('checkout'))
       else
@@ -60,6 +60,8 @@ class Shopping::CartItemsController < Shopping::BaseController
   end
 
   private
-
+  def allowed_params
+    params.require(:cart).permit!
+  end
 
 end

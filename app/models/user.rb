@@ -53,46 +53,7 @@ class User < ActiveRecord::Base
   before_create :start_store_credits
   after_create  :subscribe_to_newsletters
 
-  attr_accessible :email,
-                  :password,
-                  :password_confirmation,
-                  :first_name,
-                  :last_name,
-                  :openid_identifier,
-                  :birth_date,
-                  :form_birth_date,
-                  :address_attributes,
-                  :phones_attributes,
-                  :customer_service_comments_attributes,
-                  :newsletter_ids
-  attr_accessible :email,
-                  :password,
-                  :password_confirmation,
-                  :first_name,
-                  :last_name,
-                  :openid_identifier,
-                  :birth_date,
-                  :form_birth_date,
-                  :address_attributes,
-                  :phones_attributes,
-                  :customer_service_comments_attributes,
-                  :newsletter_ids,
-                  :state, :birth_date,
-                  :as => :admin
-  attr_accessible :email,
-                  :password,
-                  :password_confirmation,
-                  :first_name,
-                  :last_name,
-                  :openid_identifier,
-                  :birth_date,
-                  :form_birth_date,
-                  :address_attributes,
-                  :phones_attributes,
-                  :customer_service_comments_attributes,
-                  :newsletter_ids,
-                  :role_ids, :state, :birth_date,
-                  :as => :super_admin
+
   attr_accessor :name_required
 
   belongs_to :account
@@ -107,36 +68,36 @@ class User < ActiveRecord::Base
                                           :class_name => 'Comment'
   has_many    :shipments, :through => :orders
 
-  has_many    :viewable_orders,          :class_name => 'Order',
-                                          :conditions => {:orders => { :state => ['complete', 'paid', 'preordered', 'canceled']}}
+  has_many    :viewable_orders,           -> { where({:orders => { :state => ['complete', 'paid', 'preordered', 'canceled']}}) },
+                                          :class_name => 'Order'
 
-  has_many    :finished_orders,          :class_name => 'Order',
-                                          :conditions => {:orders => { :state => ['complete', 'paid', 'preordered']}}
-  has_many    :completed_orders,          :class_name => 'Order',
-                                          :conditions => {:orders => { :state => 'complete'}}
+  has_many    :finished_orders,           -> { where({:orders => { :state => ['complete', 'paid', 'preordered']}}) },
+                                          :class_name => 'Order'
+  has_many    :completed_orders,          -> { where({:orders => { :state => 'complete'}}) },
+                                          :class_name => 'Order'
   has_many    :phones,                    :dependent => :destroy,
                                           :as => :phoneable
 
-  has_one     :primary_phone,             :conditions => {:phones => { :primary => true}},
+  has_one     :primary_phone,             -> { where({:phones => { :primary => true}}) },
                                           :as => :phoneable,
                                           :class_name => 'Phone'
 
   has_many    :addresses,                 :dependent => :destroy,
                                           :as => :addressable
 
-  has_one     :default_billing_address,   :conditions => {:addresses => { :billing_default => true, :active => true}},
+  has_one     :default_billing_address,   -> { where({addresses: { billing_default: true, active: true}}) },
                                           :as => :addressable,
                                           :class_name => 'Address'
 
-  has_many    :billing_addresses,         :conditions => {:addresses => { :active => true}},
+  has_many    :billing_addresses,         -> { where({addresses: { active: true}}) },
                                           :as => :addressable,
                                           :class_name => 'Address'
 
-  has_one     :default_shipping_address,  :conditions => {:addresses => { :default => true, :active => true}},
+  has_one     :default_shipping_address,  -> { where({addresses: { default: true, active: true}}) },
                                           :as => :addressable,
                                           :class_name => 'Address'
 
-  has_many     :shipping_addresses,       :conditions => {:addresses => { :active => true}},
+  has_many     :shipping_addresses,       -> { where({:addresses => { active: true }}) } ,
                                           :as => :addressable,
                                           :class_name => 'Address'
 
@@ -147,25 +108,25 @@ class User < ActiveRecord::Base
   has_many    :subscriptions
 
   has_many    :cart_items
-  has_many    :shopping_cart_items,       :conditions => {:cart_items => { :active        => true,
-                                                                           :item_type_id  => ItemType::SHOPPING_CART_ID}},
+  has_many    :shopping_cart_items,       -> { where({:cart_items => { :active        => true,
+                                                      :item_type_id  => ItemType::SHOPPING_CART_ID}}) },
                                           :class_name => 'CartItem'
 
-  has_many    :wish_list_items,           :conditions => {:cart_items => { :active        => true,
-                                                                           :item_type_id  => ItemType::WISH_LIST_ID}},
+  has_many    :wish_list_items,           -> { where({:cart_items => { :active        => true,
+                                                                       :item_type_id  => ItemType::WISH_LIST_ID}}) },
                                           :class_name => 'CartItem'
 
-  has_many    :saved_cart_items,           :conditions => {:cart_items => { :active        => true,
-                                                                            :item_type_id  => ItemType::SAVE_FOR_LATER}},
+  has_many    :saved_cart_items,          -> { where({:cart_items => { :active        => true,
+                                                                       :item_type_id  => ItemType::SAVE_FOR_LATER}}) },
                                           :class_name => 'CartItem'
 
-  has_many    :purchased_items,           :conditions => {:cart_items => { :active        => true,
-                                                                           :item_type_id  => ItemType::PURCHASED_ID}},
+  has_many    :purchased_items,           -> { where({:cart_items => { :active        => true,
+                                                                       :item_type_id  => ItemType::PURCHASED_ID}}) },
                                           :class_name => 'CartItem'
 
-  has_many    :deleted_cart_items,        :conditions => {:cart_items => { :active => false}}, :class_name => 'CartItem'
+  has_many    :deleted_cart_items,        -> { where({cart_items: { active: false }}) }, :class_name => 'CartItem'
   has_many    :payment_profiles
-  has_many    :active_payment_profiles, :class_name => 'PaymentProfile', :conditions => {:payment_profiles => {:active => true}}
+  has_many    :active_payment_profiles,   -> { where({ payment_profiles: { active: true }}) }, class_name: 'PaymentProfile'
   has_many    :transaction_ledgers, :as => :accountable
 
   has_many    :return_authorizations
@@ -184,7 +145,7 @@ class User < ActiveRecord::Base
                           :length => { :maximum => 255 }
   validate :validate_age
 
-  validates :password,    :format => { :with => /^(?=.*\d)(?=.*[a-zA-Z]).{6,25}$/,
+  validates :password,    :format => { :with => /\A(?=.*\d)(?=.*[a-zA-Z]).{6,25}\z/,
                                        :message  => 'must be 6 characters and contain at least one digit and character'},
                           :if       => :needs_password?
 

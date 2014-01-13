@@ -1,1 +1,2 @@
-rvm use --create 1.9.3@stripe_ecommerce
+rvm use --create 2.0.0@stripe_ecommerce
+

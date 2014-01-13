@@ -1,14 +1,13 @@
 class ImageGroup < ActiveRecord::Base
-  attr_accessible :name, :product_id, :images_attributes
 
   validates :name,  :presence => true
   validates :product_id,  :presence => true
 
   belongs_to :product
   has_many :variants
-  has_many :images, :as         => :imageable,
-                    :order      => :position,
-                    :dependent  => :destroy
+  has_many :images, -> {order(:position)},
+                    as:        :imageable,
+                    dependent: :destroy
   after_save :expire_cache
 
   accepts_nested_attributes_for :images, :reject_if => proc { |t| (t['photo'].nil? && t['photo_from_link'].blank?) }, :allow_destroy => true

@@ -13,7 +13,7 @@ class Admin::NewslettersController < Admin::BaseController
   end
 
   def update
-    if customer.update_attributes(params[:user])
+    if customer.update_attributes(user_params)
       redirect_to admin_user_newsletters_url(customer), :notice  => "Successfully updated #{customer.name} newsletters."
     else
       render :edit
@@ -27,6 +27,10 @@ class Admin::NewslettersController < Admin::BaseController
   end
 
   private
+
+    def user_params
+      params.require(:user).permit(:first_name, :last_name, :email, :newsletter_ids => [])
+    end
 
     def customer
       customer ||= User.includes(:newsletters).where(:id => params[:user_id]).first()

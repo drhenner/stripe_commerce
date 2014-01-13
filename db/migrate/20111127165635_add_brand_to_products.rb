@@ -15,3 +15,4 @@ class AddBrandToProducts < ActiveRecord::Migration
     remove_column :products, :brand_id
   end
 end
+
