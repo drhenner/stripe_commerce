@@ -28,7 +28,7 @@ describe Admin::Inventory::ReceivingsController do
 
   it "update action should render edit template when model is invalid" do
     PurchaseOrder.any_instance.stubs(:valid?).returns(false)
-    put :update, :id => @purchase_order.id, :purchase_order => {:receive_po => '1'}
+    put :update, :id => @purchase_order.id, :purchase_order => {:notes => '12345 hi'}
     response.should render_template(:edit)
   end
 

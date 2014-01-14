@@ -125,7 +125,7 @@ class OrderItem < ActiveRecord::Base
   def shipping_rate_options(total_charge)
     ShippingRate.joins(:shipping_method).where(['shipping_rates.shipping_category_id = ?
                         AND shipping_methods.shipping_zone_id = ?
-                        AND shipping_rates.minimum_charge <= ?', ship_category_id, order.ship_address.state.shipping_zone_id, total_charge]).all
+                        AND shipping_rates.minimum_charge <= ?', ship_category_id, order.ship_address.state.shipping_zone_id, total_charge])
   end
 
   def subscription_plan_id=(val)

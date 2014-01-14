@@ -27,8 +27,7 @@ class Admin::Shopping::Checkout::ShippingMethodsController < Admin::Shopping::Ch
       params[:shipping_category].each_pair do |category_id, rate_id|#[rate]
         if rate_id
           items = order_items_with_category(category_id)
-
-          OrderItem.update_all("shipping_rate_id = #{rate_id}","id IN (#{items.map{|i| i.id}.join(',')})")
+          OrderItem.where(id: items.map{|i| i.id}).update_all("shipping_rate_id = #{rate_id}")
         else
           all_selected = false
         end

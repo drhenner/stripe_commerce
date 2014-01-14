@@ -29,7 +29,7 @@ class Shopping::ShippingMethodsController < Shopping::BaseController
       if rate_id
         items = OrderItem.includes([{:variant => :product}]).
                           where(['order_items.order_id = ? AND
-                                  products.shipping_category_id = ?', session_order_id, category_id])
+                                  products.shipping_category_id = ?', session_order_id, category_id]).references(:product)
 
         OrderItem.where(id: items.map{|i| i.id}).update_all("shipping_rate_id = #{rate_id}")
       else

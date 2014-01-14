@@ -28,14 +28,14 @@ class Admin::Merchandise::Multi::VariantsController < Admin::BaseController
   end
 
   def image_groups
-    @image_groups ||= ImageGroup.where(:product_id => @product).all.map{|i| [i.name, i.id]}
+    @image_groups ||= ImageGroup.where(:product_id => @product).map{|i| [i.name, i.id]}
   end
 
   def subscription_plans
-    @subscription_plans ||= SubscriptionPlan.all.collect{|b| [b.name, b.id] }
+    @subscription_plans ||= SubscriptionPlan.all.map{|b| [b.name, b.id] }
   end
 
   def taxability_informations
-    @taxability_informations ||= TaxabilityInformation.all.collect{|b| ["#{b.name}(#{b.code})", b.id] }
+    @taxability_informations ||= TaxabilityInformation.all.map{|b| ["#{b.name}(#{b.code})", b.id] }
   end
 end

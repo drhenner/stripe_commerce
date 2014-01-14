@@ -88,7 +88,7 @@ class Subscription < ActiveRecord::Base
     if email.present?
       where("users.email = ?", email )
     else
-      scoped
+      all
     end
   end
 

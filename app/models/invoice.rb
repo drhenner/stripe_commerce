@@ -341,7 +341,7 @@ class Invoice < ActiveRecord::Base
     elsif args[:email].present?
       where("orders.email = ?", args[:email])
     else
-      scoped
+      all
     end
   end
 

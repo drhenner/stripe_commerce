@@ -48,14 +48,14 @@ class Country < ActiveRecord::Base
   # @return [Array] an array of arrays with [string, country.id]
   def self.form_selector
     Rails.cache.fetch("Country-form_selector") do
-      data = Country.where(:active => true).order('abbreviation ASC').all().map { |c| [c.abbrev_and_name, c.id] }
+      data = Country.where(:active => true).order('abbreviation ASC').map { |c| [c.abbrev_and_name, c.id] }
       data.blank? ? [[]] : data
     end
   end
 
   def self.landing_page_form_selector
     Rails.cache.fetch("Landing_Page_Country-form_selector") do
-      data = Country.order('abbreviation ASC').all().reject{|c| [DROPDOWN_COUNTRY_IDS].include?(c.id)}.map { |c| [c.abbrev_and_name, c.id] }
+      data = Country.order('abbreviation ASC').to_a.reject{|c| [DROPDOWN_COUNTRY_IDS].include?(c.id)}.map { |c| [c.abbrev_and_name, c.id] }
       data = Country.order('abbreviation DESC').find( DROPDOWN_COUNTRY_IDS ).map { |c| [c.abbrev_and_name, c.id] } + data
     end
   end

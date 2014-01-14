@@ -32,21 +32,21 @@
         <%= link_to 'Cancel Order',
                     admin_fulfillment_order_path(@order, :invoice_id => @order.completed_invoices.first.try(:id) ),
                     {:method   => 'DELETE',:class    => 'button alert',
-                    :confirm  => 'Are you sure you want to cancel?'}
+                    data: { confirm: 'Are you sure you want to cancel?' }}
                      %>
       <% end %>
     <% elsif !@order.shipped? && !@order.canceled? %>
       <%= link_to 'Cancel Order',
                   admin_fulfillment_order_path(@order, :invoice_id => @order.completed_invoices.first.try(:id) ),
                   {:method   => 'DELETE',:class    => 'button alert',
-                  :confirm  => 'Are you sure you want to cancel?'}
+                  data: { confirm: 'Are you sure you want to cancel?' }}
                    %>
     <% end %>
     <% if current_user.super_admin? && @order.can_collect_payment? %>
       <%= link_to 'Collect Payment',
                   collect_admin_fulfillment_order_path(@order, :invoice_id => @order.completed_invoices.last.try(:id) ),
                   {:method   => 'PUT',:class    => 'button success',
-                  :confirm  => 'Are you sure you want to collect the funds?'}
+                  data: { confirm: 'Are you sure you want to collect the funds?' }}
                    %>
     <% end %>
   </div>

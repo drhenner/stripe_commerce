@@ -653,7 +653,7 @@ describe Order, "#between(start, end)" do
     order1 = create(:order, :completed_at => nil)
     order2 = create(:order, :completed_at => Time.zone.now - 10.seconds)
     order3 = create(:order, :completed_at => Time.zone.now - 2.days)
-    orders = Order.completed_between(Time.zone.now - 1.day, Time.zone.now).all
+    orders = Order.completed_between(Time.zone.now - 1.day, Time.zone.now).to_a
     orders.size.should == 1
     orders.include?(order2).should be_true
   end

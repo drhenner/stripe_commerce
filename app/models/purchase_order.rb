@@ -48,7 +48,7 @@ class PurchaseOrder < ActiveRecord::Base
     after_transition :on => :complete, :do => [:pay_for_order, :receive_variants]
 
     event :complete do |purchase_order|
-      transition :from => [:pending, :incomplete], :to => :received
+      transition all => :received
     end
 
     event :mark_as_complete do

@@ -6,7 +6,7 @@ module ROReReports
     def initialize(start_time, end_time)
       @start_time = start_time
       @end_time   = end_time
-      @ledgers = TransactionLedger.between(start_time, end_time).all
+      @ledgers = TransactionLedger.between(start_time, end_time)
     end
 
     def self.generate_csv(start_time, end_time)
@@ -51,19 +51,19 @@ module ROReReports
     end
 
     def revenue
-      @ledgers.sum(&:revenue)
+      @ledgers.to_a.sum(&:revenue)
     end
 
     def cash
-      @ledgers.sum(&:cash)
+      @ledgers.to_a.sum(&:cash)
     end
 
     def accounts_receivable
-      @ledgers.sum(&:accounts_receivable)
+      @ledgers.to_a.sum(&:accounts_receivable)
     end
 
     def accounts_payable
-      @ledgers.sum(&:accounts_payable)
+      @ledgers.to_a.sum(&:accounts_payable)
     end
 
     def start_time

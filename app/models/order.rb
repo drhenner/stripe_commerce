@@ -489,7 +489,7 @@ class Order < ActiveRecord::Base
     self.order_items.each_with_index do |order_item, i|
       if order_item.variant_id == variant.id
         current_qty = current_qty + 1
-        items_to_remove << i  if (current_qty - final_quantity) > 0
+        items_to_remove << order_item.id  if (current_qty - final_quantity) > 0
       end
     end
     OrderItem.where(id: items_to_remove).map(&:destroy) unless items_to_remove.empty?

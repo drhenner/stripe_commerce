@@ -4,7 +4,7 @@ module ROReReports
     def initialize(start__time, end__time)
       @start_time = start__time
       @end_time   = end__time
-      @legders = Order.where("created_at >= ? AND created_at <= ?", start_time, end_time).all
+      @legders = Order.where("created_at >= ? AND created_at <= ?", start_time, end_time)
     end
 
     def finished_order_ids
