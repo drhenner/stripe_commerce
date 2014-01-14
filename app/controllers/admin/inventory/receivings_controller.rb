@@ -40,8 +40,4 @@ class Admin::Inventory::ReceivingsController < Admin::BaseController
     return 'suppliers.name' if params[:sort] == 'supplier_name'
     PurchaseOrder.column_names.include?(params[:sort]) ? params[:sort] : "id"
   end
-
-  def sort_direction
-    %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
-  end
 end

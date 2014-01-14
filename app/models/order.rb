@@ -492,9 +492,8 @@ class Order < ActiveRecord::Base
         items_to_remove << i  if (current_qty - final_quantity) > 0
       end
     end
-    items_to_remove.reverse.each do |i|
-      self.order_items.slice!(i ,1).first.destroy # remove from order.order_items object and destroy from DB
-    end
+    OrderItem.where(id: items_to_remove).map(&:destroy) unless items_to_remove.empty?
+    self.order_items.reload
   end
 
   ## determines the order id from the order.number

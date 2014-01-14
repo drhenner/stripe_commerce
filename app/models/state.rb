@@ -52,7 +52,7 @@ class State < ActiveRecord::Base
   # @return [ Array[Array] ]
   def self.form_selector
     Rails.cache.fetch("states-form_selector", :expires_in => 24.hours) do
-      active.order('country_id ASC, abbreviation ASC').all.collect { |state| [state.abbrev_and_name, state.id] }
+      active.order('country_id ASC, abbreviation ASC').map { |state| [state.abbrev_and_name, state.id] }
     end
   end
 

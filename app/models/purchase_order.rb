@@ -48,11 +48,11 @@ class PurchaseOrder < ActiveRecord::Base
     after_transition :on => :complete, :do => [:pay_for_order, :receive_variants]
 
     event :complete do |purchase_order|
-      transition all => :received
+      transition :from => [:pending, :incomplete], :to => :received
     end
 
     event :mark_as_complete do
-      transition all => :received
+      transition :from => [:pending, :incomplete], :to => :received
     end
   end
 
@@ -81,9 +81,11 @@ class PurchaseOrder < ActiveRecord::Base
   # @param [none]
   # @return [none]
   def receive_variants
-    po_variants = PurchaseOrderVariant.where(:purchase_order_id => self.id).lock().all
+    po_variants = PurchaseOrderVariant.where(:purchase_order_id => self.id)
     po_variants.each do |po_variant|
-      po_variant.receive! unless po_variant.is_received?
+      po_variant.with_lock do
+        po_variant.receive! unless po_variant.is_received?
+      end
     end
   end
 

@@ -38,7 +38,7 @@ describe Admin::Merchandise::ProductsController do
 
   it "create action should render new template when model is invalid" do
     Product.any_instance.stubs(:valid?).returns(false)
-    post :create#, :product => @product.attributes
+    post :create, product: product_attributes
     response.should render_template(:new)
   end
 

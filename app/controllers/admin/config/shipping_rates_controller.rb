@@ -6,7 +6,7 @@ class Admin::Config::ShippingRatesController < Admin::Config::BaseController
       flash[:notice] = 'You need a Shipping Method before you create a shipping rate.'
       redirect_to admin_config_shipping_methods_url
     else
-      @shipping_rates = ShippingRate.includes([:shipping_method, :shipping_rate_type]).all
+      @shipping_rates = ShippingRate.includes([:shipping_method, :shipping_rate_type])
     end
   end
 

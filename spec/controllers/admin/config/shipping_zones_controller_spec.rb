@@ -28,7 +28,7 @@ describe Admin::Config::ShippingZonesController do
 
   it "create action should render new template when model is invalid" do
     ShippingZone.any_instance.stubs(:valid?).returns(false)
-    post :create
+    post :create, :shipping_zone => {:name => 'Alaska'}
     response.should render_template(:new)
   end
 
@@ -40,21 +40,21 @@ describe Admin::Config::ShippingZonesController do
 
   it "edit action should render edit template" do
     @shipping_zone = ShippingZone.first
-    get :edit, :id => @shipping_zone.id
+    get :edit, :id => @shipping_zone.id, :shipping_zone => {:name => 'Alaska'}
     response.should render_template(:edit)
   end
 
   it "update action should render edit template when model is invalid" do
     @shipping_zone = ShippingZone.first
     ShippingZone.any_instance.stubs(:valid?).returns(false)
-    put :update, :id => @shipping_zone.id
+    put :update, :id => @shipping_zone.id, :shipping_zone => {:name => 'Alaska'}
     response.should render_template(:edit)
   end
 
   it "update action should redirect when model is valid" do
     @shipping_zone = ShippingZone.first
     ShippingZone.any_instance.stubs(:valid?).returns(true)
-    put :update, :id => @shipping_zone.id
+    put :update, :id => @shipping_zone.id, :shipping_zone => {:name => 'Alaska'}
     response.should redirect_to(admin_config_shipping_zones_url())
   end
 

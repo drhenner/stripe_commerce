@@ -387,6 +387,7 @@ describe User, 'private methods' do
     end
 
     it 'should enqueue a job to subscribe to mailchimp list' do
+      @user.save
       @user.send(:subscribe_to_newsletters)
       Jobs::SubscribeUserToMailChimpList.should have_queued(@user.id, @newsletter.id).in(:subscribe_user_to_mail_chimp_list)
     end

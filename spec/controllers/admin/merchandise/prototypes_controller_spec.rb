@@ -30,7 +30,7 @@ describe Admin::Merchandise::PrototypesController do
 
   it "create action should render new template when model is invalid" do
     Prototype.any_instance.stubs(:valid?).returns(false)
-    post :create
+    post :create, :prototype => {:name => 'Tes', :property_ids => []}
     response.should render_template(:new)
   end
 
@@ -49,14 +49,14 @@ describe Admin::Merchandise::PrototypesController do
   it "update action should render edit template when model is invalid" do
     @prototype = create(:prototype)
     Prototype.any_instance.stubs(:valid?).returns(false)
-    put :update, :id => @prototype.id
+    put :update, :id => @prototype.id, :prototype => {:name => 'Tes', :property_ids => []}
     response.should render_template(:edit)
   end
 
   it "update action should redirect when model is valid" do
     @prototype = create(:prototype)
     Prototype.any_instance.stubs(:valid?).returns(true)
-    put :update, :id => @prototype.id
+    put :update, :id => @prototype.id, :prototype => {:name => 'Tes', :property_ids => []}
     response.should redirect_to(admin_merchandise_prototypes_url())
   end
 

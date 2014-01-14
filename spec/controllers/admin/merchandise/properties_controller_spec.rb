@@ -25,7 +25,7 @@ describe Admin::Merchandise::PropertiesController do
 
   it "create action should render new template when model is invalid" do
     Property.any_instance.stubs(:valid?).returns(false)
-    post :create
+    post :create, :property => {:display_name => 'dis', :identifing_name => 'test'}
     response.should render_template(:new)
   end
 

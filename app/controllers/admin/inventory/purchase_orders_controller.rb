@@ -64,8 +64,8 @@ class Admin::Inventory::PurchaseOrdersController < Admin::BaseController
   end
 
   def form_info
-    @select_suppliers = Supplier.all.collect{|s| [s.name, s.id]}
-    @select_variants  = Variant.includes(:product).all.collect {|v| [v.name_with_sku, v.id]}
+    @select_suppliers = Supplier.all.map{|s| [s.name, s.id]}
+    @select_variants  = Variant.includes(:product).map {|v| [v.name_with_sku, v.id]}
   end
 
   def sort_column
@@ -73,7 +73,4 @@ class Admin::Inventory::PurchaseOrdersController < Admin::BaseController
     PurchaseOrder.column_names.include?(params[:sort]) ? params[:sort] : "id"
   end
 
-  def sort_direction
-    %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
-  end
 end

@@ -8,6 +8,6 @@ describe ContactUsController do
     http_login
     get :show
     #expect(response).to render_template(:show)
-    expect(response).to render_template(:text => '')
+    expect(response.body.blank?).to be_true
   end
 end

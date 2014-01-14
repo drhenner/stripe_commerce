@@ -327,7 +327,7 @@ describe Variant, "class methods" do
       product1.save
       variant1 = create(:variant, :product => product1)
       variant2 = create(:variant, :product => product2)
-      variants = Variant.active.all
+      variants = Variant.active.to_a
       variants.size.should == 1
       expect(variants.map(&:id)).to eq [variant1.id]
     end

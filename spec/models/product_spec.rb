@@ -176,7 +176,7 @@ describe Product, "class methods" do
       product   = create(:product, :product_type => product_type)
       product_m = create(:product, :product_type => product_typem)
       product_m.activate!
-      Product.preorders.all.should eq [product_m]
+      Product.preorders.to_a.should eq [product_m]
     end
   end
 

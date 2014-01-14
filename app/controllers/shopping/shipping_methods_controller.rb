@@ -15,7 +15,6 @@ class Shopping::ShippingMethodsController < Shopping::BaseController
       @shipping_method_ids = session_order.ship_address.shipping_method_ids
 
       @order_items = OrderItem.includes({:variant => {:product => :shipping_category}}).order_items_in_cart(session_order.id)
-      #session_order.order_
       @order_items.each do |item|
         item.variant.product.available_shipping_rates = ShippingRate.with_these_shipping_methods(item.variant.product.shipping_category.shipping_rate_ids, @shipping_method_ids)
       end
@@ -32,7 +31,7 @@ class Shopping::ShippingMethodsController < Shopping::BaseController
                           where(['order_items.order_id = ? AND
                                   products.shipping_category_id = ?', session_order_id, category_id])
 
-        OrderItem.update_all("shipping_rate_id = #{rate_id}","id IN (#{items.map{|i| i.id}.join(',')})")
+        OrderItem.where(id: items.map{|i| i.id}).update_all("shipping_rate_id = #{rate_id}")
       else
         all_selected = false
       end

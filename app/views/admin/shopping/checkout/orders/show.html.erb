@@ -90,7 +90,10 @@
   <div class='clear'></div>
 
 
-    <%= submit_tag 'Complete Order', :class => 'button cart-submit-button', :style => 'margin-top:10px;', :disable_with => "Please wait..." %>
+    <%= submit_tag 'Complete Order',
+                    class: 'button cart-submit-button',
+                    style: 'margin-top:10px;',
+                    data: { disable_with: 'Please wait...' } %>
   <% end %>
 
 

@@ -5,7 +5,7 @@ describe UserSessionsController do
     context "when login fails" do
       it "should display a message with login failure and render the login template" do
         stub_redirect_to_welcome
-        post :create, :user_session => {}
+        post :create, user_session: {:email => 'test@test.com'}
         response.should redirect_to login_url
       end
     end

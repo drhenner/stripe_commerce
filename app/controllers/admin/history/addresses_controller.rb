@@ -27,7 +27,7 @@ class Admin::History::AddressesController < Admin::BaseController
   # POST /admin/history/addresses
   def create  ##  This create a new address, sets the orders address & redirects to order_history
     @order    = Order.includes([:ship_address, {:user => :addresses}]).find_by_number(params[:order_id])
-    @address  = Address.new(allowed_params)
+    @address  = @order.user.addresses.new(allowed_params)
 
     respond_to do |format|
       if @address.save

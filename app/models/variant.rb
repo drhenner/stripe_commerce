@@ -87,7 +87,7 @@ class Variant < ActiveRecord::Base
 
   def similar_variants
     #Variant.where('variants.deleted_at IS NULL').where(:product_id => product_id).all
-    Variant.joins(:product).where('variants.deleted_at IS NULL').where(:products => {:product_type_id => product.product_type_id}).all
+    Variant.joins(:product).where({variants: {deleted_at: nil}}).where({products: {product_type_id: product.product_type_id}})
   end
   # returns quantity available to purchase
   #
@@ -126,21 +126,21 @@ class Variant < ActiveRecord::Base
   end
 
   def self.upsells
-    active.where("products.product_type_id IN (?)", ProductType.upsell_product_type_ids)
+    active.where({products: {product_type_id: ProductType.upsell_product_type_ids}})
   end
 
   def self.active
-    where(:variants => {:product_id => Product.cached_active_ids}).where("variants.deleted_at IS NULL")
+    where({variants: {product_id: Product.cached_active_ids}}).where("variants.deleted_at IS NULL")
   end
 
   def self.default_preorder_item_ids
     Rails.cache.fetch("Variant-default_preorder_item_ids", :expires_in => 10.minutes) do
-      joins(:product).active.where("products.product_type_id IN (?)", ProductType.main_preorder_product_type_ids).pluck("variants.id")
+      joins(:product).active.where({products: { product_type_id: ProductType.main_preorder_product_type_ids}}).pluck("variants.id")
     end
   end
 
   def self.default_preorder_item
-    includes(:product).active.where("products.product_type_id IN (?)", ProductType.main_preorder_product_type_ids).order('variants.price DESC').first || active.order('variants.price DESC').first
+    includes(:product).active.where({products: { product_type_id: ProductType.main_preorder_product_type_ids}}).order('variants.price DESC').first || active.order('variants.price DESC').first
   end
 
   def subscription_plan_name

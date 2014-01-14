@@ -292,13 +292,12 @@ class Invoice < ActiveRecord::Base
     batch.save
   end
 
-
   # call to find the confirmation_id sent by the payment processor.
   #
   # @param [none]
   # @return [String] id the payment processor sends you after authorization.
   def authorization_reference
-    if authorization = payments.find_by_action_and_success('authorization', true, :order => 'id ASC')
+    if authorization = payments.order('payments.id ASC').find_by(action: 'authorization', success: true )
       authorization.confirmation_id #reference
     end
   end

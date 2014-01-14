@@ -95,9 +95,10 @@
                   <div>
                   </div>
                   <%= form_tag( (Settings.allow_preorders ? preorder_shopping_order_path(@order) : shopping_order_path(@order)),
-                                                :method => :put,
-                                                :html => {:id   => 'purchase_cart_order', :class => 'custom'}) do  %>
-                    <%= submit_tag 'PLACE YOUR ORDER', :class => 'button success large radius cart-submit-button', :disable_with => "Please wait..." %>
+                                                method: :put,
+                                                html: { id: 'purchase_cart_order', class: 'custom'}) do  %>
+                    <%= submit_tag 'PLACE YOUR ORDER', class: 'button success large radius cart-submit-button',
+                                                       data: { disable_with: 'Please wait...' } %>
                   <% end %>
                 </div>
               </div>

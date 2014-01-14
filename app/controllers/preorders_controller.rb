@@ -29,7 +29,7 @@ class PreordersController < ApplicationController
     end
 
     def upsells
-      @upsells ||= Variant.includes([:product,{:image_group => :images}]).upsells.limit(3).all
+      @upsells ||= Variant.includes([:product,{:image_group => :images}]).upsells.limit(3)
     end
 
 end
