@@ -10,7 +10,7 @@ Please look at the [homepage](http://www.ror-e.com) for more details.  Or take a
 ![Stripe Ecommerce](http://ror-e.com/images/logo.png "ROR Ecommerce").
 
 This is a Rails e-commerce platform.
-Stripe Ecommerce is a *Rails 3 application* with the intent to allow developers to create an ecommerce solution easily.
+Stripe Ecommerce is a *Rails 4 application* with the intent to allow developers to create an ecommerce solution easily.
 This solution includes an Admin for *Purchase Orders*, *Product creation*, *Shipments*, *Fulfillment* and *creating Orders*.
 There is a minimal customer facing shopping cart understanding that this will be customized.
 The cart allows you to track your customers' *cart history* and includes a *double entry accounting system*.
@@ -19,7 +19,7 @@ The project has *Solr searching*, *Compass* and *Zurb Foundation for CSS* and us
 The gem list is quite large and the project still has a large wish list.
 In spite of that, it is currently the most complete Rails solution, and it will only get better.
 
-Please use *Ruby 1.9.3* and enjoy *Rails 3.2*.
+Please use *Ruby 2.0* and enjoy *Rails 4.0*.
 
 Stripe Ecommerce is designed so that if you understand Rails you will understand Stripe_commerce.
 There is nothing in this project besides what you might see in a normal Rails application.
@@ -36,8 +36,8 @@ The login name is test@ror-e.com with a password => test123
 
 ##Getting Started
 
-Install RVM with Ruby 1.9.3.
-If you have 1.9.3 on your system you're good to go.
+Install RVM with Ruby 2.0.0.
+If you have 2.0.0 on your system you're good to go.
 Please refer to the [RVM](http://beginrescueend.com/rvm/basics/) site for more details.
 
 Copy the `database.yml` for your setup.
@@ -54,7 +54,7 @@ Run `rake secret` and copy/paste the output as `encryption_key` in `config/confi
     bundle install
     rake db:create:all
     rake db:migrate db:seed
-    rake db:test:prepare
+    RAILS_ENV=test rake db:test:prepare
 
 Once everything is set up, start the server with `rails server` and direct your web browser to [localhost:3000/admin/overviews](http://localhost:3000/admin/overviews).
 Write down the username/password (these are only shown once) and follow the directions.
