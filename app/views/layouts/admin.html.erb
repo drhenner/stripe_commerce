@@ -5,8 +5,8 @@
   <link rel="shortcut icon" href="/assets/favicon.ico" />
 
   <%= stylesheet_link_tag "font-awesome.css" %>
-  <%= stylesheet_link_tag "admin/foundation.css" %>
   <%= stylesheet_link_tag "admin/normalize.css" %>
+  <%= stylesheet_link_tag "admin/foundation" %>
   <%= stylesheet_link_tag "admin/app.css" %>
   <!--[if lt IE 8]
     <%= stylesheet_link_tag "admin/ie.css" %>
@@ -36,7 +36,8 @@
           <%= yield :header_sub_bar %>
         </div>
       <% end %>
-
+    </div>
+    <div class='row'>
       <% if content_for?(:sidemenu) %>
         <div class='row'>
           <div class="admin_main_content nine large-9 columns">
