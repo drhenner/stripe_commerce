@@ -27,15 +27,6 @@ describe Cart, " instance methods" do
     @cart = create(:cart_with_two_5_dollar_items)
   end
 
-  #  items_to_add_or_destroy is exersized within add_items_to_checkout
-  #describe Cart, ".items_to_add_or_destroy" do
-  #   "this method is tested within add_items_to_checkout method"
-  #end
-  #  update_shopping_cart is exersized within add_items_to_checkout
-  #describe Cart, ".update_shopping_cart(cart_item,customer)" do
-  #  pending "test for update_cart(cart_item,customer)"
-  #end
-
   context 'change_main_sale(variant, customer)' do
     it 'should add item to cart' do
       variant = FactoryGirl.create(:variant)
@@ -186,4 +177,36 @@ describe Cart, ".remove_variant" do
   end
 end
 
+describe  ".merge_with_previous_cart! " do
+  before(:each) do
+    @user = create(:user)
+    @variant1 = create(:variant, price: 1.00)
+    @variant2 = create(:variant, price: 5.00)
+    @variant3 = create(:variant, price: 30.00)
+    @cart       = create(:cart, user: @user)
+    @cart_item  = create(:cart_item, cart: @cart, user: @user, variant: @variant1, quantity: 2)
+  end
 
+  context 'with each cart having one item' do
+    it 'should add items from previous cart' do
+      previous_cart = create(:cart, user: @user)
+      cart_item2    = create(:cart_item, cart: previous_cart, user: @user, variant: @variant2)
+      @cart.merge_with_previous_cart!
+      @cart.reload
+      expect(@cart.cart_items.map(&:variant_id).include?(@variant1.id)).to be_true
+      expect(@cart.cart_items.map(&:variant_id).include?(@variant2.id)).to be_true
+    end
+  end
+
+  context 'with each cart having the same' do
+    it 'should add items from previous cart' do
+      previous_cart = create(:cart, user: @user)
+      cart_item2    = create(:cart_item, cart: previous_cart, user: @user, variant: @variant1, quantity: 1)
+      @cart.merge_with_previous_cart!
+      @cart.reload
+      expect(@cart.cart_items.map(&:variant_id).include?(@variant1.id)).to be_true
+      expect(@cart.cart_items.size).to eq 1
+      expect(@cart.cart_items.first.quantity).to eq 2
+    end
+  end
+end

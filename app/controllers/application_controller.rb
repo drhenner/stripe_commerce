@@ -47,6 +47,12 @@ class ApplicationController < ActionController::Base
 
   private
 
+  def merge_carts
+    if !!current_user
+      session_cart.merge_with_previous_cart!
+    end
+  end
+
   def product_types
     @product_types ||= ProductType.roots
   end

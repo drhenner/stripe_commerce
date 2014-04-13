@@ -25,6 +25,7 @@ class Customer::RegistrationsController < ApplicationController
       @user.active? || @user.activate!
       @user_session = UserSession.new(:email => params[:user][:email], :password => params[:user][:password])
       @user_session.save
+      merge_carts # application controller
       cookies[:hadean_uid] = @user.access_token
       session[:authenticated_at] = Time.now
       cookies[:insecure] = false

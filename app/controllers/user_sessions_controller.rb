@@ -8,6 +8,7 @@ class UserSessionsController < ApplicationController
   def create
     @user_session = UserSession.new(user_params)
     if @user_session.save
+      merge_carts
       cookies[:hadean_uid] = @user_session.record.access_token
       session[:authenticated_at] = Time.now
       cookies[:insecure] = false

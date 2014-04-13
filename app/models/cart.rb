@@ -115,6 +115,15 @@ class Cart < ActiveRecord::Base
     shopping_cart_items.map(&:total).sum
   end
 
+  def merge_with_previous_cart!
+    if user_id && previous_cart
+      current_items = cart_items.map(&:variant_id)
+      previous_cart.cart_items.each do |item|
+        self.add_variant(item.variant_id, item.user, item.quantity) unless current_items.include?(item.variant_id)
+      end
+    end
+  end
+
   def media_cart_items
     shopping_cart_items.select{|i| Variant.default_preorder_item_ids.include?( i.variant_id )}
   end
@@ -246,7 +255,16 @@ class Cart < ActiveRecord::Base
              update_all("item_type_id = #{ItemType::PURCHASED_ID}") if !order.variant_ids.empty?
   end
 
+  def self.previous_for_user(cart_id, user_id)
+    Cart.where(['id <> ?', cart_id]).where(user_id: user_id).last
+  end
+
   private
+
+  def previous_cart
+    @previous_cart ||= Cart.previous_for_user(id, user_id)
+  end
+
   def update_shopping_cart(cart_item,customer, qty = 1)
     if customer
       self.shopping_cart_items.find(cart_item.id).update_attributes(:quantity => (cart_item.quantity + qty), :user_id => customer.id)
