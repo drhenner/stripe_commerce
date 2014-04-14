@@ -53,6 +53,15 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def set_user_to_cart_items(user_session)
+    if session_cart.user_id != user_session.record.id
+      session_cart.update_attributes(:user_id => user_session.record.id )
+    end
+    session_cart.cart_items.each do |item|
+      item.update_attributes(:user_id => user_session.record.id ) if item.user_id != user_session.record.id
+    end
+  end
+
   def product_types
     @product_types ||= ProductType.roots
   end
