@@ -31,7 +31,7 @@ To get started, simply fork this repo, make *any* changes (big or small), and cr
 
 ##DEMO
 
-Take a look at [The Demo](https://ror-e.herokuapp.com).
+Take a look at [The Demo](https://ror-e.herokuapp.com).  This is a demo of the Ror_ecommerce project.  I will try to get a version of stripe_ecommerce up and running soon.  This version includes a lot of details with returns and obviously uses stripe.  Financial information is also improved with stripe_ecommerce.  Additionally stripe_ecommerce has the benefit of having a "coming soon" & Preorder software switch.  Feel free to ask me more questions in github issues or directly via email.  (my email address is connected to my github account)
 The login name is test@ror-e.com with a password => test123
 
 ##Getting Started
