@@ -26,7 +26,6 @@ class Customer::RegistrationsController < ApplicationController
       @user_session = UserSession.new(:email => params[:user][:email], :password => params[:user][:password])
       @user_session.save
       set_user_to_cart_items(@user_session)
-      merge_carts # application controller
       cookies[:hadean_uid] = @user.access_token
       session[:authenticated_at] = Time.now
       cookies[:insecure] = false
