@@ -39,6 +39,26 @@
 
   <label>Shipping Category</label>
   <p><%= @product.shipping_category.name %></p>
+
+  <label>Shipping Details</label>
+  <table>
+    <% rates = @product.shipping_category.shipping_rates %>
+    <tr><th><%= link_to 'Shipping Zone', admin_config_shipping_rates_path %></th><th></th></tr>
+    <% @shipping_zones.each do |zone| %>
+      <tr>
+        <td><%= zone.name %></td>
+        <td>
+          <% product_rates = rates.map { |rate| rate.shipping_method.name if rate.shipping_method.shipping_zone_id == zone.id }.compact %>
+          <% if product_rates.empty? %>
+            Not Available
+          <% else %>
+            <%= product_rates.join('</br>').html_safe %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+
 </fieldset>
 
 <fieldset>
