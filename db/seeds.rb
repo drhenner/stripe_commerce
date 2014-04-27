@@ -31,23 +31,23 @@ end
 
 roles = Role::ROLES
 roles.each do |role|
-  Role.find_or_create_by_name(role)
+  Role.find_or_create_by(name: role)
 end
 
 AddressType::NAMES.each do |address_type|
-  AddressType.find_or_create_by_name(address_type)
+  AddressType.find_or_create_by(name: address_type)
 end
 
 PhoneType::NAMES.each do |phone_type|
-  PhoneType.find_or_create_by_name(phone_type)
+  PhoneType.find_or_create_by(name: phone_type)
 end
 
 ItemType::NAMES.each do |item_type|
-  ItemType.find_or_create_by_name(item_type)
+  ItemType.find_or_create_by(name: item_type)
 end
 
 DealType::TYPES.each do |dt|
-  DealType.find_or_create_by_name(dt)
+  DealType.find_or_create_by(name: dt)
 end
 
 Account::TYPES.each_pair do |acc_type, value|
@@ -58,7 +58,7 @@ Account::TYPES.each_pair do |acc_type, value|
 end
 
 ExportType::NAMES.each do |name|
-  ExportType.find_or_create_by_name(name)
+  ExportType.find_or_create_by(name: name)
 end
 
 TaxabilityInformation::CODES.each_pair do |name, code|
@@ -69,15 +69,15 @@ TaxabilityInformation::CODES.each_pair do |name, code|
 end
 
 ShippingRateType::TYPES.each do |rate_type|
-  ShippingRateType.find_or_create_by_name(rate_type)
+  ShippingRateType.find_or_create_by(name: rate_type)
 end
 
 ShippingZone::LOCATIONS.each do |loc|
-  ShippingZone.find_or_create_by_name(loc)
+  ShippingZone.find_or_create_by(name: loc)
 end
 
 TransactionAccount::ACCOUNT_TYPES.each do |acc_type|
-  TransactionAccount.find_or_create_by_name(acc_type)
+  TransactionAccount.find_or_create_by(name: acc_type)
 end
 
 ReturnReason::REASONS.each do |value|
