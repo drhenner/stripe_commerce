@@ -194,7 +194,7 @@ class Product < ActiveRecord::Base
   end
 
   def available?
-    active && has_shipping_method?
+    has_shipping_method? && has_active_variants?
   end
 
   # returns the brand's name or a blank string
@@ -236,6 +236,9 @@ class Product < ActiveRecord::Base
 
   private
 
+    def has_active_variants?
+      active_variants.any?{|v| v.is_available? }
+    end
 
     def self.available_at_lt_filter(available_at_lt)
       if available_at_lt.present?

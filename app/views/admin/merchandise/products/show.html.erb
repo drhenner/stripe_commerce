@@ -5,16 +5,18 @@
 <%= link_to "Edit Product", edit_admin_merchandise_product_path(@product), :class => 'button small alert' %>
 
 <span style='color:<%= @product.active ? "#3A3" : "#C33" %>; float:right; margin-top: -45px'>
-  <% if @product.available? %>
-    <%= link_to 'Active', admin_merchandise_product_path(@product),
-                          :method => :delete,
-                          :data => {:confirm => "This will inactivate the product,  Are you sure?"},
-                          :class => 'button green-button' %>
+  <% if @product.active? %>
+    <%= link_to 'Make Inactive', admin_merchandise_product_path(@product),
+                          method: :delete,
+                          data: { confirm: "This will inactivate the product,  Are you sure?"},
+                          class: 'button green-button' %>
+  <% elsif @product.available? %>
+    <%= link_to 'Activate', activate_admin_merchandise_product_path(@product),
+                              method: 'PUT',
+                              data: { confirm: "This will activate the product,  Are you sure?"},
+                              class:  'button red-button' %>
   <% else %>
-    <%= link_to 'Not Active', activate_admin_merchandise_product_path(@product),
-                              :method => 'PUT',
-                              :data => {:confirm => "This will activate the product,  Are you sure?"},
-                              :class => 'button red-button' %>
+    Not Ready for Production
   <% end %>
 </span>
 
@@ -95,7 +97,7 @@
           <td><%= variant.brand.try(:name) %></td>
           <td><%= variant.subscription_plan_name %></td>
           <td><%= variant.active?.to_s %></td>
-          <td><%= link_to '2', admin_merchandise_product_variant_path(@product, variant) %></td>
+          <td><%= link_to variant.product_name, admin_merchandise_product_variant_path(@product, variant) %></td>
         </tr >
       <% end %>
     </table>
