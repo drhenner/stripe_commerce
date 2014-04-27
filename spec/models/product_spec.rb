@@ -151,6 +151,19 @@ describe Product, ".instance methods" do
       @product.price_range?.should be_true
     end
   end
+
+  context '.has_shipping_method?' do
+    it 'should be false without a shipping rate' do
+      expect(@product.has_shipping_method?).to be_false
+    end
+
+    context 'with a shipping rate' do
+      it 'should be true' do
+        FactoryGirl.create(:shipping_rate, shipping_category: @product.shipping_category)
+        expect(@product.has_shipping_method?).to be_true
+      end
+    end
+  end
 end
 
 

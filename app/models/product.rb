@@ -194,7 +194,7 @@ class Product < ActiveRecord::Base
   end
 
   def available?
-    active
+    active && has_shipping_method?
   end
 
   # returns the brand's name or a blank string
@@ -204,6 +204,10 @@ class Product < ActiveRecord::Base
   # @return [String]
   def brand_name
     brand_id ? brand.name : ''
+  end
+
+  def has_shipping_method?
+    shipping_category.shipping_rates.exists?
   end
 
   def self.preorders
