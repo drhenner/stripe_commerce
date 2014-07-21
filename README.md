@@ -129,7 +129,7 @@ Processes are managed by the foreman gem.
 
     * First, copy the Procfile.dev.example to Procfile.dev
     * Then Make any specific local machine changes (executable paths, ports, etc)
-    * then do $ forman start -f Procfile.dev
+    * then do $ foreman start -f Procfile.dev
 
 
 ##ImageMagick and rMagick on OS X 10.8
