@@ -69,7 +69,6 @@ group :development do
   gem "foreman"
   gem "letter_opener"
   gem "rails-erd"
-  gem "debugger"
   gem 'mysql2'
 
   # YARD AND REDCLOTH are for generating yardocs
